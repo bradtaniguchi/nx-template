@@ -38,9 +38,9 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/init-job
       - run: echo ${{ contains(needs.gen-affected.outputs.AFFECTED, 'internal-client') }}
-      - run: npx nx internal-client:lint
-      - run: npx nx internal-client:test
-      - run: npx nx internal-client:build
+      - run: npx nx run internal-client:lint
+      - run: npx nx run internal-client:test
+      - run: npx nx run internal-client:build
       # - Add lighthouse
       # - Add cache for gh-pages deployment
 
