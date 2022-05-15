@@ -26,7 +26,8 @@ jobs:
           AFFECTED="$AFFECTED_LINT $AFFECTED_TEST $AFFECTED_BUILD $AFFECTED_LIGHTHOUSE"
           echo $AFFECTED
           echo "::set-output name=AFFECTED:\"$AFFECTED\""
-          echo test: ${{ contains(needs.gen-affected.outputs.AFFECTED, 'internal-client') }}
+          echo test1: ${{ contains(needs.gen-affected.outputs.AFFECTED, 'internal-client') }}
+          echo test2: ${{ contains('internal-client, internal-client-e2e internal-client internal-client ', 'internal-client') }}
 
   internal-client:
     timeout-minutes: 5
