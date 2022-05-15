@@ -14,9 +14,12 @@ jobs:
     outputs:
       AFFECTED: ${{ steps.gen-affected.outputs.AFFECTED }}
     steps:
+      - uses: actions/checkout@v2
+        with:
+          lfs: false
+          fetch-depth: 0
       - uses: ./.github/workflows/init-job
-      - name: gen-affected
-        run: |
+      - run: |
           AFFECTED=$(npx nx print-affected --head=$GITHUB_REF --select=tasks.target.project)
           echo $AFFECTED
           echo "::set-output name=AFFECTED:$AFFECTED"
@@ -30,15 +33,13 @@ jobs:
     needs:
       - gen-affected
     steps:
+      - uses: actions/checkout@v2
       - uses: ./.github/workflows/init-job
         with:
           project: internal-client
-      - name: lint
-        run: npx nx internal-client:lint
-      - name: test
-        run: npx nx internal-client:test
-      - name: build
-        run: npx nx internal-client:build
+      - run: npx nx internal-client:lint
+      - run: npx nx internal-client:test
+      - run: npx nx internal-client:build
       # - Add lighthouse
       # - Add cache for gh-pages deployment
 
