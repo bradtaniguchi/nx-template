@@ -19,9 +19,7 @@ jobs:
           fetch-depth: 0
       - run: pwd
       - run: ls
-      - uses: ./.github/actions/init-job.yaml
-        with:
-          no-checkout: true
+      - uses: ./.github/actions/init-job
       - run: |
           AFFECTED=$(npx nx print-affected --head=$GITHUB_REF --select=tasks.target.project)
           echo $AFFECTED
@@ -35,7 +33,8 @@ jobs:
     needs:
       - gen-affected
     steps:
-      - uses: ./.github/actions/init-job/yaml
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/init-job
         with:
           project: internal-client
       - run: npx nx internal-client:lint
