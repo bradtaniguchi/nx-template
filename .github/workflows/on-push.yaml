@@ -7,7 +7,6 @@ on:
 
 jobs:
   gen-affected:
-    name: internal-client
     timeout-minutes: 5
     if: "!contains(github.event.head_commit.message, 'skip ci')"
     runs-on: ubuntu-latest
@@ -18,6 +17,7 @@ jobs:
         with:
           lfs: false
           fetch-depth: 0
+      - run: pwd
       - uses: ./.github/workflows/init-job.yaml
       - run: |
           AFFECTED=$(npx nx print-affected --head=$GITHUB_REF --select=tasks.target.project)
@@ -25,7 +25,6 @@ jobs:
           echo "::set-output name=AFFECTED:$AFFECTED"
 
   internal-client:
-    name: internal-client
     timeout-minutes: 5
     # TODO: update to always run, exists only as a sanity test
     if: "!contains(github.event.head_commit.message, 'skip ci') && contains(needs.gen-affected.outputs.AFFECTED, 'internal-client')"
