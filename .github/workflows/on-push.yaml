@@ -14,7 +14,7 @@ jobs:
     outputs:
       AFFECTED: ${{ steps.gen-affected.outputs.AFFECTED }}
     steps:
-      - uses: .github/workflows/init-job
+      - uses: ./.github/workflows/init-job
       - name: gen-affected
         run: |
           AFFECTED=$(npx nx print-affected --head=$GITHUB_REF --select=tasks.target.project)
@@ -30,7 +30,7 @@ jobs:
     needs:
       - get-affected
     steps:
-      - uses: .github/workflows/init-job
+      - uses: ./.github/workflows/init-job
         with:
           project: internal-client
       - name: lint
