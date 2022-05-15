@@ -38,8 +38,6 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/init-job
       - run: echo ${{ needs.gen-affected.outputs.AFFECTED }}
-      - run: echo ${{ contains(${{ needs.gen-affected.outputs.AFFECTED }}, 'internal-client') }}
-      - run: echo ${{ contains(${{ steps.gen-affected.outputs.AFFECTED }}, 'internal-client') }}
       - run: echo ${{ contains(needs.gen-affected.outputs.AFFECTED, 'internal-client') }}
       # - run: npx nx run internal-client:lint
       # - run: npx nx run internal-client:test
