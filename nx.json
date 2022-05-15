@@ -35,7 +35,8 @@
       "application": {
         "style": "scss",
         "linter": "eslint",
-        "babel": true
+        "babel": true,
+        "strict": true
       },
       "component": {
         "style": "scss"
@@ -44,6 +45,22 @@
         "style": "scss",
         "linter": "eslint"
       }
+    },
+    "@nrwl/react:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "strict": true,
+      "standaloneConfig": true,
+      "buildable": true,
+      "publishable": false
+    },
+    "@nrwl/node:library": {
+      "linter": "eslint",
+      "unitTestRunner": "jest",
+      "strict": true,
+      "standaloneConfig": true,
+      "buildable": true,
+      "publishable": false
     }
   },
   "defaultProject": "internal-client"

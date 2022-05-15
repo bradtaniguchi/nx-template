@@ -2,6 +2,8 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
+    "common": "libs/common",
+    "common-react": "libs/common-react",
     "internal-client": "apps/internal-client",
     "internal-client-e2e": "apps/internal-client-e2e"
   }

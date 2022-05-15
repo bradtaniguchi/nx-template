@@ -14,7 +14,10 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@nx-template/common": ["libs/common/src/index.ts"],
+      "@nx-template/common-react": ["libs/common-react/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
