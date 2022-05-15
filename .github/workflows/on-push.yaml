@@ -21,7 +21,7 @@ jobs:
           echo $AFFECTED
           echo "::set-output name=AFFECTED:$AFFECTED"
 
-  internal:
+  internal-client:
     name: internal-client
     timeout-minutes: 5
     # TODO: update to always run, exists only as a sanity test
@@ -39,7 +39,9 @@ jobs:
         run: npx nx internal-client:test
       - name: build
         run: npx nx internal-client:build
-      # 1. storybook
-      # 2. doc generation
-      # 3. Gen graph
-      # 4. cache build, and deploy when on main
+      # - Add lighthouse
+      # - Add cache for gh-pages deployment
+
+    # - storybook
+    # - doc generation
+    # - Gen graph
