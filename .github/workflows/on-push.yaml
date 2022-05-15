@@ -18,6 +18,7 @@ jobs:
           lfs: false
           fetch-depth: 0
       - run: pwd
+      - run: ls
       - uses: ./.github/reusable-workflows/init-job.yaml
       - run: |
           AFFECTED=$(npx nx print-affected --head=$GITHUB_REF --select=tasks.target.project)
