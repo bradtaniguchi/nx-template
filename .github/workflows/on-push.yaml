@@ -1,0 +1,45 @@
+name: on-push
+on:
+  # run on push
+  push:
+    branches:
+      - '**'
+
+jobs:
+  gen-affected:
+    name: internal-client
+    timeout-minutes: 5
+    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    runs-on: ubuntu-latest
+    outputs:
+      AFFECTED: ${{ steps.gen-affected.outputs.AFFECTED }}
+    steps:
+      - uses: .github/workflows/init-job
+      - name: gen-affected
+        run: |
+          AFFECTED=$(npx nx print-affected --head=$GITHUB_REF --select=tasks.target.project)
+          echo $AFFECTED
+          echo "::set-output name=AFFECTED:$AFFECTED"
+
+  internal:
+    name: internal-client
+    timeout-minutes: 5
+    # TODO: update to always run, exists only as a sanity test
+    if: "!contains(github.event.head_commit.message, 'skip ci') && contains(needs.gen-affected.outputs.AFFECTED, 'internal-client')"
+    runs-on: ubuntu-latest
+    needs:
+      - get-affected
+    steps:
+      - uses: .github/workflows/init-job
+        with:
+          project: internal-client
+      - name: lint
+        run: npx nx internal-client:lint
+      - name: test
+        run: npx nx internal-client:test
+      - name: build
+        run: npx nx internal-client:build
+      # 1. storybook
+      # 2. doc generation
+      # 3. Gen graph
+      # 4. cache build, and deploy when on main

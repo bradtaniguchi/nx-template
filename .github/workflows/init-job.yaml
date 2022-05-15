@@ -1,0 +1,27 @@
+name: on-workflow-call
+
+on: workflow_call
+
+jobs:
+  init-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v2
+        with:
+          lfs: false
+          fetch-depth: 0
+      - name: setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16.10.0'
+          cache: 'npm'
+      - name: cache dependencies
+        id: cache
+        uses: actions/cache@v2
+        with:
+          path: ./node_modules
+          key: modules-${{ hashFiles('package-lock.json') }}
+      - name: install dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        run: npm ci --ignore-scripts
