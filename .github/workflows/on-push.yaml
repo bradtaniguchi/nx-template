@@ -18,7 +18,7 @@ jobs:
           lfs: false
       - uses: ./.github/actions/init-job
       - run: |
-          AFFECTED=$(npx nx print-affected --base=main --head=$GITHUB_REF --select=tasks.target.project)
+          AFFECTED=$(npx nx print-affected --base=origin/main --head=$GITHUB_REF --select=tasks.target.project)
           echo $AFFECTED
           echo "::set-output name=AFFECTED:$AFFECTED"
 
