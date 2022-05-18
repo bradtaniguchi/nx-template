@@ -1,5 +1,4 @@
 import Card from '@mui/material/Card';
-import { expect } from '@storybook/jest';
 import { Meta, Story } from '@storybook/react';
 import { Storybook, StorybookProps } from './storybook';
 
