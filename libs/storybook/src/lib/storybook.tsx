@@ -1,11 +1,22 @@
-import styles from './storybook.module.scss';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import { ReactNode, SyntheticEvent } from 'react';
 
 export interface StorybookProps {
   /**
-   * An example prop, provided to check with docs
-   * @default undefined
+   * An example prop, provided to check with docs. Shown below the example text,
+   * but before the button
+   * @type {ReactNode}
    */
-  exampleProp?: string;
+  exampleProp?: ReactNode;
+
+  /**
+   * An example callback. If not provided then the example button will not
+   * show.
+   * @default void
+   */
+  onButtonClick?: (e: SyntheticEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 /**
@@ -14,12 +25,31 @@ export interface StorybookProps {
  * @returns jsx
  */
 export function Storybook(props: StorybookProps) {
+  const handleButtonClick = (
+    e: SyntheticEvent<HTMLButtonElement, MouseEvent>
+  ) => typeof props.onButtonClick === 'function' && props.onButtonClick(e);
+
   return (
-    <div className={styles['container']}>
-      <h1>Welcome to Storybook!</h1>
-      <p>This is a test component used to test storybook development.</p>
+    <Box sx={{ width: '100%', maxWidth: 500 }} p={2}>
+      <Typography variant="h1" component="h1">
+        Welcome to Storybook!
+      </Typography>
+      <Typography component="p">
+        This is a test component used to test storybook development.
+      </Typography>
+
       {props.exampleProp ? props.exampleProp : null}
-    </div>
+
+      {props.onButtonClick && typeof props.onButtonClick === 'function' ? (
+        <Button
+          variant="contained"
+          component="button"
+          onClick={handleButtonClick}
+        >
+          Example Button
+        </Button>
+      ) : null}
+    </Box>
   );
 }
 
