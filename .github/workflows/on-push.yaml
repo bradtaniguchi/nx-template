@@ -24,7 +24,7 @@ jobs:
           AFFECTED_TEST=$(npx nx print-affected --base=origin/main --head=$GITHUB_REF --select=tasks.target.project --target=test)
           AFFECTED_BUILD=$(npx nx print-affected --base=origin/main --head=$GITHUB_REF --select=tasks.target.project --target=build)
           AFFECTED_LIGHTHOUSE=$(npx nx print-affected --base=origin/main --head=$GITHUB_REF --select=tasks.target.project --target=lighthouse)
-          AFFECTED='$AFFECTED_LINT $AFFECTED_TEST $AFFECTED_BUILD $AFFECTED_LIGHTHOUSE'
+          AFFECTED="$AFFECTED_LINT $AFFECTED_TEST $AFFECTED_BUILD $AFFECTED_LIGHTHOUSE"
           echo $AFFECTED
           echo '::set-output name=AFFECTED::$AFFECTED'
 
