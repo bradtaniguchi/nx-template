@@ -31,18 +31,16 @@ jobs:
   internal-client:
     timeout-minutes: 5
     # TODO: update to always run, exists only as a sanity test
-    if: ${{ !contains(github.event.head_commit.message, 'skip ci') }}
+    if: ${{ !contains(github.event.head_commit.message, 'skip ci') && contains(needs.gen-affected.outputs.AFFECTED, 'internal-client')}}
     runs-on: ubuntu-latest
     needs:
       - gen-affected
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/init-job
-      - run: echo ${{ needs.gen-affected.outputs.AFFECTED }}
-      - run: echo ${{ contains(needs.gen-affected.outputs.AFFECTED, 'internal-client') }}
-      # - run: npx nx run internal-client:lint
-      # - run: npx nx run internal-client:test
-      # - run: npx nx run internal-client:build
+      - run: npx nx run internal-client:lint
+      - run: npx nx run internal-client:test
+      - run: npx nx run internal-client:build
       # - Add lighthouse
       # - Add cache for gh-pages deployment
 
