@@ -10,7 +10,10 @@
     "kohler",
     "lighthouseci",
     "lighthouserc",
+    "localforage",
     "mikestead",
+    "svgr",
+    "typedoc",
     "zhuangtongfa"
   ]
 }

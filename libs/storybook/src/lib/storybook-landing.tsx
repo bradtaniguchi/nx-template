@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { ReactNode, SyntheticEvent } from 'react';
 
-export interface StorybookProps {
+export interface StorybookLandingProps {
   /**
    * An example prop, provided to check with docs. Shown below the example text,
    * but before the button
@@ -24,7 +24,7 @@ export interface StorybookProps {
  * @param props display props for storybook landing component
  * @returns jsx
  */
-export function Storybook(props: StorybookProps) {
+export function StorybookLanding(props: StorybookLandingProps) {
   const handleButtonClick = (
     e: SyntheticEvent<HTMLButtonElement, MouseEvent>
   ) => typeof props.onButtonClick === 'function' && props.onButtonClick(e);
@@ -53,4 +53,4 @@ export function Storybook(props: StorybookProps) {
   );
 }
 
-export default Storybook;
+export default StorybookLanding;

@@ -1,10 +1,10 @@
 import Card from '@mui/material/Card';
 import { Meta, Story } from '@storybook/react';
-import { Storybook, StorybookProps } from './storybook';
+import { StorybookLanding, StorybookLandingProps } from './storybook-landing';
 
 export default {
-  component: Storybook,
-  title: 'Storybook',
+  component: StorybookLanding,
+  title: 'StorybookLanding',
   argTypes: { onButtonClick: { action: 'onButtonClick' } },
   decorators: [
     (Story) => (
@@ -15,10 +15,9 @@ export default {
   ],
 } as Meta;
 
-const Template: Story<StorybookProps> = (args) => <Storybook {...args} />;
-
-export const Default = Template.bind({});
-Default.args = {};
+const Template: Story<StorybookLandingProps> = (args) => (
+  <StorybookLanding {...args} />
+);
 
 export const WithProps = Template.bind({});
 WithProps.args = {
@@ -29,11 +28,6 @@ export const WithButton = Template.bind({});
 WithButton.args = {
   onButtonClick: console.log,
 };
-// WithButton.play = ({ args, canvasElement }) => {
-//   const canvas = within(canvasElement);
-//   userEvent.click(canvas.getByRole('button'));
-//   expect(args.onButtonClick).toHaveBeenCalled();
-// };
 
 export const WithOutButton = Template.bind({});
 WithOutButton.args = {

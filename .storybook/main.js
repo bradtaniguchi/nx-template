@@ -3,7 +3,6 @@ module.exports = {
   addons: [
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',
-    '@storybook/addon-interactions',
     'storybook-dark-mode',
   ],
   features: { modernInlineRender: true },
