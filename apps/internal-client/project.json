@@ -21,7 +21,8 @@
         ],
         "styles": ["apps/internal-client/src/styles.scss"],
         "scripts": [],
-        "webpackConfig": "@nrwl/react/plugins/webpack"
+        "webpackConfig": "@nrwl/react/plugins/webpack",
+        "deployUrl": "nx-template/"
       },
       "configurations": {
         "development": {
