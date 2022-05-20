@@ -48,10 +48,10 @@ jobs:
           retention-days: 3
 
   # Job that generates the storybook configuration for all projects that have it,
-  # where the storybook library will be built and manage ALL the projects.
+  # where the `storybook`` library will be built and manage ALL the projects.
   # together via composition. Or at least thats the plan.
   # All of these together will be deployed within the gh-page job.
-  internal-storybook:
+  internal-storybooks:
     timeout-minutes: 5
     if: ${{ !contains(github.event.head_commit.message, 'skip ci') && needs.gen-affected.outputs.AFFECTED != '' }}
     runs-on: ubuntu-latest
@@ -61,6 +61,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/init-job
       - run: npx nx run-many --target=build-storybook --all
+      # TODO: manually move `storybook` lib to top level `dist/storybook`
       - uses: actions/upload-artifact@v2
         with:
           name: internal-storybooks
@@ -93,7 +94,7 @@ jobs:
 
   # Job that deploys all the "internal" information that is generated within:
   # internal-client
-  # internal-storybook
+  # internal-storybooks
   # internal-tools
   #
   # If we are on the main branch, then this job will execute to gather and deploy all
@@ -106,7 +107,7 @@ jobs:
     needs:
       - gen-affected
       - internal-client
-      - internal-storybook
+      - internal-storybooks
       - internal-tools
     steps:
       - uses: actions/checkout@v2
@@ -120,7 +121,7 @@ jobs:
           path: dist
       - uses: actions/download-artifact@v2
         with:
-          name: internal-storybook
+          name: internal-storybooks
           # This gets changed to be plural for a cleaner URL
           path: dist/storybooks
       - uses: actions/download-artifact@v2
