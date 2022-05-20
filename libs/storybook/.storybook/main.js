@@ -21,4 +21,6 @@ module.exports = {
 
     return config;
   },
+  // TODO: add composition:
+  // https://nx.dev/storybook/storybook-composition-setup
 };
