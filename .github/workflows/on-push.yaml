@@ -138,9 +138,8 @@ jobs:
           name: gh-pages-dist
           path: dist
           retention-days: 1
-      - uses: JamesIves/github-pages-deploy-action@4.1.8
+      - uses: JamesIves/github-pages-deploy-action@4.3.3
         if: github.ref == 'refs/heads/main'
         with:
           branch: gh-pages
           folder: dist
-      # TODO: handle actual deploy to gh-pages
