@@ -69,6 +69,12 @@
           "quiet": true
         }
       }
+    },
+    "typedoc": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "npx typedoc libs/storybook/src/index.ts --tsconfig libs/storybook/tsconfig.json --out dist/docs/storybook"
+      }
     }
   }
 }

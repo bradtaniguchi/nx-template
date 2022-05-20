@@ -28,6 +28,12 @@
         "jestConfig": "libs/common/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "typedoc": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "npx typedoc libs/common/src/index.ts --tsconfig libs/common/tsconfig.json --out dist/docs/common"
+      }
     }
   },
   "tags": []

@@ -58,6 +58,18 @@ jobs:
       - run: npx nx run-many --target=build-storybook --all
       # - Add cache for gh-pages deployment
 
+  # Job that generates things based on internal tooling.
+  # Deployed with the storybook project to gh-pages.
+  internal-tools:
+    timeout-minutes: 5
+    if: ${{ !contains(github.event.head_commit.message, 'skip ci') && needs.gen-affected.outputs.AFFECTED != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/init-job
+      - run: npx nx graph --file=dist/index.html
+      - run: npx nx run-many --target=typedoc --all
+
     # - doc generation
     # - Gen graph
     # - gh-page job
