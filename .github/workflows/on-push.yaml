@@ -31,7 +31,7 @@ jobs:
   internal-client:
     timeout-minutes: 5
     # TODO: update to always run, exists only as a sanity test
-    if: ${{ !contains(github.event.head_commit.message, 'skip ci') && contains(needs.gen-affected.outputs.AFFECTED, 'internal-client')}}
+    if: ${{ !contains(github.event.head_commit.message, 'skip ci') && contains(needs.gen-affected.outputs.AFFECTED, 'internal-client') }}
     runs-on: ubuntu-latest
     needs:
       - gen-affected
@@ -44,6 +44,20 @@ jobs:
       # - Add lighthouse
       # - Add cache for gh-pages deployment
 
-    # - storybook
+  # Job that generates the storybook configuration for all projects that have it,
+  # where the storybook library will be built and manage ALL the projects.
+  # together via composition. Or at least thats the plan.
+  # All of these together will be deployed within the gh-page job.
+  storybook:
+    timeout-minutes: 5
+    if: ${{ !contains(github.event.head_commit.message, 'skip ci') && needs.gen-affected.outputs.AFFECTED != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/init-job
+      - run: npx nx run-many --target=build-storybook --all
+      # - Add cache for gh-pages deployment
+
     # - doc generation
     # - Gen graph
+    # - gh-page job
