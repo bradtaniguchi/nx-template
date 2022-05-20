@@ -16,8 +16,7 @@ declare namespace Cypress {
   }
 }
 //
-// -- This is a parent command --
-
+// -- This is a parent command --;
 //
 // -- This is a child command --
 // Cypress.Commands.add("drag", { prevSubject: 'element'}, (subject, options) => { ... })
