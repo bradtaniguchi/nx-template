@@ -61,7 +61,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/init-job
       - run: npx nx run-many --target=build-storybook --all
-      # TODO: manually move `storybook` lib to top level `dist/storybook`
+      - run: mv dist/storybook/storybook/** dist/storybook/
       - uses: actions/upload-artifact@v2
         with:
           name: internal-storybooks
