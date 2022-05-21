@@ -151,7 +151,7 @@ jobs:
           folder: dist
 
   common:
-    if: ${{ !contains(github.event.head_commit.message, 'skip ci') && && contains(fromJSON(needs.gen-affected.outputs.AFFECTED || '[]'), 'common') }}
+    if: ${{ !contains(github.event.head_commit.message, 'skip ci') && contains(fromJSON(needs.gen-affected.outputs.AFFECTED || '[]'), 'common') }}
     runs-on: ubuntu-latest
     needs:
       - gen-affected
@@ -162,7 +162,7 @@ jobs:
       - run: npx nx run common:test
 
   common-react:
-    if: ${{ !contains(github.event.head_commit.message, 'skip ci') && && contains(fromJSON(needs.gen-affected.outputs.AFFECTED || '[]'), 'common-react') }}
+    if: ${{ !contains(github.event.head_commit.message, 'skip ci') && contains(fromJSON(needs.gen-affected.outputs.AFFECTED || '[]'), 'common-react') }}
     runs-on: ubuntu-latest
     needs:
       - gen-affected
