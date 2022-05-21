@@ -18,7 +18,8 @@ jobs:
           lfs: false
           fetch-depth: 0
       - uses: ./.github/actions/init-job
-      - run: |
+      - id: gen-affected
+        run: |
           AFFECTED=$(npm run get:affected)
           echo $AFFECTED
           echo ":set-output name=AFFECTED::$AFFECTED"
@@ -31,4 +32,4 @@ jobs:
       - gen-affected
     steps:
       - run: echo ${{ needs.gen-affected.outputs.AFFECTED }}
-      - run: echo ${{ contains(fromJSON(needs.gen-affected.outputs.AFFECTED), 'common-react') }}
+      - run: echo ${{ contains(fromJSON(needs.gen-affected.outputs.AFFECTED || '[]'), 'common-react') }}
