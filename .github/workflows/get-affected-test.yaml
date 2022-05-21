@@ -8,7 +8,7 @@ on:
 jobs:
   gen-affected:
     timeout-minutes: 5
-    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    if: ${{ !contains(github.event.head_commit.message, 'skip ci') }}
     runs-on: ubuntu-latest
     outputs:
       AFFECTED: ${{ steps.gen-affected.outputs.AFFECTED }}
@@ -22,11 +22,11 @@ jobs:
         run: |
           AFFECTED=$(npm run get:affected)
           echo $AFFECTED
-          echo ":set-output name=AFFECTED::$AFFECTED"
+          echo "::set-output name=AFFECTED::$AFFECTED"
 
   print-affected:
     timeout-minutes: 5
-    if: "!contains(github.event.head_commit.message, 'skip ci')"
+    if: ${{ !contains(github.event.head_commit.message, 'skip ci') }}
     runs-on: ubuntu-latest
     needs:
       - gen-affected
