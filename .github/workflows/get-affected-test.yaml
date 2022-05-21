@@ -31,5 +31,6 @@ jobs:
     needs:
       - gen-affected
     steps:
-      - run: echo ${{ needs.gen-affected.outputs.AFFECTED }}
-      - run: echo ${{ contains(fromJSON(needs.gen-affected.outputs.AFFECTED || '[]'), 'common-react') }}
+      - run: echo ${{needs.gen-affected.outputs.AFFECTED}}
+      - run: echo ${{fromJSON(needs.gen-affected.outputs.AFFECTED || '[]')}}
+      - run: echo ${{contains(fromJSON(needs.gen-affected.outputs.AFFECTED || '[]'), 'common-react')}}
