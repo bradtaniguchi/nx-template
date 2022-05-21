@@ -154,3 +154,27 @@ jobs:
         with:
           branch: gh-pages
           folder: dist
+
+  common:
+    # TODO: fix as this will fire when colliding with other strings. see #8
+    if: ${{ !contains(github.event.head_commit.message, 'skip ci') && contains(needs.gen-affected.outputs.AFFECTED, 'common') }}
+    runs-on: ubuntu-latest
+    needs:
+      - gen-affected
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/init-job
+      - run: npx nx run common:lint
+      - run: npx nx run common:test
+
+  common-react:
+    if: ${{ !contains(github.event.head_commit.message, 'skip ci') && contains(needs.gen-affected.outputs.AFFECTED, 'common-react') }}
+    runs-on: ubuntu-latest
+    needs:
+      - gen-affected
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./.github/actions/init-job
+      - run: npx nx run common-react:lint
+      - run: npx nx run common-react:test
+      - run: npx nx run common-react:build # TODO: verify
