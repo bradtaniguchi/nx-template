@@ -24,7 +24,7 @@ module.exports = {
   refs: {
     'common-react': {
       title: 'common-react',
-      url: '/storybooks/common-react',
+      url: 'common-react/',
     },
   },
 };
