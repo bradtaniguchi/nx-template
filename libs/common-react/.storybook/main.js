@@ -21,10 +21,4 @@ module.exports = {
 
     return config;
   },
-  refs: {
-    'common-react': {
-      title: 'common-react',
-      url: 'common-react/',
-    },
-  },
 };
