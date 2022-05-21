@@ -26,7 +26,8 @@
     "help": "nx help",
     "clean": "npx rimraf dist node_modules/.cache/nx *.logs .eslintcache .lighthouserc.js coverage .lighthouseci",
     "prepare": "husky install",
-    "build:config": "node ./tools/build-config"
+    "build:config": "node ./tools/build-config",
+    "get:affected": "node ./tools/get-affected"
   },
   "private": true,
   "dependencies": {
