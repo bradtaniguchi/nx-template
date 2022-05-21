@@ -80,6 +80,7 @@ jobs:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/init-job
       - run: npx nx graph --file=dist/nx-graph/index.html
+      - run: npx nx graph --file=dist/nx-graph/graph.json
       - uses: actions/upload-artifact@v2
         with:
           name: internal-nx-graph
