@@ -20,7 +20,7 @@ jobs:
       - uses: ./.github/actions/init-job
       - id: gen-affected
         run: |
-          AFFECTED=$(npm run get:affected)
+          AFFECTED=$(npm run get:affected --silent)
           echo $AFFECTED
           echo "::set-output name=AFFECTED::$AFFECTED"
 
