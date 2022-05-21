@@ -137,6 +137,10 @@
               "hash": "2f8ef953f888182600c7e5ecf3f141f1a01a255c"
             },
             {
+              "file": "apps/common-react-e2e/src/integration/header-bar/header-bar.spec.ts",
+              "hash": "fb70171cbddea8b12f6cfe1d5b1eba4f669c454d"
+            },
+            {
               "file": "apps/common-react-e2e/src/support/commands.ts",
               "hash": "dbd96261c756f1021f18bf6d25c766326497167b"
             },
@@ -553,10 +557,6 @@
               "hash": "b17a4cd6ebe5e3b9bf8f3b47328cfa969bc0fef5"
             },
             {
-              "file": "libs/common-react/.storybook/preview.js",
-              "hash": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
-            },
-            {
               "file": "libs/common-react/.storybook/tsconfig.json",
               "hash": "7a1170995999ff179ae31ea7b87133b1c2161bc2"
             },
@@ -578,7 +578,7 @@
             },
             {
               "file": "libs/common-react/src/index.ts",
-              "hash": "e2e53f97dd5a232944a23ce16e004dd4126eb716"
+              "hash": "34e969f3b5c08747cc0467d56159c62c4e88fce8"
             },
             {
               "file": "libs/common-react/src/lib/common-react.module.scss",
@@ -601,6 +601,38 @@
             {
               "file": "libs/common-react/src/lib/common-react.tsx",
               "hash": "4ff55186e61811d2aea77a58e5ed2dda927433b0"
+            },
+            {
+              "file": "libs/common-react/src/lib/components/header-bar/header-bar-context.ts",
+              "hash": "0677e6b9daddd842b49751c2ee94f3f64f3aa532",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "libs/common-react/src/lib/components/header-bar/header-bar.spec.tsx",
+              "hash": "e7b2f6b49ce9dacea72c24862f46f3d58b4c12ae",
+              "deps": [
+                "npm:@testing-library/react"
+              ]
+            },
+            {
+              "file": "libs/common-react/src/lib/components/header-bar/header-bar.stories.tsx",
+              "hash": "f96c6496b0df7ae21f4e8438feb82b8deb3f9330",
+              "deps": [
+                "npm:@mui/material",
+                "npm:@mui/icons-material",
+                "npm:@storybook/react"
+              ]
+            },
+            {
+              "file": "libs/common-react/src/lib/components/header-bar/header-bar.tsx",
+              "hash": "68862cf56dd8cf92e2fdab0dbfed011b2dfcb248",
+              "deps": [
+                "npm:@mui/icons-material",
+                "npm:@mui/material",
+                "npm:react"
+              ]
             },
             {
               "file": "libs/common-react/tsconfig.json",
