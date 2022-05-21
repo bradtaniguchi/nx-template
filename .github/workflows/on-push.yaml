@@ -86,15 +86,16 @@ jobs:
           path: dist/nx-graph
           retention-days: 3
       - run: npx nx run-many --target=typedoc --all
-      - run: npm run build:config
-        with:
-          name: config
-          path: dist/config.json
-          retention-days: 3
       - uses: actions/upload-artifact@v2
         with:
           name: internal-docs
           path: dist/docs
+          retention-days: 3
+      - run: npm run build:config
+      - uses: actions/upload-artifact@v2
+        with:
+          name: config
+          path: dist/config.json
           retention-days: 3
 
   # Job that deploys all the "internal" information that is generated within:
