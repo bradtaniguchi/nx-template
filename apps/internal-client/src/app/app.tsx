@@ -1,6 +1,6 @@
 import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import Dashboard from './pages/dashboard/dashboard';
+import DashboardPage from './pages/dashboard-page/dashboard-page';
 
 const NotFoundPage = lazy(
   () => import('./pages/not-found-page/not-found-page')
@@ -12,7 +12,7 @@ export function App() {
       <h1>Hello world!</h1>
       <div />
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/" element={<DashboardPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
