@@ -91,6 +91,12 @@ jobs:
           name: internal-docs
           path: dist/docs
           retention-days: 3
+      - run: npm run build:config
+      - uses: actions/upload-artifact@v2
+        with:
+          name: config
+          path: dist/config.json
+          retention-days: 3
 
   # Job that deploys all the "internal" information that is generated within:
   # internal-client
@@ -132,6 +138,10 @@ jobs:
         with:
           name: internal-docs
           path: dist/docs
+      - uses: actions/download-artifact@v2
+        with:
+          name: config
+          path: dist/config.json
       # DEBUG build
       - uses: actions/upload-artifact@v2
         with:
