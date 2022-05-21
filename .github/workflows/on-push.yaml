@@ -20,11 +20,7 @@ jobs:
       - uses: ./.github/actions/init-job
       - id: gen-affected
         run: |
-          AFFECTED_LINT=$(npx nx print-affected --base=origin/main --head=$GITHUB_REF --select=tasks.target.project --target=lint)
-          AFFECTED_TEST=$(npx nx print-affected --base=origin/main --head=$GITHUB_REF --select=tasks.target.project --target=test)
-          AFFECTED_BUILD=$(npx nx print-affected --base=origin/main --head=$GITHUB_REF --select=tasks.target.project --target=build)
-          AFFECTED_LIGHTHOUSE=$(npx nx print-affected --base=origin/main --head=$GITHUB_REF --select=tasks.target.project --target=lighthouse)
-          AFFECTED="$AFFECTED_LINT $AFFECTED_TEST $AFFECTED_BUILD $AFFECTED_LIGHTHOUSE"
+          AFFECTED=$(npm run get:affected --silent)
           echo $AFFECTED
           echo "::set-output name=AFFECTED::$AFFECTED"
 
@@ -108,8 +104,7 @@ jobs:
   # of the static contents to the local github page.
   gh-pages:
     timeout-minutes: 5
-    # TODO: github.ref == 'refs/heads/main'
-    if: ${{ !contains(github.event.head_commit.message, 'skip ci') && needs.gen-affected.outputs.AFFECTED != '' }}
+    if: ${{ !contains(github.event.head_commit.message, 'skip ci') && needs.gen-affected.outputs.AFFECTED != '' && github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     needs:
       - gen-affected
@@ -156,8 +151,7 @@ jobs:
           folder: dist
 
   common:
-    # TODO: fix as this will fire when colliding with other strings. see #8
-    if: ${{ !contains(github.event.head_commit.message, 'skip ci') && contains(needs.gen-affected.outputs.AFFECTED, 'common') }}
+    if: ${{ !contains(github.event.head_commit.message, 'skip ci') && && contains(fromJSON(needs.gen-affected.outputs.AFFECTED || '[]'), 'common') }}
     runs-on: ubuntu-latest
     needs:
       - gen-affected
@@ -168,7 +162,7 @@ jobs:
       - run: npx nx run common:test
 
   common-react:
-    if: ${{ !contains(github.event.head_commit.message, 'skip ci') && contains(needs.gen-affected.outputs.AFFECTED, 'common-react') }}
+    if: ${{ !contains(github.event.head_commit.message, 'skip ci') && && contains(fromJSON(needs.gen-affected.outputs.AFFECTED || '[]'), 'common-react') }}
     runs-on: ubuntu-latest
     needs:
       - gen-affected
