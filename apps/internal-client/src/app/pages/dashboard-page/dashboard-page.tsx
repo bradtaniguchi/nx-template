@@ -42,7 +42,6 @@ export function DashboardPage(props: DashboardPageProps) {
 
   return (
     <div className={styles['container']}>
-      <h1>Welcome to DashboardPage!</h1>
       <Box sx={{ flexGrow: 1 }}>
         <Grid
           container
