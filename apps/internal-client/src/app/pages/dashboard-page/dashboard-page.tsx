@@ -31,7 +31,7 @@ export function DashboardPage(props: DashboardPageProps) {
             <Card variant="outlined">
               <CardContent>
                 <Typography component="h3">Config.json</Typography>
-                <Typography component="p">
+                <Typography component="div">
                   {configLoading && <div>Loading config...</div>}
                   {!!configError && <div>Error Loading Config</div>}
                   {config && (
@@ -48,7 +48,7 @@ export function DashboardPage(props: DashboardPageProps) {
             <Card variant="outlined">
               <CardContent>
                 <Typography component="h3">Generated Type docs</Typography>
-                <Typography component="p">
+                <Typography component="div">
                   {nxGraphLoading && <div>Loading nxGraph...</div>}
                   {!!nxGraphError && <div>Error Loading nxGraph</div>}
                   {nxGraph

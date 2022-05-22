@@ -36,6 +36,15 @@ describe('getProjectsByTarget', () => {
     dependencies: {},
   };
 
+  it('returns empty if given nothing', () => {
+    expect(
+      getProjectsByTarget({
+        graph: undefined as unknown as ProjectGraph,
+        target: 'my-target',
+      })
+    ).toEqual([]);
+  });
+
   it('returns empty if given empty array', () => {
     expect(
       getProjectsByTarget({
