@@ -133,10 +133,6 @@
               "hash": "294cbed6ce9e0b948b787452e8676aee486cb3be"
             },
             {
-              "file": "apps/common-react-e2e/src/integration/common-react/common-react.spec.ts",
-              "hash": "2f8ef953f888182600c7e5ecf3f141f1a01a255c"
-            },
-            {
               "file": "apps/common-react-e2e/src/integration/header-bar/header-bar.spec.ts",
               "hash": "fb70171cbddea8b12f6cfe1d5b1eba4f669c454d"
             },
@@ -217,7 +213,8 @@
               "defaultConfiguration": "development",
               "options": {
                 "buildTarget": "internal-client:build",
-                "hmr": true
+                "hmr": true,
+                "proxyConfig": "apps/internal-client/proxy.conf.json"
               },
               "configurations": {
                 "development": {
@@ -252,6 +249,10 @@
             }
           },
           "tags": [],
+          "implicitDependencies": [
+            "common",
+            "common-react"
+          ],
           "files": [
             {
               "file": "apps/internal-client/.babelrc",
@@ -271,11 +272,19 @@
             },
             {
               "file": "apps/internal-client/project.json",
-              "hash": "b1724ac5bd28e45477f8313a91f62648d9459da3"
+              "hash": "758080f5d81b4c935cab26ba0385f3dec5cf24e8"
+            },
+            {
+              "file": "apps/internal-client/proxy.conf.json",
+              "hash": "a394ee591f1afb4184ca23d20b9e6f49caa94076"
+            },
+            {
+              "file": "apps/internal-client/README.md",
+              "hash": "b3e681c07ee60ffec51ba74d18e551cac30a8342"
             },
             {
               "file": "apps/internal-client/src/app/app.spec.tsx",
-              "hash": "58b6d3cc20b8384180aaa1074f16207399421289",
+              "hash": "92b16280fcf4eba63a70bec46a18441f3de7d015",
               "deps": [
                 "npm:@testing-library/react",
                 "npm:react-router-dom"
@@ -283,8 +292,10 @@
             },
             {
               "file": "apps/internal-client/src/app/app.tsx",
-              "hash": "fea76c964f21348f7a286a9cb6a026df9d92b246",
+              "hash": "c0147c55b6c5d0f2ff0cdc03cd9a29241c0e9de8",
               "deps": [
+                "npm:@mui/material",
+                "common-react",
                 "npm:react",
                 "npm:react-router-dom"
               ]
@@ -295,14 +306,21 @@
             },
             {
               "file": "apps/internal-client/src/app/pages/dashboard-page/dashboard-page.spec.tsx",
-              "hash": "fd95f64e8e15cd51371cf6d73ba1081a91ee92f6",
+              "hash": "a39f6eaf24193263fed9012f7946752c2d92e8d8",
               "deps": [
-                "npm:@testing-library/react"
+                "npm:@testing-library/react",
+                "npm:react-dom"
               ]
             },
             {
               "file": "apps/internal-client/src/app/pages/dashboard-page/dashboard-page.tsx",
-              "hash": "1d66e1e896f9be54a019949b0fc85f52f47ce4a5"
+              "hash": "24942c4510521f44a5191f3502f8477d2d246625",
+              "deps": [
+                "npm:@mui/material",
+                "npm:@mui/icons-material",
+                "common-react",
+                "npm:react"
+              ]
             },
             {
               "file": "apps/internal-client/src/app/pages/not-found-page/not-found-page.module.scss",
@@ -578,29 +596,7 @@
             },
             {
               "file": "libs/common-react/src/index.ts",
-              "hash": "34e969f3b5c08747cc0467d56159c62c4e88fce8"
-            },
-            {
-              "file": "libs/common-react/src/lib/common-react.module.scss",
-              "hash": "45c2aa47e9879fa033c0d1f266154dd6106c2201"
-            },
-            {
-              "file": "libs/common-react/src/lib/common-react.spec.tsx",
-              "hash": "99c7c0765af61e38ee4dc73c803fcb331b59dcce",
-              "deps": [
-                "npm:@testing-library/react"
-              ]
-            },
-            {
-              "file": "libs/common-react/src/lib/common-react.stories.tsx",
-              "hash": "675554296c2c35ce75f8d8e82e4c00adc74c74f4",
-              "deps": [
-                "npm:@storybook/react"
-              ]
-            },
-            {
-              "file": "libs/common-react/src/lib/common-react.tsx",
-              "hash": "4ff55186e61811d2aea77a58e5ed2dda927433b0"
+              "hash": "8fb871412a1eebf1e6f9d6e2128ab11108bf5d67"
             },
             {
               "file": "libs/common-react/src/lib/components/header-bar/header-bar-context.ts",
@@ -627,12 +623,82 @@
             },
             {
               "file": "libs/common-react/src/lib/components/header-bar/header-bar.tsx",
-              "hash": "68862cf56dd8cf92e2fdab0dbfed011b2dfcb248",
+              "hash": "a76a4abdab29f43ffe770a10511ad6fe877a68c0",
               "deps": [
                 "npm:@mui/icons-material",
                 "npm:@mui/material",
                 "npm:react"
               ]
+            },
+            {
+              "file": "libs/common-react/src/lib/components/side-nav/side-nav.spec.tsx",
+              "hash": "bd89a59660cf03e8cd28252a21d958be65295502",
+              "deps": [
+                "npm:@testing-library/react"
+              ]
+            },
+            {
+              "file": "libs/common-react/src/lib/components/side-nav/side-nav.stories.tsx",
+              "hash": "2d939604e03b5b1857074fc9686220c6fa1ce2eb",
+              "deps": [
+                "npm:@mui/material",
+                "npm:@storybook/react"
+              ]
+            },
+            {
+              "file": "libs/common-react/src/lib/components/side-nav/side-nav.tsx",
+              "hash": "b150c7377635b2c11d666e4901737c77c96bb39e",
+              "deps": [
+                "npm:@mui/material",
+                "npm:@mui/icons-material",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "libs/common-react/src/lib/hooks/index.ts",
+              "hash": "21e7085dc3c0a8be6c65dd9645c62725d7735006"
+            },
+            {
+              "file": "libs/common-react/src/lib/hooks/use-config.ts",
+              "hash": "77aab219f00359a5d780e998e864deff6ffc253b",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "libs/common-react/src/lib/hooks/use-nx-graph.ts",
+              "hash": "0cb1027798878aa5b6e2b4667bb974c4640aed70",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "libs/common-react/src/lib/types/base-config.ts",
+              "hash": "5648d8afc499d735be0b82653fd3120e882276a3"
+            },
+            {
+              "file": "libs/common-react/src/lib/types/index.ts",
+              "hash": "237f6b6a13bf4305f6e59a3c3b4fbc02cea5ae3b"
+            },
+            {
+              "file": "libs/common-react/src/lib/utils/get-config.ts",
+              "hash": "221f2ce1a2b265237d219f6091e62b8a073ee0ba"
+            },
+            {
+              "file": "libs/common-react/src/lib/utils/get-nx-graph.ts",
+              "hash": "9c87613999586cf84dd4dcfdfa6ebb6fcb5e79e8"
+            },
+            {
+              "file": "libs/common-react/src/lib/utils/get-projects-by-target.spec.ts",
+              "hash": "573db404eb241631ca259c521bf5a906dd8b520d"
+            },
+            {
+              "file": "libs/common-react/src/lib/utils/get-projects-by-target.ts",
+              "hash": "0b8a3e7fdb9092e8827c2f6c96b8d4b62487ef6f"
+            },
+            {
+              "file": "libs/common-react/src/lib/utils/index.ts",
+              "hash": "beea6ae4d22ad9af4185802bd8eb533e63585174"
             },
             {
               "file": "libs/common-react/tsconfig.json",
@@ -944,7 +1010,18 @@
           "type": "implicit"
         }
       ],
-      "internal-client": [],
+      "internal-client": [
+        {
+          "source": "internal-client",
+          "target": "common",
+          "type": "implicit"
+        },
+        {
+          "source": "internal-client",
+          "target": "common-react",
+          "type": "implicit"
+        }
+      ],
       "storybook-e2e": [
         {
           "source": "storybook-e2e",
