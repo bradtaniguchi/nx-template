@@ -1,6 +1,7 @@
-import { HeaderBar, SideNav } from '@nx-template/common-react';
-import { lazy, useState } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Typography } from '@mui/material';
+import { HeaderBar } from '@nx-template/common-react';
+import { lazy } from 'react';
+import { Route, Routes } from 'react-router-dom';
 import DashboardPage from './pages/dashboard-page/dashboard-page';
 
 const NotFoundPage = lazy(
@@ -8,19 +9,15 @@ const NotFoundPage = lazy(
 );
 
 export function App() {
-  const [sideNavOpened, setSideNavOpened] = useState(false);
-
-  function handleSideNavToggle() {
-    setSideNavOpened(!sideNavOpened);
-  }
-
   return (
     <>
-      <HeaderBar
-        hideMenu={true}
-        onHamburgerClick={handleSideNavToggle}
-      ></HeaderBar>
-      <SideNav opened={sideNavOpened} onClose={handleSideNavToggle}></SideNav>
+      <HeaderBar hideMenu={true} hideHamburger={true}>
+        {
+          <Typography variant="h5" component="h5">
+            internal-client
+          </Typography>
+        }
+      </HeaderBar>
       <main>
         <Routes>
           <Route path="/" element={<DashboardPage />} />
