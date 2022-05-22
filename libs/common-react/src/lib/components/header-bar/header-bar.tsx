@@ -53,7 +53,7 @@ export function HeaderBar(props: HeaderBarProps) {
     <HeaderBarContext.Consumer>
       {(headerBarContext) => (
         <Box sx={{ flexGrow: 1 }}>
-          <AppBar>
+          <AppBar position="sticky">
             <Toolbar>
               {props.hideHamburger ? null : (
                 <IconButton
