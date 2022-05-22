@@ -1,5 +1,7 @@
+import { Typography } from '@mui/material';
+import { HeaderBar } from '@nx-template/common-react';
 import { lazy } from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 import DashboardPage from './pages/dashboard-page/dashboard-page';
 
 const NotFoundPage = lazy(
@@ -9,12 +11,19 @@ const NotFoundPage = lazy(
 export function App() {
   return (
     <>
-      <h1>Hello world!</h1>
-      <div />
-      <Routes>
-        <Route path="/" element={<DashboardPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <HeaderBar hideMenu={true} hideHamburger={true}>
+        {
+          <Typography variant="h5" component="h5">
+            internal-client
+          </Typography>
+        }
+      </HeaderBar>
+      <main>
+        <Routes>
+          <Route path="/" element={<DashboardPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </main>
     </>
   );
 }

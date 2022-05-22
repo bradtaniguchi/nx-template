@@ -28,6 +28,10 @@ export interface HeaderBarProps {
    * Hide the three-dot menu on the right.
    */
   hideMenu?: boolean;
+  /**
+   * Children to display, will override the context display.
+   */
+  children?: React.ReactNode;
 }
 
 /**
@@ -64,7 +68,7 @@ export function HeaderBar(props: HeaderBarProps) {
                 </IconButton>
               )}
               <Typography component="div" sx={{ flexGrow: 1 }}>
-                {headerBarContext}
+                {props.children ? props.children : headerBarContext}
               </Typography>
               {props.hideMenu ? null : (
                 <IconButton

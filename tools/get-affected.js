@@ -36,7 +36,7 @@ const argv = yargs(hideBin(process.argv)).argv;
       ]).values()
     ).sort();
 
-    console.log(affectedProjects);
+    console.log(JSON.stringify(affectedProjects, null));
 
     process.exit(0);
   } catch (err) {

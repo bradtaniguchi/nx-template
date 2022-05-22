@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 
-import CommonReact from './common-react';
+import SideNav from './side-nav';
 
-describe('CommonReact', () => {
+describe('SideNav', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<CommonReact />);
+    const { baseElement } = render(<SideNav />);
     expect(baseElement).toBeTruthy();
   });
 });

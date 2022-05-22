@@ -52,7 +52,8 @@
       "defaultConfiguration": "development",
       "options": {
         "buildTarget": "internal-client:build",
-        "hmr": true
+        "hmr": true,
+        "proxyConfig": "apps/internal-client/proxy.conf.json"
       },
       "configurations": {
         "development": {
@@ -80,5 +81,6 @@
       }
     }
   },
-  "tags": []
+  "tags": [],
+  "implicitDependencies": ["common", "common-react"]
 }
