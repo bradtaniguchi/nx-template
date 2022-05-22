@@ -1,3 +1,4 @@
+import { HeaderBar } from '@nx-template/common-react';
 import { lazy } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import DashboardPage from './pages/dashboard-page/dashboard-page';
@@ -7,14 +8,21 @@ const NotFoundPage = lazy(
 );
 
 export function App() {
+  function handleHamburgerClick() {
+    console.log('test with handle click');
+  }
   return (
     <>
-      <h1>Hello world!</h1>
-      <div />
-      <Routes>
-        <Route path="/" element={<DashboardPage />} />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <HeaderBar
+        hideMenu={true}
+        onHamburgerClick={handleHamburgerClick}
+      ></HeaderBar>
+      <main>
+        <Routes>
+          <Route path="/" element={<DashboardPage />} />
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </main>
     </>
   );
 }

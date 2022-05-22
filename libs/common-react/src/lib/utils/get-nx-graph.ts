@@ -13,7 +13,7 @@ export const getNxGraph = (params?: {
   const { path, overrides } = params ?? {};
   return fetch(path ?? 'nx-graph/graph.json')
     .then((r) => r.json())
-    .then((graph) => ({ ...overrides, ...graph }))
+    .then((data) => ({ ...overrides, ...(data.graph ?? {}) }))
     .catch((err) => {
       if (overrides) return overrides;
       throw err;
