@@ -170,7 +170,6 @@
                 "compiler": "babel",
                 "outputPath": "dist/apps/internal-client",
                 "index": "apps/internal-client/src/index.html",
-                "baseHref": "/",
                 "main": "apps/internal-client/src/main.tsx",
                 "polyfills": "apps/internal-client/src/polyfills.ts",
                 "tsConfig": "apps/internal-client/tsconfig.app.json",
@@ -182,8 +181,7 @@
                   "apps/internal-client/src/styles.scss"
                 ],
                 "scripts": [],
-                "webpackConfig": "@nrwl/react/plugins/webpack",
-                "deployUrl": "nx-template/"
+                "webpackConfig": "@nrwl/react/plugins/webpack"
               },
               "configurations": {
                 "development": {
@@ -204,7 +202,8 @@
                   "sourceMap": false,
                   "namedChunks": false,
                   "extractLicenses": true,
-                  "vendorChunk": false
+                  "vendorChunk": false,
+                  "deployUrl": "/nx-template/"
                 }
               }
             },
@@ -272,7 +271,7 @@
             },
             {
               "file": "apps/internal-client/project.json",
-              "hash": "758080f5d81b4c935cab26ba0385f3dec5cf24e8"
+              "hash": "104d07628f33362f33a792484faec519a4d2699c"
             },
             {
               "file": "apps/internal-client/proxy.conf.json",
@@ -314,7 +313,7 @@
             },
             {
               "file": "apps/internal-client/src/app/pages/dashboard-page/dashboard-page.tsx",
-              "hash": "24942c4510521f44a5191f3502f8477d2d246625",
+              "hash": "8de8db29379b4b0cfa29fad8dc63a1ae46b897c5",
               "deps": [
                 "npm:@mui/material",
                 "npm:@mui/icons-material",
@@ -335,7 +334,10 @@
             },
             {
               "file": "apps/internal-client/src/app/pages/not-found-page/not-found-page.tsx",
-              "hash": "cc5c18778c1564e5ef05764400ba6bd01715a4c0"
+              "hash": "d69a55311e09d9fd84962ef59bd4c5692ec2b79c",
+              "deps": [
+                "npm:@mui/material"
+              ]
             },
             {
               "file": "apps/internal-client/src/assets/.gitkeep",
@@ -376,7 +378,7 @@
             },
             {
               "file": "apps/internal-client/src/styles.scss",
-              "hash": "90d4ee0072ce3fc41812f8af910219f9eea3c3de"
+              "hash": "9100733a293a67946e22b270f95b3d0eaac977bd"
             },
             {
               "file": "apps/internal-client/tsconfig.app.json",
@@ -623,7 +625,7 @@
             },
             {
               "file": "libs/common-react/src/lib/components/header-bar/header-bar.tsx",
-              "hash": "a76a4abdab29f43ffe770a10511ad6fe877a68c0",
+              "hash": "dd37a253333ef0109de8459df0cfa1bc74b86bcb",
               "deps": [
                 "npm:@mui/icons-material",
                 "npm:@mui/material",

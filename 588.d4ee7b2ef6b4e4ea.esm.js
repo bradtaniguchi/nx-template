@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunk=self.webpackChunk||[]).push([[588],{9588:(e,n,c)=>{c.r(n),c.d(n,{NotFoundPage:()=>o,default:()=>a});const s={};var t=c(2322);function o(e){return(0,t.jsx)("div",{className:s.container,children:(0,t.jsx)("h1",{children:"Welcome to NotFoundPage!"})})}const a=o}}]);
