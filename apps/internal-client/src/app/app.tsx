@@ -1,5 +1,5 @@
-import { HeaderBar } from '@nx-template/common-react';
-import { lazy } from 'react';
+import { HeaderBar, SideNav } from '@nx-template/common-react';
+import { lazy, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import DashboardPage from './pages/dashboard-page/dashboard-page';
 
@@ -8,15 +8,19 @@ const NotFoundPage = lazy(
 );
 
 export function App() {
-  function handleHamburgerClick() {
-    console.log('test with handle click');
+  const [sideNavOpened, setSideNavOpened] = useState(false);
+
+  function handleSideNavToggle() {
+    setSideNavOpened(!sideNavOpened);
   }
+
   return (
     <>
       <HeaderBar
         hideMenu={true}
-        onHamburgerClick={handleHamburgerClick}
+        onHamburgerClick={handleSideNavToggle}
       ></HeaderBar>
+      <SideNav opened={sideNavOpened} onClose={handleSideNavToggle}></SideNav>
       <main>
         <Routes>
           <Route path="/" element={<DashboardPage />} />

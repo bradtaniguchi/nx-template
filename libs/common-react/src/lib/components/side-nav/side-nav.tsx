@@ -1,7 +1,12 @@
 import Box from '@mui/material/Box';
-import List from '@mui/material/List';
 import Drawer from '@mui/material/Drawer';
-import { ReactNode, SyntheticEvent } from 'react';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import Divider from '@mui/material/Divider';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import { ReactNode } from 'react';
 
 /* eslint-disable-next-line */
 export interface SideNavProps {
@@ -24,10 +29,7 @@ export interface SideNavProps {
   /**
    * When the side-nav emits the close event.
    */
-  onClose?: (
-    event: SyntheticEvent,
-    reason: 'backdropClick' | 'escapeKeyDown'
-  ) => void;
+  onClose?: () => void;
 }
 
 export function SideNav(props: SideNavProps) {
@@ -41,7 +43,17 @@ export function SideNav(props: SideNavProps) {
         sx={{ width: props.anchor === 'bottom' ? 'auto' : 250 }}
         role="presentation"
       >
-        <List>{props.items || []}</List>
+        <List>
+          <ListItem disablePadding sx={{ minHeight: '64px' }}>
+            <ListItemButton onClick={props.onClose}>
+              <ListItemIcon>
+                <ChevronLeftIcon />
+              </ListItemIcon>
+            </ListItemButton>
+          </ListItem>
+          <Divider />
+          {props.items || []}
+        </List>
       </Box>
     </Drawer>
   );
