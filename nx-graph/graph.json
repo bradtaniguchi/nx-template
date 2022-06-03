@@ -683,6 +683,13 @@
               "hash": "237f6b6a13bf4305f6e59a3c3b4fbc02cea5ae3b"
             },
             {
+              "file": "libs/common-react/src/lib/utils/combine-components.tsx",
+              "hash": "6e13194af9442ef6c8e506b8240596ee89c73deb",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
               "file": "libs/common-react/src/lib/utils/get-config.ts",
               "hash": "221f2ce1a2b265237d219f6091e62b8a073ee0ba"
             },
@@ -700,7 +707,7 @@
             },
             {
               "file": "libs/common-react/src/lib/utils/index.ts",
-              "hash": "beea6ae4d22ad9af4185802bd8eb533e63585174"
+              "hash": "d39a90a988a6155d294de5e57515d1c88e58991d"
             },
             {
               "file": "libs/common-react/tsconfig.json",
