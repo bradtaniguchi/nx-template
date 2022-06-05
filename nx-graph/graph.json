@@ -313,7 +313,7 @@
             },
             {
               "file": "apps/internal-client/src/app/pages/dashboard-page/dashboard-page.tsx",
-              "hash": "8de8db29379b4b0cfa29fad8dc63a1ae46b897c5",
+              "hash": "e1b503596fc2325ce234590a1e207b731d5523f7",
               "deps": [
                 "npm:@mui/material",
                 "npm:@mui/icons-material",
