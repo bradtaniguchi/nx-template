@@ -8,7 +8,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename="/nx-template">
       <App />
     </BrowserRouter>
   </StrictMode>
