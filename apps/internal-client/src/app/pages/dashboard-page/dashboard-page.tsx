@@ -24,7 +24,7 @@ export function DashboardPage(props: DashboardPageProps) {
     path: '/nx-template/config.json',
   });
   const { nxGraph, nxGraphError, nxGraphLoading } = useNxGraph({
-    path: '/nx-template/graph.json',
+    path: '/nx-template/nx-graph/graph.json',
   });
 
   const projects = useMemo(
