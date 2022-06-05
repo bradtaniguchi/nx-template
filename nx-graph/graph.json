@@ -986,15 +986,27 @@
             },
             {
               "file": "libs/common/src/index.ts",
-              "hash": "9dd487922483d29dc70b3053b3cb698ab54ac1c7"
+              "hash": "efb36b5cbe0761ecb2c5317b79268e110d295175"
             },
             {
-              "file": "libs/common/src/lib/common.spec.ts",
-              "hash": "762ae0395b5aad686d38cb7a613f38660867bbac"
+              "file": "libs/common/src/lib/models/document-with-id.ts",
+              "hash": "2e9e79933c5773b6e0422aff32ac7b94acbbac43"
             },
             {
-              "file": "libs/common/src/lib/common.ts",
-              "hash": "055ff36836cf7caffe17b51f1c75c664fc1a89de"
+              "file": "libs/common/src/lib/models/index.ts",
+              "hash": "dbc33d1d2e816fe7dcb1493604af1b4d9f597b7f"
+            },
+            {
+              "file": "libs/common/src/lib/utils/common-logger.spec.ts",
+              "hash": "22f06f1c9eef62f3606def8be8d85781d29c36ca"
+            },
+            {
+              "file": "libs/common/src/lib/utils/common-logger.ts",
+              "hash": "05e25683cdb8adea808b885ca271941d9955a9d5"
+            },
+            {
+              "file": "libs/common/src/lib/utils/index.ts",
+              "hash": "97e7cd56dd8a44356ad42e260984b5ba73cd2efe"
             },
             {
               "file": "libs/common/tsconfig.json",
