@@ -658,12 +658,20 @@
             },
             {
               "file": "libs/common-react/src/lib/hooks/index.ts",
-              "hash": "21e7085dc3c0a8be6c65dd9645c62725d7735006"
+              "hash": "c1213d81a6fb13cdeb43b0b29faebcfd60170c8b"
             },
             {
               "file": "libs/common-react/src/lib/hooks/use-config.ts",
               "hash": "77aab219f00359a5d780e998e864deff6ffc253b",
               "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "libs/common-react/src/lib/hooks/use-local-forage.ts",
+              "hash": "911fa73943b7cf3544d75b5e7d92d46b6a9ec94a",
+              "deps": [
+                "npm:localforage",
                 "npm:react"
               ]
             },
