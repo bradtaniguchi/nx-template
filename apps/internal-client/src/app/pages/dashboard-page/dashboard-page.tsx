@@ -96,7 +96,7 @@ export function DashboardPage(props: DashboardPageProps) {
                       }}
                     >
                       <EqualizerIcon color="primary" />
-                      <Link href="nx-graph">nx-graph</Link>
+                      <Link href="nx-template/nx-graph">nx-graph</Link>
                     </Typography>
                   </Grid>
                   <Grid item xs={8}>
@@ -109,7 +109,7 @@ export function DashboardPage(props: DashboardPageProps) {
                       }}
                     >
                       <BookIcon color="primary" />
-                      <Link href="storybooks">storybooks</Link>
+                      <Link href="nx-template/storybooks">storybooks</Link>
                     </Typography>
                   </Grid>
                   {(() => {
@@ -128,7 +128,7 @@ export function DashboardPage(props: DashboardPageProps) {
                         >
                           <ArticleIcon color="primary" />
                           <Link
-                            href={`docs/${project}`}
+                            href={`nx-template/docs/${project}`}
                           >{`${project} docs`}</Link>
                         </Typography>
                       </Grid>
