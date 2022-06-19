@@ -313,7 +313,7 @@
             },
             {
               "file": "apps/internal-client/src/app/pages/dashboard-page/dashboard-page.tsx",
-              "hash": "18d514f8e717e13efb929b5ffa8987bc42b44d59",
+              "hash": "08c0898e08efccb8545043810439aee73e2eae17",
               "deps": [
                 "npm:@mui/material",
                 "npm:@mui/icons-material",
@@ -357,7 +357,7 @@
             },
             {
               "file": "apps/internal-client/src/index.html",
-              "hash": "b487cd22864706c83cd4b4c1063a8b4bc13884d4"
+              "hash": "72783004e8a13bf7ab38733d7f45fe002fec04ef"
             },
             {
               "file": "apps/internal-client/src/main.tsx",
