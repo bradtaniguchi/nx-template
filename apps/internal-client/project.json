@@ -78,6 +78,12 @@
         "jestConfig": "apps/internal-client/jest.config.ts",
         "passWithNoTests": true
       }
+    },
+    "typedoc": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "npx typedoc --options apps/internal-client/typedoc.json"
+      }
     }
   },
   "tags": [],
