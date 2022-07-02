@@ -14,7 +14,7 @@ export const getConfig = <AppConfig extends object>(params?: {
   const { path, overrides } = params ?? {};
   return fetch(path ?? 'config.json')
     .then((r) => r.json())
-    .then((config) => ({ ...overrides, ...config }))
+    .then((config) => ({ ...config, ...overrides }))
     .catch((err) => {
       if (overrides) return overrides;
       throw err;
