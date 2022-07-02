@@ -42,23 +42,20 @@
         "style": "scss",
         "linter": "eslint",
         "babel": true,
-        "strict": true
+        "strict": true,
+        "e2eTestRunner": "none"
       },
       "component": {
         "style": "scss"
       },
       "library": {
-        "style": "scss",
-        "linter": "eslint"
+        "linter": "eslint",
+        "unitTestRunner": "jest",
+        "strict": true,
+        "standaloneConfig": true,
+        "buildable": true,
+        "publishable": false
       }
-    },
-    "@nrwl/react:library": {
-      "linter": "eslint",
-      "unitTestRunner": "jest",
-      "strict": true,
-      "standaloneConfig": true,
-      "buildable": true,
-      "publishable": false
     },
     "@nrwl/node:library": {
       "linter": "eslint",
