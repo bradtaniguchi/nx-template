@@ -445,7 +445,7 @@
             },
             {
               "file": "libs/common-react/src/lib/hooks/index.ts",
-              "hash": "c1213d81a6fb13cdeb43b0b29faebcfd60170c8b"
+              "hash": "602219d17d3959bd83ecc4ecc470133ada6044ff"
             },
             {
               "file": "libs/common-react/src/lib/hooks/use-config.ts",
@@ -456,9 +456,17 @@
             },
             {
               "file": "libs/common-react/src/lib/hooks/use-local-forage.ts",
-              "hash": "911fa73943b7cf3544d75b5e7d92d46b6a9ec94a",
+              "hash": "20b0c24385d05fb9b83692f7a36187ec1e314eb1",
               "deps": [
                 "npm:localforage",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "libs/common-react/src/lib/hooks/use-logger.ts",
+              "hash": "b008b7a6f34e7e81d8b3f0c0b5a921bfc3d24193",
+              "deps": [
+                "common",
                 "npm:react"
               ]
             },
@@ -836,7 +844,13 @@
           "type": "implicit"
         }
       ],
-      "common-react": [],
+      "common-react": [
+        {
+          "source": "common-react",
+          "target": "common",
+          "type": "static"
+        }
+      ],
       "storybook": [],
       "common": []
     }
