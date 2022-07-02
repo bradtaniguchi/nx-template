@@ -101,6 +101,12 @@
               "options": {
                 "command": "npx typedoc --options apps/internal-client/typedoc.json"
               }
+            },
+            "lighthouse": {
+              "executor": "@nrwl/workspace:run-commands",
+              "options": {
+                "command": "node ./apps/internal-client/scripts/lighthouse.js"
+              }
             }
           },
           "tags": [],
@@ -127,7 +133,7 @@
             },
             {
               "file": "apps/internal-client/project.json",
-              "hash": "ed3fa3c75d8872bb20bc67e3c4bdfed0ed445841"
+              "hash": "313c874174411dea5d4bcff7e935ef565e54c266"
             },
             {
               "file": "apps/internal-client/proxy.conf.json",
@@ -136,6 +142,13 @@
             {
               "file": "apps/internal-client/README.md",
               "hash": "b3e681c07ee60ffec51ba74d18e551cac30a8342"
+            },
+            {
+              "file": "apps/internal-client/scripts/lighthouse.js",
+              "hash": "455551f2782f8084312d6d01c66039a7da483dea",
+              "deps": [
+                "npm:fs-extra"
+              ]
             },
             {
               "file": "apps/internal-client/src/app/app.spec.tsx",
