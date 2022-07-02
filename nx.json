@@ -42,7 +42,8 @@
         "style": "scss",
         "linter": "eslint",
         "babel": true,
-        "strict": true
+        "strict": true,
+        "e2eTestRunner": "none"
       },
       "component": {
         "style": "scss"
