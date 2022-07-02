@@ -445,7 +445,7 @@
             },
             {
               "file": "libs/common-react/src/lib/hooks/index.ts",
-              "hash": "602219d17d3959bd83ecc4ecc470133ada6044ff"
+              "hash": "eb3423ee1c140d433defd99c5e4013b742198354"
             },
             {
               "file": "libs/common-react/src/lib/hooks/use-config.ts",
@@ -473,6 +473,13 @@
             {
               "file": "libs/common-react/src/lib/hooks/use-nx-graph.ts",
               "hash": "0cb1027798878aa5b6e2b4667bb974c4640aed70",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "libs/common-react/src/lib/hooks/use-script.ts",
+              "hash": "ed3db7a1bc2661cdcf79677c9a52c90495908bd6",
               "deps": [
                 "npm:react"
               ]
