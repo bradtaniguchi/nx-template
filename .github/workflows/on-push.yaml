@@ -36,7 +36,6 @@ jobs:
       - run: npx nx run internal-client:lint
       - run: npx nx run internal-client:test
       - run: npx nx run internal-client:build:production
-      - run: npx nx run internal-client:lighthouse
       - uses: actions/upload-artifact@v2
         with:
           name: internal-client
