@@ -4,8 +4,9 @@ import { createContext, useMemo } from 'react';
 
 /**
  * Hook that creates a localForage instance and returns it.
- * This should be used for one-off instance creations at the top level of the
- * app. It should not be used for common updates to localStorage.
+ * This should be used for one-off instance creations.
+ * It should not be used for common updates to localStorage as it creates
+ * a new instance all the time.
  *
  * Instead use the `localForageContextFactory` to create a context that
  * can be used over time.
