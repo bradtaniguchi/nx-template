@@ -1,9 +1,9 @@
-# Workflow that auto adds any issues created to
+# Workflow that auto adds any prs created to
 # the corresponding project board
 
-name: on-issue-create
+name: on-pr-create
 on:
-  issues:
+  pull_request:
     types:
       - opened
 
