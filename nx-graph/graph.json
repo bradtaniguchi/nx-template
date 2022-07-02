@@ -1,156 +1,6 @@
 {
   "graph": {
     "nodes": {
-      "internal-client-e2e": {
-        "name": "internal-client-e2e",
-        "type": "e2e",
-        "data": {
-          "root": "apps/internal-client-e2e",
-          "$schema": "../../node_modules/nx/schemas/project-schema.json",
-          "sourceRoot": "apps/internal-client-e2e/src",
-          "projectType": "application",
-          "targets": {
-            "e2e": {
-              "executor": "@nrwl/cypress:cypress",
-              "options": {
-                "cypressConfig": "apps/internal-client-e2e/cypress.json",
-                "devServerTarget": "internal-client:serve:development"
-              },
-              "configurations": {
-                "production": {
-                  "devServerTarget": "internal-client:serve:production"
-                }
-              }
-            },
-            "lint": {
-              "executor": "@nrwl/linter:eslint",
-              "outputs": [
-                "{options.outputFile}"
-              ],
-              "options": {
-                "lintFilePatterns": [
-                  "apps/internal-client-e2e/**/*.{js,ts}"
-                ]
-              }
-            }
-          },
-          "tags": [],
-          "implicitDependencies": [
-            "internal-client"
-          ],
-          "files": [
-            {
-              "file": "apps/internal-client-e2e/.eslintrc.json",
-              "hash": "4c5989b23b5aa8cc7aba2a07d1ae7daee19c1555"
-            },
-            {
-              "file": "apps/internal-client-e2e/cypress.json",
-              "hash": "2a015ac2b9909e534c93d554d7991fef3ef93ba3"
-            },
-            {
-              "file": "apps/internal-client-e2e/project.json",
-              "hash": "0a9df00cda8d2f3d7c02828f502fba89089f0db2"
-            },
-            {
-              "file": "apps/internal-client-e2e/src/fixtures/example.json",
-              "hash": "294cbed6ce9e0b948b787452e8676aee486cb3be"
-            },
-            {
-              "file": "apps/internal-client-e2e/src/integration/app.spec.ts",
-              "hash": "1710cbb4ee2505c4512a970700b963a65865848f"
-            },
-            {
-              "file": "apps/internal-client-e2e/src/support/app.po.ts",
-              "hash": "32934246969c2ecb827ac05677785933a707a54d"
-            },
-            {
-              "file": "apps/internal-client-e2e/src/support/commands.ts",
-              "hash": "e030c94e05481be3e3d1fec712a079876a19b312"
-            },
-            {
-              "file": "apps/internal-client-e2e/src/support/index.ts",
-              "hash": "3d469a6b6cf31eb66117d73e278bcf74f398f1db"
-            },
-            {
-              "file": "apps/internal-client-e2e/tsconfig.json",
-              "hash": "c4f818ecd40fbce82c3e08bf25cde3043970f8f3"
-            }
-          ]
-        }
-      },
-      "common-react-e2e": {
-        "name": "common-react-e2e",
-        "type": "e2e",
-        "data": {
-          "root": "apps/common-react-e2e",
-          "$schema": "../../node_modules/nx/schemas/project-schema.json",
-          "sourceRoot": "apps/common-react-e2e/src",
-          "projectType": "application",
-          "targets": {
-            "e2e": {
-              "executor": "@nrwl/cypress:cypress",
-              "options": {
-                "cypressConfig": "apps/common-react-e2e/cypress.json",
-                "devServerTarget": "common-react:storybook"
-              },
-              "configurations": {
-                "ci": {
-                  "devServerTarget": "common-react:storybook:ci"
-                }
-              }
-            },
-            "lint": {
-              "executor": "@nrwl/linter:eslint",
-              "outputs": [
-                "{options.outputFile}"
-              ],
-              "options": {
-                "lintFilePatterns": [
-                  "apps/common-react-e2e/**/*.{js,ts}"
-                ]
-              }
-            }
-          },
-          "tags": [],
-          "implicitDependencies": [
-            "common-react"
-          ],
-          "files": [
-            {
-              "file": "apps/common-react-e2e/.eslintrc.json",
-              "hash": "696cb8b12127425419f6d2809c5f15a5963d86de"
-            },
-            {
-              "file": "apps/common-react-e2e/cypress.json",
-              "hash": "825c17c116c9f7a0ea4829814cd2407cbd3eb0dd"
-            },
-            {
-              "file": "apps/common-react-e2e/project.json",
-              "hash": "c606cf8f25e472bd7334efd1c8129d717ec8e455"
-            },
-            {
-              "file": "apps/common-react-e2e/src/fixtures/example.json",
-              "hash": "294cbed6ce9e0b948b787452e8676aee486cb3be"
-            },
-            {
-              "file": "apps/common-react-e2e/src/integration/header-bar/header-bar.spec.ts",
-              "hash": "fb70171cbddea8b12f6cfe1d5b1eba4f669c454d"
-            },
-            {
-              "file": "apps/common-react-e2e/src/support/commands.ts",
-              "hash": "dbd96261c756f1021f18bf6d25c766326497167b"
-            },
-            {
-              "file": "apps/common-react-e2e/src/support/index.ts",
-              "hash": "3d469a6b6cf31eb66117d73e278bcf74f398f1db"
-            },
-            {
-              "file": "apps/common-react-e2e/tsconfig.json",
-              "hash": "c4f818ecd40fbce82c3e08bf25cde3043970f8f3"
-            }
-          ]
-        }
-      },
       "internal-client": {
         "name": "internal-client",
         "type": "app",
@@ -401,79 +251,6 @@
             {
               "file": "apps/internal-client/typedoc.json",
               "hash": "1f5e1c382b4b0edb6e7b8764ddaaca3dba2a4c51"
-            }
-          ]
-        }
-      },
-      "storybook-e2e": {
-        "name": "storybook-e2e",
-        "type": "e2e",
-        "data": {
-          "root": "apps/storybook-e2e",
-          "$schema": "../../node_modules/nx/schemas/project-schema.json",
-          "sourceRoot": "apps/storybook-e2e/src",
-          "projectType": "application",
-          "targets": {
-            "e2e": {
-              "executor": "@nrwl/cypress:cypress",
-              "options": {
-                "cypressConfig": "apps/storybook-e2e/cypress.json",
-                "devServerTarget": "storybook:storybook"
-              },
-              "configurations": {
-                "ci": {
-                  "devServerTarget": "storybook:storybook:ci"
-                }
-              }
-            },
-            "lint": {
-              "executor": "@nrwl/linter:eslint",
-              "outputs": [
-                "{options.outputFile}"
-              ],
-              "options": {
-                "lintFilePatterns": [
-                  "apps/storybook-e2e/**/*.{js,ts}"
-                ]
-              }
-            }
-          },
-          "tags": [],
-          "implicitDependencies": [
-            "storybook"
-          ],
-          "files": [
-            {
-              "file": "apps/storybook-e2e/.eslintrc.json",
-              "hash": "696cb8b12127425419f6d2809c5f15a5963d86de"
-            },
-            {
-              "file": "apps/storybook-e2e/cypress.json",
-              "hash": "cdcf7a4471f1f4a9747728d743da4e72866edfea"
-            },
-            {
-              "file": "apps/storybook-e2e/project.json",
-              "hash": "79e3d5597a4675e1ee8e467b4484b4f6a619391e"
-            },
-            {
-              "file": "apps/storybook-e2e/src/fixtures/example.json",
-              "hash": "294cbed6ce9e0b948b787452e8676aee486cb3be"
-            },
-            {
-              "file": "apps/storybook-e2e/src/integration/storybook/storybook.spec.ts",
-              "hash": "790f612c4a37e13e2983d12af9438a08caa9e17c"
-            },
-            {
-              "file": "apps/storybook-e2e/src/support/commands.ts",
-              "hash": "dd92f50a34a243dc6c08abff77dc7db99ad39b93"
-            },
-            {
-              "file": "apps/storybook-e2e/src/support/index.ts",
-              "hash": "3d469a6b6cf31eb66117d73e278bcf74f398f1db"
-            },
-            {
-              "file": "apps/storybook-e2e/tsconfig.json",
-              "hash": "c4f818ecd40fbce82c3e08bf25cde3043970f8f3"
             }
           ]
         }
@@ -1047,20 +824,6 @@
       }
     },
     "dependencies": {
-      "internal-client-e2e": [
-        {
-          "source": "internal-client-e2e",
-          "target": "internal-client",
-          "type": "implicit"
-        }
-      ],
-      "common-react-e2e": [
-        {
-          "source": "common-react-e2e",
-          "target": "common-react",
-          "type": "implicit"
-        }
-      ],
       "internal-client": [
         {
           "source": "internal-client",
@@ -1070,13 +833,6 @@
         {
           "source": "internal-client",
           "target": "common-react",
-          "type": "implicit"
-        }
-      ],
-      "storybook-e2e": [
-        {
-          "source": "storybook-e2e",
-          "target": "storybook",
           "type": "implicit"
         }
       ],
