@@ -84,6 +84,12 @@
       "options": {
         "command": "npx typedoc --options apps/internal-client/typedoc.json"
       }
+    },
+    "lighthouse": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "node ./apps/internal-client/scripts/lighthouse.js"
+      }
     }
   },
   "tags": [],
