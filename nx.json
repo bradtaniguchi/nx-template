@@ -4,9 +4,6 @@
   "affected": {
     "defaultBase": "main"
   },
-  "cli": {
-    "defaultCollection": "@nrwl/react"
-  },
   "implicitDependencies": {
     "package.json": {
       "dependencies": "*",
@@ -27,14 +24,6 @@
         ]
       }
     }
-  },
-  "targetDependencies": {
-    "build": [
-      {
-        "target": "build",
-        "projects": "dependencies"
-      }
-    ]
   },
   "generators": {
     "@nrwl/react": {
@@ -66,5 +55,10 @@
       "publishable": false
     }
   },
-  "defaultProject": "internal-client"
+  "defaultProject": "internal-client",
+  "targetDefaults": {
+    "build": {
+      "dependsOn": ["^build"]
+    }
+  }
 }
