@@ -46,6 +46,30 @@
         "publishable": false
       }
     },
+    "@nrwl/next": {
+      "app": {
+        "style": "styled-components",
+        "linter": "eslint",
+        "babel": true,
+        "strict": true,
+        "e2eTestRunner": "none"
+      },
+      "component": {
+        "style": "scss"
+      },
+      "library": {
+        "linter": "eslint",
+        "unitTestRunner": "jest",
+        "strict": true,
+        "standaloneConfig": true,
+        "buildable": true,
+        "publishable": false
+      },
+      "application": {
+        "style": "styled-components",
+        "linter": "eslint"
+      }
+    },
     "@nrwl/node:library": {
       "linter": "eslint",
       "unitTestRunner": "jest",
