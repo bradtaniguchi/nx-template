@@ -55,7 +55,10 @@
                   "vendorChunk": false,
                   "deployUrl": "/nx-template/"
                 }
-              }
+              },
+              "dependsOn": [
+                "^build"
+              ]
             },
             "serve": {
               "executor": "@nrwl/web:dev-server",
@@ -300,7 +303,10 @@
                     "output": "."
                   }
                 ]
-              }
+              },
+              "dependsOn": [
+                "^build"
+              ]
             },
             "lint": {
               "executor": "@nrwl/linter:eslint",
@@ -591,7 +597,10 @@
                     "output": "."
                   }
                 ]
-              }
+              },
+              "dependsOn": [
+                "^build"
+              ]
             },
             "lint": {
               "executor": "@nrwl/linter:eslint",
@@ -759,7 +768,10 @@
                 "assets": [
                   "libs/common/*.md"
                 ]
-              }
+              },
+              "dependsOn": [
+                "^build"
+              ]
             },
             "lint": {
               "executor": "@nrwl/linter:eslint",
