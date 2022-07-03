@@ -1,16 +1,10 @@
-import styles from './not-found-page.module.scss';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid';
-import CardContent from '@mui/material/CardContent';
 import Card from '@mui/material/Card';
-
-/* eslint-disable-next-line */
-export interface NotFoundPageProps {}
-
-export function NotFoundPage(props: NotFoundPageProps) {
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+export default function PageNotFound() {
   return (
-    <div className={styles['container']}>
+    <div>
       <Box sx={{ flexGrow: 1 }}>
         <Box
           sx={{
@@ -31,5 +25,3 @@ export function NotFoundPage(props: NotFoundPageProps) {
     </div>
   );
 }
-
-export default NotFoundPage;

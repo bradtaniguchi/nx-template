@@ -12,7 +12,6 @@ import {
   useConfig,
   useNxGraph,
 } from '@nx-template/common-react';
-import styles from './dashboard-page.module.scss';
 import { useMemo } from 'react';
 import CircularProgress from '@mui/material/CircularProgress';
 
@@ -45,7 +44,7 @@ export function DashboardPage(props: DashboardPageProps) {
   );
 
   return (
-    <div className={styles['container']}>
+    <div>
       <Box sx={{ flexGrow: 1 }}>
         <Grid
           container
@@ -66,11 +65,9 @@ export function DashboardPage(props: DashboardPageProps) {
                       return <Typography>Error Loading config.json</Typography>;
                     return (
                       <Card variant="outlined">
-                        <Typography>
-                          <pre style={{ margin: '0' }}>
-                            {JSON.stringify(config, null, 2)}
-                          </pre>
-                        </Typography>
+                        <pre style={{ margin: '0' }}>
+                          {JSON.stringify(config, null, 2)}
+                        </pre>
                       </Card>
                     );
                   })()}
@@ -117,7 +114,7 @@ export function DashboardPage(props: DashboardPageProps) {
                     if (nxGraphError)
                       return <Typography>Error Loading nx-graph</Typography>;
                     return projects.map((project) => (
-                      <Grid item xs={8}>
+                      <Grid item xs={8} key={project}>
                         <Typography
                           component="a"
                           sx={{

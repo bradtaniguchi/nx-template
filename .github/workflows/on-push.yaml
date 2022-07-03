@@ -34,11 +34,11 @@ jobs:
       - uses: ./.github/actions/init-job
       - run: npx nx run internal-client:lint
       - run: npx nx run internal-client:test
-      - run: npx nx run internal-client:build:production
+      - run: npx nx run internal-client:export
       - uses: actions/upload-artifact@v2
         with:
           name: internal-client
-          path: dist/apps/internal-client
+          path: dist/apps/internal-client/exported
           retention-days: 3
 
   # Job that generates the storybook configuration for all projects that have it,

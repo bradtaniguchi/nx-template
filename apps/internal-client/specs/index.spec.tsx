@@ -1,9 +1,7 @@
-import { render } from '@testing-library/react';
-import { act } from 'react-dom/test-utils';
+import { act, render, RenderResult } from '@testing-library/react';
+import Index from '../pages/index';
 
-import DashboardPage from './dashboard-page';
-
-describe('DashboardPage', () => {
+describe('App', () => {
   beforeAll(() => {
     global.fetch = jest.fn(() =>
       Promise.resolve({
@@ -17,10 +15,11 @@ describe('DashboardPage', () => {
   });
 
   it('should render successfully', async () => {
-    let baseElement: HTMLElement | undefined;
+    let baseElement: RenderResult;
     await act(async () => {
-      baseElement = render(<DashboardPage />).baseElement;
+      baseElement = render(<Index />);
     });
+
     expect(baseElement).toBeTruthy();
   });
 });
