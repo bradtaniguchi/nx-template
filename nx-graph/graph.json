@@ -7,86 +7,49 @@
         "data": {
           "root": "apps/internal-client",
           "$schema": "../../node_modules/nx/schemas/project-schema.json",
-          "sourceRoot": "apps/internal-client/src",
+          "sourceRoot": "apps/internal-client",
           "projectType": "application",
           "targets": {
             "build": {
-              "executor": "@nrwl/web:webpack",
+              "executor": "@nrwl/next:build",
               "outputs": [
                 "{options.outputPath}"
               ],
               "defaultConfiguration": "production",
               "options": {
-                "compiler": "babel",
-                "outputPath": "dist/apps/internal-client",
-                "index": "apps/internal-client/src/index.html",
-                "main": "apps/internal-client/src/main.tsx",
-                "polyfills": "apps/internal-client/src/polyfills.ts",
-                "tsConfig": "apps/internal-client/tsconfig.app.json",
-                "assets": [
-                  "apps/internal-client/src/favicon.ico",
-                  "apps/internal-client/src/assets"
-                ],
-                "styles": [
-                  "apps/internal-client/src/styles.scss"
-                ],
-                "scripts": [],
-                "webpackConfig": "@nrwl/react/plugins/webpack"
+                "root": "apps/internal-client",
+                "outputPath": "dist/apps/internal-client"
               },
               "configurations": {
-                "development": {
-                  "extractLicenses": false,
-                  "optimization": false,
-                  "sourceMap": true,
-                  "vendorChunk": true
-                },
-                "production": {
-                  "fileReplacements": [
-                    {
-                      "replace": "apps/internal-client/src/environments/environment.ts",
-                      "with": "apps/internal-client/src/environments/environment.prod.ts"
-                    }
-                  ],
-                  "optimization": true,
-                  "outputHashing": "all",
-                  "sourceMap": false,
-                  "namedChunks": false,
-                  "extractLicenses": true,
-                  "vendorChunk": false,
-                  "deployUrl": "/nx-template/"
-                }
+                "development": {},
+                "production": {}
               },
               "dependsOn": [
                 "^build"
               ]
             },
             "serve": {
-              "executor": "@nrwl/web:dev-server",
+              "executor": "@nrwl/next:server",
               "defaultConfiguration": "development",
               "options": {
                 "buildTarget": "internal-client:build",
-                "hmr": true,
-                "proxyConfig": "apps/internal-client/proxy.conf.json"
+                "dev": true
               },
               "configurations": {
                 "development": {
-                  "buildTarget": "internal-client:build:development"
+                  "buildTarget": "internal-client:build:development",
+                  "dev": true
                 },
                 "production": {
                   "buildTarget": "internal-client:build:production",
-                  "hmr": false
+                  "dev": false
                 }
               }
             },
-            "lint": {
-              "executor": "@nrwl/linter:eslint",
-              "outputs": [
-                "{options.outputFile}"
-              ],
+            "export": {
+              "executor": "@nrwl/next:export",
               "options": {
-                "lintFilePatterns": [
-                  "apps/internal-client/**/*.{ts,tsx,js,jsx}"
-                ]
+                "buildTarget": "internal-client:build:production"
               }
             },
             "test": {
@@ -99,93 +62,27 @@
                 "passWithNoTests": true
               }
             },
-            "typedoc": {
-              "executor": "@nrwl/workspace:run-commands",
+            "lint": {
+              "executor": "@nrwl/linter:eslint",
+              "outputs": [
+                "{options.outputFile}"
+              ],
               "options": {
-                "command": "npx typedoc --options apps/internal-client/typedoc.json"
-              }
-            },
-            "lighthouse": {
-              "executor": "@nrwl/workspace:run-commands",
-              "options": {
-                "command": "node ./apps/internal-client/scripts/lighthouse.js"
+                "lintFilePatterns": [
+                  "apps/internal-client/**/*.{ts,tsx,js,jsx}"
+                ]
               }
             }
           },
           "tags": [],
-          "implicitDependencies": [
-            "common",
-            "common-react"
-          ],
           "files": [
             {
-              "file": "apps/internal-client/.babelrc",
-              "hash": "61641ec8ac3659e204441c80bb06defe323e3110"
-            },
-            {
-              "file": "apps/internal-client/.browserslistrc",
-              "hash": "f1d12df4faa25ab7f0f03196105e957395f609af"
-            },
-            {
               "file": "apps/internal-client/.eslintrc.json",
-              "hash": "734ddaceea447738208c9519158ad6b3062f3929"
+              "hash": "f13f56cc53c7d94063a3c717349e025e863bc78c"
             },
             {
-              "file": "apps/internal-client/jest.config.ts",
-              "hash": "fa61a71e0cafcbb175e1732923f3ab5faee34005"
-            },
-            {
-              "file": "apps/internal-client/project.json",
-              "hash": "313c874174411dea5d4bcff7e935ef565e54c266"
-            },
-            {
-              "file": "apps/internal-client/proxy.conf.json",
-              "hash": "a394ee591f1afb4184ca23d20b9e6f49caa94076"
-            },
-            {
-              "file": "apps/internal-client/README.md",
-              "hash": "b3e681c07ee60ffec51ba74d18e551cac30a8342"
-            },
-            {
-              "file": "apps/internal-client/scripts/lighthouse.js",
-              "hash": "455551f2782f8084312d6d01c66039a7da483dea",
-              "deps": [
-                "npm:fs-extra"
-              ]
-            },
-            {
-              "file": "apps/internal-client/src/app/app.spec.tsx",
-              "hash": "92b16280fcf4eba63a70bec46a18441f3de7d015",
-              "deps": [
-                "npm:@testing-library/react",
-                "npm:react-router-dom"
-              ]
-            },
-            {
-              "file": "apps/internal-client/src/app/app.tsx",
-              "hash": "c0147c55b6c5d0f2ff0cdc03cd9a29241c0e9de8",
-              "deps": [
-                "npm:@mui/material",
-                "common-react",
-                "npm:react",
-                "npm:react-router-dom"
-              ]
-            },
-            {
-              "file": "apps/internal-client/src/app/pages/dashboard-page/dashboard-page.module.scss",
-              "hash": "45c2aa47e9879fa033c0d1f266154dd6106c2201"
-            },
-            {
-              "file": "apps/internal-client/src/app/pages/dashboard-page/dashboard-page.spec.tsx",
-              "hash": "a39f6eaf24193263fed9012f7946752c2d92e8d8",
-              "deps": [
-                "npm:@testing-library/react",
-                "npm:react-dom"
-              ]
-            },
-            {
-              "file": "apps/internal-client/src/app/pages/dashboard-page/dashboard-page.tsx",
-              "hash": "08c0898e08efccb8545043810439aee73e2eae17",
+              "file": "apps/internal-client/components/dashboard-page/dashboard-page.tsx",
+              "hash": "1331049f2d31e772ededf6cd15ef5d22d0c8b701",
               "deps": [
                 "npm:@mui/material",
                 "npm:@mui/icons-material",
@@ -194,79 +91,86 @@
               ]
             },
             {
-              "file": "apps/internal-client/src/app/pages/not-found-page/not-found-page.module.scss",
-              "hash": "45c2aa47e9879fa033c0d1f266154dd6106c2201"
+              "file": "apps/internal-client/index.d.ts",
+              "hash": "7ba08fa17ccbb3d5eaa4d9c7b435bd44ff43f330"
             },
             {
-              "file": "apps/internal-client/src/app/pages/not-found-page/not-found-page.spec.tsx",
-              "hash": "33fd2bbe065efe2ccd29cd7414659922bcd463b4",
+              "file": "apps/internal-client/jest.config.ts",
+              "hash": "315b134a141cb9ac26109a983501097abfe95d35"
+            },
+            {
+              "file": "apps/internal-client/next-env.d.ts",
+              "hash": "4f11a03dc6cc37f2b5105c08f2e7b24c603ab2f4"
+            },
+            {
+              "file": "apps/internal-client/next.config.js",
+              "hash": "6e71017faeb774fdd10e68dc9ee3d4ba55422788",
               "deps": [
-                "npm:@testing-library/react"
+                "npm:@nrwl/next"
               ]
             },
             {
-              "file": "apps/internal-client/src/app/pages/not-found-page/not-found-page.tsx",
-              "hash": "d69a55311e09d9fd84962ef59bd4c5692ec2b79c",
+              "file": "apps/internal-client/pages/_app.tsx",
+              "hash": "f02c36c8218187b724678b8edd07b0f0cb2371f9",
+              "deps": [
+                "npm:next"
+              ]
+            },
+            {
+              "file": "apps/internal-client/pages/_document.tsx",
+              "hash": "0e56330eb7f3fcda1313bd4bace286ee4efc051c",
+              "deps": [
+                "npm:react",
+                "npm:next",
+                "npm:styled-components"
+              ]
+            },
+            {
+              "file": "apps/internal-client/pages/404.tsx",
+              "hash": "07c722102e80f95c5916411ecf574d2dd643ef7f",
               "deps": [
                 "npm:@mui/material"
               ]
             },
             {
-              "file": "apps/internal-client/src/assets/.gitkeep",
+              "file": "apps/internal-client/pages/index.tsx",
+              "hash": "fafbea9a176e69c72b3116a21b7d87d158376c97",
+              "deps": [
+                "npm:styled-components",
+                "common-react",
+                "npm:@mui/material"
+              ]
+            },
+            {
+              "file": "apps/internal-client/pages/styles.css",
+              "hash": "7fe31fd45429117eb5aeef6a5d9332da9d9dd9c0"
+            },
+            {
+              "file": "apps/internal-client/project.json",
+              "hash": "85d829a703de1f3efa422a7932dc7d07328bb78e"
+            },
+            {
+              "file": "apps/internal-client/public/.gitkeep",
               "hash": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
             },
             {
-              "file": "apps/internal-client/src/environments/environment.prod.ts",
-              "hash": "c9669790be176ac85a5d8c11278875c2f52dc507"
+              "file": "apps/internal-client/README.md",
+              "hash": "1bac1ab9064ef1f7c32dcd8a483e593033f8736b"
             },
             {
-              "file": "apps/internal-client/src/environments/environment.ts",
-              "hash": "7ed83767fff25adfed19d52b2821a432f8ed18b1"
-            },
-            {
-              "file": "apps/internal-client/src/favicon.ico",
-              "hash": "317ebcb2336e0833a22dddf0ab287849f26fda57"
-            },
-            {
-              "file": "apps/internal-client/src/index.html",
-              "hash": "72783004e8a13bf7ab38733d7f45fe002fec04ef"
-            },
-            {
-              "file": "apps/internal-client/src/main.tsx",
-              "hash": "e670249390db4d292d01828b14f38d55c97ba877",
+              "file": "apps/internal-client/specs/index.spec.tsx",
+              "hash": "77269d9ec1d2ead92093b9882e49eda89c5ccb74",
               "deps": [
-                "npm:react",
-                "npm:react-dom",
-                "npm:react-router-dom"
+                "npm:@testing-library/react"
               ]
-            },
-            {
-              "file": "apps/internal-client/src/polyfills.ts",
-              "hash": "2adf3d05b6fcf479dd61c74f6bda95d9edb6ac6b",
-              "deps": [
-                "npm:core-js",
-                "npm:regenerator-runtime"
-              ]
-            },
-            {
-              "file": "apps/internal-client/src/styles.scss",
-              "hash": "9100733a293a67946e22b270f95b3d0eaac977bd"
-            },
-            {
-              "file": "apps/internal-client/tsconfig.app.json",
-              "hash": "af84f21cfc8066d0302f5772b7c157e81d418617"
             },
             {
               "file": "apps/internal-client/tsconfig.json",
-              "hash": "9657042e495d5b69d338455a91b5fcaae1bddff3"
+              "hash": "cadb8cda700070fec16641a4c734213862573c1c"
             },
             {
               "file": "apps/internal-client/tsconfig.spec.json",
-              "hash": "b8a950754b6152f8b12188ac8bd1d289ccbf57ce"
-            },
-            {
-              "file": "apps/internal-client/typedoc.json",
-              "hash": "1f5e1c382b4b0edb6e7b8764ddaaca3dba2a4c51"
+              "hash": "23a8088f2767edee8d855ed96148c2ec01fda8fc"
             }
           ]
         }
@@ -875,13 +779,8 @@
       "internal-client": [
         {
           "source": "internal-client",
-          "target": "common",
-          "type": "implicit"
-        },
-        {
-          "source": "internal-client",
           "target": "common-react",
-          "type": "implicit"
+          "type": "static"
         }
       ],
       "common-react": [
