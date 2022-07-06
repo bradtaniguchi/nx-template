@@ -380,14 +380,14 @@
             },
             {
               "file": "libs/common-react/src/lib/hooks/use-config.ts",
-              "hash": "77aab219f00359a5d780e998e864deff6ffc253b",
+              "hash": "a01538ff0132e653c3bb9e8462abb502833b4597",
               "deps": [
                 "npm:react"
               ]
             },
             {
               "file": "libs/common-react/src/lib/hooks/use-local-forage.ts",
-              "hash": "20b0c24385d05fb9b83692f7a36187ec1e314eb1",
+              "hash": "145b7cabbc42d258f2690578ac911d889708d094",
               "deps": [
                 "npm:localforage",
                 "npm:react"
@@ -395,7 +395,7 @@
             },
             {
               "file": "libs/common-react/src/lib/hooks/use-logger.ts",
-              "hash": "b008b7a6f34e7e81d8b3f0c0b5a921bfc3d24193",
+              "hash": "832d8c2a257ef059aa9644e30720cb59e71362b8",
               "deps": [
                 "common",
                 "npm:react"
@@ -403,14 +403,14 @@
             },
             {
               "file": "libs/common-react/src/lib/hooks/use-nx-graph.ts",
-              "hash": "0cb1027798878aa5b6e2b4667bb974c4640aed70",
+              "hash": "20b6f768c054484f48fb753b3bce2977cdfe2eaf",
               "deps": [
                 "npm:react"
               ]
             },
             {
               "file": "libs/common-react/src/lib/hooks/use-script.ts",
-              "hash": "ed3db7a1bc2661cdcf79677c9a52c90495908bd6",
+              "hash": "8b5bf160ac1ea391287b718cedff8444e9426d6a",
               "deps": [
                 "npm:react"
               ]
