@@ -312,7 +312,11 @@
             },
             {
               "file": "libs/common-react/src/index.ts",
-              "hash": "8fb871412a1eebf1e6f9d6e2128ab11108bf5d67"
+              "hash": "bc2818fa2e5d5c727db6803e4944d1a2531c9d3d"
+            },
+            {
+              "file": "libs/common-react/src/lib/components/google-analytics/google-analytics.tsx",
+              "hash": "4cd8039333cae6fddb60f7c8a855c2475c538ae2"
             },
             {
               "file": "libs/common-react/src/lib/components/header-bar/header-bar-context.ts",
