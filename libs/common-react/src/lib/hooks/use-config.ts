@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useDebugValue } from 'react';
 import { BaseConfig } from '../types';
 import { getConfig } from '../utils';
 
@@ -33,6 +33,8 @@ export function useConfig<AppConfig extends object>(params?: {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [path, overrides]);
+
+  useDebugValue({ configLoading, configError, config });
 
   return { configLoading, configError, config };
 }

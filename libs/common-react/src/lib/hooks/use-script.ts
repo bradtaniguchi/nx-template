@@ -1,6 +1,6 @@
 // largely taken from:
 // https://stackoverflow.com/questions/34424845/adding-script-tag-to-react-jsx
-import { useEffect } from 'react';
+import { useDebugValue, useEffect } from 'react';
 
 /**
  * Options that could be passed to the userScript hook.
@@ -30,6 +30,8 @@ export interface UseScriptOptions {
  * @unstable
  */
 export function useScript(options?: UseScriptOptions) {
+  useDebugValue(options);
+
   useEffect(() => {
     const { url, async, onLoad } = options || {};
 

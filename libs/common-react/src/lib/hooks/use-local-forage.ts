@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { createInstance } from 'localforage';
-import { createContext, useMemo } from 'react';
+import { createContext, useDebugValue, useMemo } from 'react';
 
 /**
  * Hook that creates a localForage instance and returns it.
@@ -20,6 +20,8 @@ import { createContext, useMemo } from 'react';
  * @unstable
  */
 export function useLocalForage(options: LocalForageOptions) {
+  useDebugValue(options);
+
   return useMemo(() => createInstance(options), [options]);
 }
 
