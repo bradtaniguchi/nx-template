@@ -10,8 +10,6 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
-  assetPrefix: '/nx-template/',
-  basePath: '/nx-template',
 };
 
 module.exports = withNx(nextConfig);

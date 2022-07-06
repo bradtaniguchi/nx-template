@@ -20,10 +20,10 @@ export interface DashboardPageProps {}
 
 export function DashboardPage(props: DashboardPageProps) {
   const { config, configError, configLoading } = useConfig({
-    path: '/nx-template/config.json',
+    path: 'config.json',
   });
   const { nxGraph, nxGraphError, nxGraphLoading } = useNxGraph({
-    path: '/nx-template/nx-graph/graph.json',
+    path: 'nx-graph/graph.json',
   });
 
   const projects = useMemo(
