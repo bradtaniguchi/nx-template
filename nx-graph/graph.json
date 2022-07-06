@@ -104,21 +104,21 @@
             },
             {
               "file": "apps/internal-client/next.config.js",
-              "hash": "7922ea7e424f288b2b5118330010a9abb0cf1598",
+              "hash": "30a391e6f16e41a352e0947381b0f3b3998e8b64",
               "deps": [
                 "npm:@nrwl/next"
               ]
             },
             {
               "file": "apps/internal-client/pages/_app.tsx",
-              "hash": "f02c36c8218187b724678b8edd07b0f0cb2371f9",
+              "hash": "631a38aa5ae7b6b3a8a0784e6ebd0720c6cad3ce",
               "deps": [
                 "npm:next"
               ]
             },
             {
               "file": "apps/internal-client/pages/_document.tsx",
-              "hash": "0e56330eb7f3fcda1313bd4bace286ee4efc051c",
+              "hash": "f6b3aa72ea3a8234a56eb4ee53c5dabf1f2d5496",
               "deps": [
                 "npm:react",
                 "npm:next",
@@ -151,6 +151,10 @@
             },
             {
               "file": "apps/internal-client/public/.gitkeep",
+              "hash": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
+            },
+            {
+              "file": "apps/internal-client/public/.nokjekyll",
               "hash": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
             },
             {
