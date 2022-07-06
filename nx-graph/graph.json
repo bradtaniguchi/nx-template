@@ -82,7 +82,7 @@
             },
             {
               "file": "apps/internal-client/components/dashboard-page/dashboard-page.tsx",
-              "hash": "1331049f2d31e772ededf6cd15ef5d22d0c8b701",
+              "hash": "60c48655bcf376306599f705bcbfd550628cda2b",
               "deps": [
                 "npm:@mui/material",
                 "npm:@mui/icons-material",
@@ -104,7 +104,7 @@
             },
             {
               "file": "apps/internal-client/next.config.js",
-              "hash": "0b36a2c4b310e4851dad50ba4ff65d65b45bf8d2",
+              "hash": "7922ea7e424f288b2b5118330010a9abb0cf1598",
               "deps": [
                 "npm:@nrwl/next"
               ]
@@ -155,7 +155,7 @@
             },
             {
               "file": "apps/internal-client/README.md",
-              "hash": "1bac1ab9064ef1f7c32dcd8a483e593033f8736b"
+              "hash": "c3d6764c562762412dfdd5fe35ad886830b6f0a3"
             },
             {
               "file": "apps/internal-client/specs/index.spec.tsx",
