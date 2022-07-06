@@ -1,5 +1,5 @@
 import { CommonLogger, CommonLoggerConfig } from '@nx-template/common';
-import { createContext, useMemo } from 'react';
+import { createContext, useDebugValue, useMemo } from 'react';
 
 /**
  * Hook that creates an instance of the CommonLogger class and returns it.
@@ -14,6 +14,7 @@ import { createContext, useMemo } from 'react';
  * @unstable
  */
 export function useLogger(options?: CommonLoggerConfig) {
+  useDebugValue(options);
   return useMemo(() => new CommonLogger(options), [options]);
 }
 

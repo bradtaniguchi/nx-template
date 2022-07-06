@@ -1,5 +1,5 @@
 import { ProjectGraph } from '@nrwl/devkit';
-import { useEffect, useState } from 'react';
+import { useDebugValue, useEffect, useState } from 'react';
 import { getNxGraph } from '../utils';
 
 /**
@@ -32,6 +32,8 @@ export function useNxGraph(params?: {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [path, overrides]);
+
+  useDebugValue({ nxGraphLoading, nxGraphError, nxGraph });
 
   return { nxGraphLoading, nxGraphError, nxGraph };
 }
