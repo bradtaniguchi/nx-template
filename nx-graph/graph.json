@@ -82,10 +82,10 @@
             },
             {
               "file": "apps/internal-client/components/dashboard-page/dashboard-page.tsx",
-              "hash": "60c48655bcf376306599f705bcbfd550628cda2b",
+              "hash": "e6f39850d67007f1a9e62dfd4f63ca8220d82fd9",
               "deps": [
-                "npm:@mui/material",
                 "npm:@mui/icons-material",
+                "npm:@mui/material",
                 "common-react",
                 "npm:react"
               ]
@@ -144,7 +144,7 @@
             },
             {
               "file": "apps/internal-client/pages/styles.css",
-              "hash": "7fe31fd45429117eb5aeef6a5d9332da9d9dd9c0"
+              "hash": "e8df664b21310fb18e3a97b2c89935b5db788787"
             },
             {
               "file": "apps/internal-client/project.json",
@@ -159,8 +159,16 @@
               "hash": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391"
             },
             {
+              "file": "apps/internal-client/public/config.json",
+              "hash": "677e3cdebdf644bcfcb8f9416e5b8822b2c01bb0"
+            },
+            {
+              "file": "apps/internal-client/public/nx-graph/graph.json",
+              "hash": "c5f027dc631c9c97b9542f93e1d522bd804d98fe"
+            },
+            {
               "file": "apps/internal-client/README.md",
-              "hash": "c3d6764c562762412dfdd5fe35ad886830b6f0a3"
+              "hash": "3621d89b6e8de790afd54ac835bf82292cf2420e"
             },
             {
               "file": "apps/internal-client/specs/index.spec.tsx",
