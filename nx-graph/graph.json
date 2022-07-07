@@ -118,11 +118,12 @@
             },
             {
               "file": "apps/internal-client/pages/_document.tsx",
-              "hash": "f6b3aa72ea3a8234a56eb4ee53c5dabf1f2d5496",
+              "hash": "274a20618956faff38c930f2a352f710fd5938a8",
               "deps": [
                 "npm:react",
                 "npm:next",
-                "npm:styled-components"
+                "npm:styled-components",
+                "common-react"
               ]
             },
             {
