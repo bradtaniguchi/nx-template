@@ -1,24 +1,168 @@
-import Link from '@mui/material/Link';
-import Box from '@mui/material/Box';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import Grid from '@mui/material/Grid';
-import Typography from '@mui/material/Typography';
 import ArticleIcon from '@mui/icons-material/Article';
 import BookIcon from '@mui/icons-material/Book';
 import EqualizerIcon from '@mui/icons-material/Equalizer';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CircularProgress from '@mui/material/CircularProgress';
+import Grid from '@mui/material/Grid';
+import Link from '@mui/material/Link';
+import Typography from '@mui/material/Typography';
+import { ProjectGraph } from '@nrwl/devkit';
 import {
+  BaseConfig,
   getProjectsByTarget,
   useConfig,
   useNxGraph,
 } from '@nx-template/common-react';
-import { useMemo } from 'react';
-import CircularProgress from '@mui/material/CircularProgress';
+import { memo, useMemo } from 'react';
 
-/* eslint-disable-next-line */
-export interface DashboardPageProps {}
+const spinner = (
+  <Box
+    sx={{
+      display: 'flex',
+      justifyContent: 'center',
+    }}
+  >
+    <CircularProgress />
+  </Box>
+);
 
-export function DashboardPage(props: DashboardPageProps) {
+const DashboardPageConfig = memo(function DashboardPageConfig({
+  configLoading,
+  configError,
+  config,
+}: {
+  configLoading?: boolean;
+  configError: unknown;
+  config: BaseConfig;
+}) {
+  return (
+    <Card variant="outlined">
+      <CardContent>
+        <Typography variant="h5" component="h5">
+          config.json
+        </Typography>
+        <Typography component="div">
+          {(() => {
+            if (configLoading) return spinner;
+            if (configError)
+              return <Typography>Error Loading config.json</Typography>;
+            return (
+              <Card variant="outlined">
+                <pre style={{ margin: '0' }}>
+                  {JSON.stringify(config, null, 2)}
+                </pre>
+              </Card>
+            );
+          })()}
+        </Typography>
+      </CardContent>
+    </Card>
+  );
+});
+
+function DashboardPageLinks() {
+  return (
+    <Card variant="outlined">
+      <CardContent>
+        <Typography variant="h5" component="h5">
+          External Links
+        </Typography>
+        <Grid container spacing={1} columns={2}>
+          <Grid item xs={8}>
+            <Typography
+              component="a"
+              sx={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                display: 'flex',
+              }}
+            >
+              <EqualizerIcon color="primary" />
+              <Link href="nx-template/nx-graph">nx-graph</Link>
+            </Typography>
+          </Grid>
+          <Grid item xs={8}>
+            <Typography
+              component="a"
+              sx={{
+                flexDirection: 'row',
+                alignItems: 'center',
+                display: 'flex',
+              }}
+            >
+              <BookIcon color="primary" />
+              <Link href="nx-template/storybooks">storybooks</Link>
+            </Typography>
+          </Grid>
+        </Grid>
+      </CardContent>
+    </Card>
+  );
+}
+
+const DashboardPageProjects = memo(function DashboardPageProjects({
+  nxGraphLoading,
+  nxGraphError,
+  nxGraph,
+}: {
+  nxGraphLoading?: boolean;
+  nxGraphError: unknown;
+  nxGraph: ProjectGraph<unknown>;
+}) {
+  const projects = useMemo(
+    () =>
+      nxGraph ? getProjectsByTarget({ graph: nxGraph, target: 'typedoc' }) : [],
+    [nxGraph]
+  );
+
+  return (
+    <Card variant="outlined">
+      <CardContent>
+        <Typography variant="h5" component="h5">
+          Project Docs
+        </Typography>
+        <Typography component="div">
+          {(() => {
+            if (nxGraphLoading) return spinner;
+            if (nxGraphError)
+              return <Typography>Error Loading nx-graph</Typography>;
+            return (
+              <Grid container spacing={1} columns={2}>
+                {projects.map((project) => (
+                  <Grid item xs={8} key={project}>
+                    <Typography
+                      component="a"
+                      sx={{
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        display: 'flex',
+                      }}
+                    >
+                      <ArticleIcon color="primary" />
+                      <Link
+                        href={`nx-template/docs/${project}`}
+                      >{`${project} docs`}</Link>
+                    </Typography>
+                  </Grid>
+                ))}
+              </Grid>
+            );
+          })()}
+        </Typography>
+      </CardContent>
+    </Card>
+  );
+});
+
+/**
+ * The dashboard page component.
+ *
+ * This is the main and only component that acts as a "project landing page"
+ * in regards to compiled docs and helper tools.
+ */
+export function DashboardPage() {
   const { config, configError, configLoading } = useConfig({
     path: 'config.json',
   });
@@ -26,26 +170,9 @@ export function DashboardPage(props: DashboardPageProps) {
     path: 'nx-graph/graph.json',
   });
 
-  const projects = useMemo(
-    () =>
-      nxGraph ? getProjectsByTarget({ graph: nxGraph, target: 'typedoc' }) : [],
-    [nxGraph]
-  );
-
-  const spinner = (
-    <Box
-      sx={{
-        display: 'flex',
-        justifyContent: 'center',
-      }}
-    >
-      <CircularProgress />
-    </Box>
-  );
-
   return (
     <div>
-      <Box sx={{ flexGrow: 1 }}>
+      <Box sx={{ flexGrow: 1, margin: '12px' }}>
         <Grid
           container
           spacing={4}
@@ -53,87 +180,23 @@ export function DashboardPage(props: DashboardPageProps) {
           columnSpacing={{ xs: 1, sm: 2, md: 3 }}
         >
           <Grid item xs={12} md={6}>
-            <Card variant="outlined">
-              <CardContent>
-                <Typography variant="h5" component="h5">
-                  config.json
-                </Typography>
-                <Typography component="div">
-                  {(() => {
-                    if (configLoading) return spinner;
-                    if (configError)
-                      return <Typography>Error Loading config.json</Typography>;
-                    return (
-                      <Card variant="outlined">
-                        <pre style={{ margin: '0' }}>
-                          {JSON.stringify(config, null, 2)}
-                        </pre>
-                      </Card>
-                    );
-                  })()}
-                </Typography>
-              </CardContent>
-            </Card>
+            <DashboardPageConfig
+              config={config}
+              configError={configError}
+              configLoading={configLoading}
+            />
           </Grid>
 
           <Grid item xs={12} md={6}>
-            <Card variant="outlined">
-              <CardContent>
-                <Typography variant="h5" component="h5">
-                  External Links
-                </Typography>
-                <Grid container spacing={1} columns={2}>
-                  <Grid item xs={8}>
-                    <Typography
-                      component="a"
-                      sx={{
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        display: 'flex',
-                      }}
-                    >
-                      <EqualizerIcon color="primary" />
-                      <Link href="nx-template/nx-graph">nx-graph</Link>
-                    </Typography>
-                  </Grid>
-                  <Grid item xs={8}>
-                    <Typography
-                      component="a"
-                      sx={{
-                        flexDirection: 'row',
-                        alignItems: 'center',
-                        display: 'flex',
-                      }}
-                    >
-                      <BookIcon color="primary" />
-                      <Link href="nx-template/storybooks">storybooks</Link>
-                    </Typography>
-                  </Grid>
-                  {(() => {
-                    if (nxGraphLoading) return spinner;
-                    if (nxGraphError)
-                      return <Typography>Error Loading nx-graph</Typography>;
-                    return projects.map((project) => (
-                      <Grid item xs={8} key={project}>
-                        <Typography
-                          component="a"
-                          sx={{
-                            flexDirection: 'row',
-                            alignItems: 'center',
-                            display: 'flex',
-                          }}
-                        >
-                          <ArticleIcon color="primary" />
-                          <Link
-                            href={`nx-template/docs/${project}`}
-                          >{`${project} docs`}</Link>
-                        </Typography>
-                      </Grid>
-                    ));
-                  })()}
-                </Grid>
-              </CardContent>
-            </Card>
+            <DashboardPageLinks />
+          </Grid>
+
+          <Grid item xs={12} md={6}>
+            <DashboardPageProjects
+              nxGraphError={nxGraphError}
+              nxGraphLoading={nxGraphLoading}
+              nxGraph={nxGraph}
+            />
           </Grid>
         </Grid>
       </Box>
