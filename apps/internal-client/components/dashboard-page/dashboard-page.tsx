@@ -80,7 +80,7 @@ function DashboardPageLinks() {
               }}
             >
               <EqualizerIcon color="primary" />
-              <Link href="nx-template/nx-graph">nx-graph</Link>
+              <Link href="nx-graph">nx-graph</Link>
             </Typography>
           </Grid>
           <Grid item xs={8}>
@@ -93,7 +93,7 @@ function DashboardPageLinks() {
               }}
             >
               <BookIcon color="primary" />
-              <Link href="nx-template/storybooks">storybooks</Link>
+              <Link href="storybooks">storybooks</Link>
             </Typography>
           </Grid>
         </Grid>
@@ -142,7 +142,7 @@ const DashboardPageProjects = memo(function DashboardPageProjects({
                     >
                       <ArticleIcon color="primary" />
                       <Link
-                        href={`nx-template/docs/${project}`}
+                        href={`docs/${project}`}
                       >{`${project} docs`}</Link>
                     </Typography>
                   </Grid>
