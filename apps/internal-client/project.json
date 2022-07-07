@@ -55,6 +55,12 @@
         "lintFilePatterns": ["apps/internal-client/**/*.{ts,tsx,js,jsx}"]
       }
     },
+    "smoke": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "npx http-server dist/apps/internal-client/exported"
+      }
+    },
     "lighthouse": {
       "executor": "@nrwl/workspace:run-commands",
       "options": {
