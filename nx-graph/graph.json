@@ -108,7 +108,7 @@
             },
             {
               "file": "apps/internal-client/components/dashboard-page/dashboard-page.tsx",
-              "hash": "e6f39850d67007f1a9e62dfd4f63ca8220d82fd9",
+              "hash": "95a88d95be6e677fe306901cc8ceb3b79430475d",
               "deps": [
                 "npm:@mui/icons-material",
                 "npm:@mui/material",
