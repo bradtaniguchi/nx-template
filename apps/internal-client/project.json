@@ -70,7 +70,7 @@
             "description": "Make missing directories"
           },
           {
-            "command": "cp -r dist/apps/internal-client/exported/_next dist/apps/internal-client/exported/config.json dist/apps/internal-client/exported/nx-graph dist/apps/internal-client/exported/nx-template/",
+            "command": "cp -r dist/apps/internal-client/exported/_next dist/apps/internal-client/exported/nx-template/",
             "description": "Copy files into nx-template sub-folder for testing"
           },
           {
