@@ -72,7 +72,7 @@ function DashboardPageLinks() {
         <Grid container spacing={1} columns={2}>
           <Grid item xs={8}>
             <Typography
-              component="a"
+              component="div"
               sx={{
                 flexDirection: 'row',
                 alignItems: 'center',
@@ -85,7 +85,7 @@ function DashboardPageLinks() {
           </Grid>
           <Grid item xs={8}>
             <Typography
-              component="a"
+              component="div"
               sx={{
                 flexDirection: 'row',
                 alignItems: 'center',
@@ -133,7 +133,7 @@ const DashboardPageProjects = memo(function DashboardPageProjects({
                 {projects.map((project) => (
                   <Grid item xs={8} key={project}>
                     <Typography
-                      component="a"
+                      component="div"
                       sx={{
                         flexDirection: 'row',
                         alignItems: 'center',
