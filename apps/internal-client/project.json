@@ -54,6 +54,12 @@
       "options": {
         "lintFilePatterns": ["apps/internal-client/**/*.{ts,tsx,js,jsx}"]
       }
+    },
+    "lighthouse": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "npx lhci autorun --config=./.lighthouse/lighthouserc.js --collect.staticDistDir=./dist/apps/internal-client/exported"
+      }
     }
   },
   "tags": []
