@@ -54,6 +54,32 @@
       "options": {
         "lintFilePatterns": ["apps/internal-client/**/*.{ts,tsx,js,jsx}"]
       }
+    },
+    "smoke": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "command": "npx http-server dist/apps/internal-client/exported"
+      }
+    },
+    "lighthouse": {
+      "executor": "@nrwl/workspace:run-commands",
+      "options": {
+        "commands": [
+          {
+            "command": "mkdir dist/apps/internal-client/exported/nx-template",
+            "description": "Make missing directories"
+          },
+          {
+            "command": "cp -r dist/apps/internal-client/exported/_next dist/apps/internal-client/exported/nx-template/",
+            "description": "Copy files into nx-template sub-folder for testing"
+          },
+          {
+            "command": "npx lhci autorun --config=./.lighthouse/lighthouserc.js --collect.staticDistDir=./dist/apps/internal-client/exported",
+            "description": "Run lighthouse"
+          }
+        ],
+        "parallel": false
+      }
     }
   },
   "tags": []

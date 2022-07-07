@@ -16,6 +16,7 @@
     "mikestead",
     "mkdir",
     "nextjs",
+    "rimraf",
     "svgr",
     "testid",
     "typedoc",
