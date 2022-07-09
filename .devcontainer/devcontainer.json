@@ -16,6 +16,7 @@
     "EditorConfig.EditorConfig",
     "GitHub.github-vscode-theme",
     "GitHub.vscode-pull-request-github",
+    "johnpapa.vscode-peacock",
     "mikestead.dotenv",
     "nrwl.angular-console",
     "PKief.material-icon-theme",
