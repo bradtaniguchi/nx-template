@@ -411,7 +411,14 @@
             },
             {
               "file": "libs/common-react/src/lib/hooks/index.ts",
-              "hash": "eb3423ee1c140d433defd99c5e4013b742198354"
+              "hash": "0b64f8da46338e30852ecb661fc23a9cf892ec53"
+            },
+            {
+              "file": "libs/common-react/src/lib/hooks/theme-context-factory.ts",
+              "hash": "e6046d1e764c77c3b5c8060aca9a85042cd4c629",
+              "deps": [
+                "npm:react"
+              ]
             },
             {
               "file": "libs/common-react/src/lib/hooks/use-config.spec.tsx",
@@ -464,7 +471,11 @@
             },
             {
               "file": "libs/common-react/src/lib/types/index.ts",
-              "hash": "237f6b6a13bf4305f6e59a3c3b4fbc02cea5ae3b"
+              "hash": "5161f4c99558ace611f07d674479df81aab171eb"
+            },
+            {
+              "file": "libs/common-react/src/lib/types/themes.ts",
+              "hash": "e74a9c0f9eb0f54fff8d25d784bd7bf0ed2f9697"
             },
             {
               "file": "libs/common-react/src/lib/utils/combine-components.tsx",
