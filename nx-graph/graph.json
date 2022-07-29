@@ -107,6 +107,10 @@
               "hash": "f13f56cc53c7d94063a3c717349e025e863bc78c"
             },
             {
+              "file": "apps/internal-client/.gitignore",
+              "hash": "3b2917437a329a616ab9794f052d42499acfb142"
+            },
+            {
               "file": "apps/internal-client/components/dashboard-page/dashboard-page.tsx",
               "hash": "95a88d95be6e677fe306901cc8ceb3b79430475d",
               "deps": [
@@ -130,9 +134,10 @@
             },
             {
               "file": "apps/internal-client/next.config.js",
-              "hash": "c560f5dd488cb8a80156cb159dfbd2872fd74bf9",
+              "hash": "afd1bf67ace5e5e405a08c19ab699f7c460fd028",
               "deps": [
-                "npm:@nrwl/next"
+                "npm:@nrwl/next",
+                "npm:@sentry/nextjs"
               ]
             },
             {
@@ -150,6 +155,14 @@
                 "npm:next",
                 "npm:styled-components",
                 "common-react"
+              ]
+            },
+            {
+              "file": "apps/internal-client/pages/_error.tsx",
+              "hash": "49f0ea6e15ade4ef05bb42162b2c7b584d864d84",
+              "deps": [
+                "npm:@sentry/nextjs",
+                "npm:next"
               ]
             },
             {
@@ -195,6 +208,24 @@
             {
               "file": "apps/internal-client/README.md",
               "hash": "3621d89b6e8de790afd54ac835bf82292cf2420e"
+            },
+            {
+              "file": "apps/internal-client/sentry.client.config.js",
+              "hash": "107558b057878933225eadfabd2d1ce06f1228b6",
+              "deps": [
+                "npm:@sentry/nextjs"
+              ]
+            },
+            {
+              "file": "apps/internal-client/sentry.properties",
+              "hash": "f51633b67e1028c4cbc985ad5d0f52cb3e0e7e96"
+            },
+            {
+              "file": "apps/internal-client/sentry.server.config.js",
+              "hash": "764ac4683848b7df8e1054dd0181c6ec004f424d",
+              "deps": [
+                "npm:@sentry/nextjs"
+              ]
             },
             {
               "file": "apps/internal-client/specs/index.spec.tsx",
