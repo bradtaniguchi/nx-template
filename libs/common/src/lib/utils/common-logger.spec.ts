@@ -1,4 +1,4 @@
-import { CommonLogger } from './common-logger';
+import { CommonLogger, CommonLoggerConfig } from './common-logger';
 
 describe('CommonLogger', () => {
   let logger: CommonLogger;
@@ -46,5 +46,21 @@ describe('CommonLogger', () => {
     logger = new CommonLogger({ hidden: ['error'] });
     logger.log('test');
     expect(consoleLogSpy).toHaveBeenCalled();
+  });
+  it('should use prefix', () => {
+    logger = new CommonLogger({ prefix: '[prefix] ' });
+    logger.log('test');
+    expect(consoleLogSpy).toHaveBeenCalledWith('[prefix] test');
+  });
+  it('should use onLog', () => {
+    const onLog = jest.fn();
+    logger = new CommonLogger({ onLog });
+    logger.log('test');
+    expect(consoleLogSpy).toHaveBeenCalledWith('test');
+    expect(onLog).toHaveBeenCalledWith({
+      level: 'log',
+      message: 'test',
+      optionalParams: [],
+    } as Parameters<Required<CommonLoggerConfig>['onLog']>[0]);
   });
 });
