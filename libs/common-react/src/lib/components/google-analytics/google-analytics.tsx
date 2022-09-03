@@ -5,7 +5,7 @@ export interface GoogleAnalyticsProps {
    *
    * **This could be a security risk if dynamic.**
    */
-  key?: string;
+  googleAnalyticsKey?: string;
 }
 
 /**
@@ -14,11 +14,11 @@ export interface GoogleAnalyticsProps {
  * to the <head> of the document once.
  */
 export function GoogleAnalytics(props: GoogleAnalyticsProps) {
-  return props.key ? (
+  return props.googleAnalyticsKey ? (
     <>
       <script
         async
-        src={`https://www.googletagmanager.com/gtag/js?id=${props.key}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${props.googleAnalyticsKey}`}
       />
       <script
         dangerouslySetInnerHTML={{
@@ -26,7 +26,7 @@ export function GoogleAnalytics(props: GoogleAnalyticsProps) {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${props.key}', {
+            gtag('config', '${props.googleAnalyticsKey}', {
               page_path: window.location.pathname,
             });
           `,
