@@ -24,7 +24,11 @@ export default class CustomDocument extends Document<{
       <Html>
         <Head>
           {this.props.styleTags}
-          {<GoogleAnalytics key={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />}
+          {
+            <GoogleAnalytics
+              googleAnalyticsKey={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}
+            />
+          }
         </Head>
         <body>
           <Main />
