@@ -4,6 +4,10 @@ import { getConfig } from '../utils';
 
 /**
  * Hook that can be used to get the config file.
+ *
+ * This file should be generated and available from the client-side,
+ * primarily to get an idea of which build is being used.
+ *
  * @see getConfig
  * @see Config
  */
