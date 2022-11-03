@@ -24,7 +24,10 @@
     {
       "files": ["*.ts", "*.tsx"],
       "extends": ["plugin:@nrwl/nx/typescript", "plugin:jsdoc/recommended"],
-      "rules": {}
+      "rules": {
+        "jsdoc/require-param-type": 0,
+        "jsdoc/require-returns": 0
+      }
     },
     {
       "files": ["*.js", "*.jsx"],

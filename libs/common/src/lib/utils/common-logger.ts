@@ -63,7 +63,7 @@ export class CommonLogger {
   /**
    * Type-guard for the onLog method.
    *
-   * @param logFn
+   * @param logFn the function to callback when a log is executed
    */
   private isOnLog(
     logFn: CommonLoggerConfig['onLog']
@@ -74,8 +74,9 @@ export class CommonLogger {
   /**
    * Logs message at the error level
    *
-   * @param message
-   * @param {...any} optionalParams
+   * @param message the message to log at the error level
+   * @param {...any} optionalParams optional params that will be passed along
+   *   as arguments.
    */
   error(message?: unknown, ...optionalParams: unknown[]): void {
     if (this.hidden?.includes('error')) return;
@@ -91,8 +92,9 @@ export class CommonLogger {
   /**
    * Logs message at the log level
    *
-   * @param message
-   * @param {...any} optionalParams
+   * @param message the message to log at the log level
+   * @param {...any} optionalParams optional params that will be passed along
+   *   as arguments.
    */
   log(message?: unknown, ...optionalParams: unknown[]): void {
     if (this.hidden?.includes('log')) return;
@@ -109,8 +111,9 @@ export class CommonLogger {
   /**
    * Logs message at the error debug
    *
-   * @param message
-   * @param {...any} optionalParams
+   * @param message the message to log at the debug level
+   * @param {...any} optionalParams optional params that will be passed along
+   *   as arguments.
    */
   debug(message?: unknown, ...optionalParams: unknown[]): void {
     if (this.hidden?.includes('debug')) return;
@@ -127,8 +130,9 @@ export class CommonLogger {
   /**
    * Logs message at the error warn
    *
-   * @param message
-   * @param {...any} optionalParams
+   * @param message the message to log at the warn level
+   * @param {...any} optionalParams optional params that will be passed along
+   *   as arguments.
    */
   warn(message?: unknown, ...optionalParams: unknown[]): void {
     if (this.hidden?.includes('warn')) return;
