@@ -5,6 +5,8 @@ import React, { ComponentProps, FC } from 'react';
  * Combines components together, from the given array.
  * Usually is used to "flatten" highly nested structures, such as
  * multiple context providers.
+ *
+ * @param components multiple components that will be nested together
  */
 export const combineComponents = (...components: Array<FC<any>>): FC => {
   return components.reduce(

@@ -4,7 +4,6 @@ import { useDebugValue, useEffect } from 'react';
 
 /**
  * Options that could be passed to the userScript hook.
- * @unstable
  */
 export interface UseScriptOptions {
   /**
@@ -27,7 +26,11 @@ export interface UseScriptOptions {
  * Hook that adds a script to the page.
  *
  * This should be called only 1 time
- * @unstable
+ *
+ * (untested)
+ *
+ * @see UseScriptOptions
+ * @param options the options pertaining to using the following script.
  */
 export function useScript(options?: UseScriptOptions) {
   useDebugValue(options);

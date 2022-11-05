@@ -8,6 +8,9 @@ import { getConfig } from '../utils';
  * This file should be generated and available from the client-side,
  * primarily to get an idea of which build is being used.
  *
+ * @param params
+ * @param params.path
+ * @param params.overrides
  * @see getConfig
  * @see Config
  */

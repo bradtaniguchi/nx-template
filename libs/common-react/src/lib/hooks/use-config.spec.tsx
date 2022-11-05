@@ -20,6 +20,9 @@ describe('useConfig', () => {
     jest.clearAllMocks();
   });
 
+  /**
+   *
+   */
   function UseConfigExample() {
     const { config, configError, configLoading } = useConfig();
 

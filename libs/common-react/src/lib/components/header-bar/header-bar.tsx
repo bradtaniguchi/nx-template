@@ -45,8 +45,8 @@ export interface HeaderBarProps {
  * To correctly leverage this component, you **must** provide the
  * HeaderBarContext.Provider at the "top-level" of your app, usually App.
  *
+ * @param props
  * @see HeaderBarContext
- *
  */
 export function HeaderBar(props: HeaderBarProps) {
   return (

@@ -32,6 +32,10 @@ export interface SideNavProps {
   onClose?: () => void;
 }
 
+/**
+ *
+ * @param props
+ */
 export function SideNav(props: SideNavProps) {
   return (
     <Drawer

@@ -5,6 +5,8 @@ import { ThemeContext } from './theme-context';
 /**
  * Provider for the theme to change the overall app theme.
  *
+ * @param props
+ * @param props.theme
  * @see ThemeContext
  */
 export function ThemeProvider(props: { theme: Theme }) {

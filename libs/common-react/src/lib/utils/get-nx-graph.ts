@@ -2,6 +2,8 @@ import { ProjectGraph } from '@nrwl/devkit';
 
 /**
  * Returns the nx-graph.json file that is generated via nx graph.
+ *
+ * @param params the function parameters object
  * @param params.path The path to the config file, otherwise defaults to `nx-graph/graph.json`
  * @param params.overrides Override options to use if there is an error, or override
  *   the values within the graph file.

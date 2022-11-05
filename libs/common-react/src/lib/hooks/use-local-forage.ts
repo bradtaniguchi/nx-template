@@ -15,7 +15,6 @@ import { createContext, useDebugValue, useMemo } from 'react';
  * https://github.com/localForage/localForage
  *
  * @param options the localforage options we pass to createInstance
- *
  * @see localForageContextFactory
  * @unstable
  */
@@ -34,6 +33,7 @@ export function useLocalForage(options: LocalForageOptions) {
  * For more information see:
  * https://github.com/localForage/localForage
  *
+ * @param options
  * @see useLocalForage
  * @unstable
  */
