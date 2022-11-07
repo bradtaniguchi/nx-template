@@ -13,7 +13,8 @@ export interface GoogleAnalyticsProps {
  * add and provide google analytics. This should be added
  * to the <head> of the document once.
  *
- * @param props
+ * @param props component props
+ * @see GoogleAnalyticsProps
  */
 export function GoogleAnalytics(props: GoogleAnalyticsProps) {
   return props.googleAnalyticsKey ? (

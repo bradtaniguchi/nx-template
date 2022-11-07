@@ -33,8 +33,10 @@ export interface SideNavProps {
 }
 
 /**
+ * Base side-nav/drawer component starter
  *
- * @param props
+ * @param props the component props
+ * @see SideNavProps
  */
 export function SideNav(props: SideNavProps) {
   return (
