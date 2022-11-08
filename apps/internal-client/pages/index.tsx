@@ -8,6 +8,9 @@ const StyledPage = styled.div`
   }
 `;
 
+/**
+ * The Main index landing page. Renders the dashboard page
+ */
 export function Index() {
   return (
     <StyledPage>

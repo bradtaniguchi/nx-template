@@ -62,6 +62,9 @@ const DashboardPageConfig = memo(function DashboardPageConfig({
   );
 });
 
+/**
+ * Component that renders the links to be shown on the page
+ */
 function DashboardPageLinks() {
   return (
     <Card variant="outlined">
@@ -141,9 +144,7 @@ const DashboardPageProjects = memo(function DashboardPageProjects({
                       }}
                     >
                       <ArticleIcon color="primary" />
-                      <Link
-                        href={`docs/${project}`}
-                      >{`${project} docs`}</Link>
+                      <Link href={`docs/${project}`}>{`${project} docs`}</Link>
                     </Typography>
                   </Grid>
                 ))}

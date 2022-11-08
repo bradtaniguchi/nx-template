@@ -9,7 +9,7 @@ const isProd = process.env.NODE_ENV === 'production';
 
 /**
  * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
- **/
+ */
 const nextConfig = {
   nx: {
     // Set this to true if you would like to to use SVGR

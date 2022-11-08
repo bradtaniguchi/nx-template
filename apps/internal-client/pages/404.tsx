@@ -2,6 +2,10 @@ import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
+
+/**
+ * The 404 page that is rendered when a page isn't found
+ */
 export default function PageNotFound() {
   return (
     <div>
