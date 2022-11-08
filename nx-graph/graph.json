@@ -112,7 +112,7 @@
             },
             {
               "file": "apps/internal-client/components/dashboard-page/dashboard-page.tsx",
-              "hash": "95a88d95be6e677fe306901cc8ceb3b79430475d",
+              "hash": "3c36ce09e3bef8dc8de60dcba2f41563288c3567",
               "deps": [
                 "npm:@mui/icons-material",
                 "npm:@mui/material",
@@ -134,7 +134,7 @@
             },
             {
               "file": "apps/internal-client/next.config.js",
-              "hash": "afd1bf67ace5e5e405a08c19ab699f7c460fd028",
+              "hash": "0558ca134dd82d785ae1a45921141990bf1581ba",
               "deps": [
                 "npm:@nrwl/next",
                 "npm:@sentry/nextjs"
@@ -142,7 +142,7 @@
             },
             {
               "file": "apps/internal-client/pages/_app.tsx",
-              "hash": "631a38aa5ae7b6b3a8a0784e6ebd0720c6cad3ce",
+              "hash": "52c2ac2b9cd2062a3075b10de6d15d5f17c08115",
               "deps": [
                 "npm:next"
               ]
@@ -167,14 +167,14 @@
             },
             {
               "file": "apps/internal-client/pages/404.tsx",
-              "hash": "07c722102e80f95c5916411ecf574d2dd643ef7f",
+              "hash": "dbf111635828754c357ad2118692a2d64e077f13",
               "deps": [
                 "npm:@mui/material"
               ]
             },
             {
               "file": "apps/internal-client/pages/index.tsx",
-              "hash": "fafbea9a176e69c72b3116a21b7d87d158376c97",
+              "hash": "ca30b0fb10101a87b34f670a3eb1340205f0ce71",
               "deps": [
                 "npm:styled-components",
                 "common-react",
