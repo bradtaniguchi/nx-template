@@ -6,7 +6,8 @@ import { ReactNode, SyntheticEvent } from 'react';
 export interface StorybookLandingProps {
   /**
    * An example prop, provided to check with docs. Shown below the example text,
-   * but before the button
+   * but before the button.
+   *
    * @type {ReactNode}
    */
   exampleProp?: ReactNode;
@@ -14,15 +15,16 @@ export interface StorybookLandingProps {
   /**
    * An example callback. If not provided then the example button will not
    * show.
+   *
    * @default void
    */
   onButtonClick?: (e: SyntheticEvent<HTMLButtonElement, MouseEvent>) => void;
 }
 
 /**
- * Storybook landing component
+ * Storybook landing component.
+ *
  * @param props display props for storybook landing component
- * @returns jsx
  */
 export function StorybookLanding(props: StorybookLandingProps) {
   const handleButtonClick = (

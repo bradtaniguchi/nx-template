@@ -2,6 +2,10 @@ import { ProjectGraph } from '@nrwl/devkit';
 
 /**
  * Function that returns the list of projects with the given target
+ * 
+ * @param root0 single params
+ * @param root0.graph the project graph to use
+ * @param root0.target the target the projects for
  */
 export const getProjectsByTarget = ({
   graph,

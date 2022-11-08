@@ -1,6 +1,7 @@
 /**
  * Represents the data that is created from the build-config.js script.
  * Can be loaded via the `getConfig` function.
+ *
  * @see getConfig
  */
 export interface BaseConfig {

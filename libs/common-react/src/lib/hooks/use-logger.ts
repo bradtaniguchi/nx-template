@@ -8,10 +8,8 @@ import { createContext, useDebugValue, useMemo } from 'react';
  * It should not be used for common updates to localStorage as it creates
  * a new instance all the time.
  *
- * @params options the CommonLogger options params
- *
+ * @param options the CommonLogger options params
  * @see CommonLogger
- * @unstable
  */
 export function useLogger(options?: CommonLoggerConfig) {
   useDebugValue(options);
@@ -23,10 +21,11 @@ export function useLogger(options?: CommonLoggerConfig) {
  *
  * This should be used to create a single high level context
  * of the `CommonLogger` that can be used to handle client-side logging.
- * @params options the CommonLogger options params
  *
+ * **unstable**
+ *
+ * @param options the CommonLogger options params
  * @see CommonLogger
- * @unstable
  */
 export function loggerContextFactory(options?: CommonLoggerConfig) {
   return createContext(new CommonLogger(options));

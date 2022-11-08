@@ -12,6 +12,9 @@ export interface GoogleAnalyticsProps {
  * A component that adds <script> tags to the document to
  * add and provide google analytics. This should be added
  * to the <head> of the document once.
+ *
+ * @param props component props
+ * @see GoogleAnalyticsProps
  */
 export function GoogleAnalytics(props: GoogleAnalyticsProps) {
   return props.googleAnalyticsKey ? (
