@@ -382,7 +382,7 @@
             },
             {
               "file": "libs/common-react/src/lib/components/google-analytics/google-analytics.tsx",
-              "hash": "df4d1326d02425b0b183a7403f144af54705b292"
+              "hash": "88e0add92a31d7b2789fbeab16d065d588412da9"
             },
             {
               "file": "libs/common-react/src/lib/components/header-bar/header-bar-context.ts",
@@ -409,7 +409,7 @@
             },
             {
               "file": "libs/common-react/src/lib/components/header-bar/header-bar.tsx",
-              "hash": "dd37a253333ef0109de8459df0cfa1bc74b86bcb",
+              "hash": "adededaea2e032cb6f3475799cdda25832d52aa1",
               "deps": [
                 "npm:@mui/icons-material",
                 "npm:@mui/material",
@@ -433,7 +433,7 @@
             },
             {
               "file": "libs/common-react/src/lib/components/side-nav/side-nav.tsx",
-              "hash": "b150c7377635b2c11d666e4901737c77c96bb39e",
+              "hash": "7db01b60c108f4f74cd1f5f33e0f199fd5476a0f",
               "deps": [
                 "npm:@mui/material",
                 "npm:@mui/icons-material",
@@ -453,14 +453,14 @@
             },
             {
               "file": "libs/common-react/src/lib/hooks/theme-provider.tsx",
-              "hash": "4675eae508d5157070d7e7fd9e5508ae956c83e7",
+              "hash": "fcf6e93dea7a2c5c4e324b5815f621c9c6d22ab9",
               "deps": [
                 "npm:react"
               ]
             },
             {
               "file": "libs/common-react/src/lib/hooks/use-config.spec.tsx",
-              "hash": "74a81f5919a6c4e049a79b22410c60226e6a56b2",
+              "hash": "788166375d1983f0956bf11a4e01a18a31660be5",
               "deps": [
                 "npm:@testing-library/react",
                 "npm:react"
@@ -468,14 +468,14 @@
             },
             {
               "file": "libs/common-react/src/lib/hooks/use-config.ts",
-              "hash": "1fc5c8d39dbbc669fa29dbc980e83195737679c4",
+              "hash": "8fd8ec0c480cafef5c348df484b8da7f233d7196",
               "deps": [
                 "npm:react"
               ]
             },
             {
               "file": "libs/common-react/src/lib/hooks/use-local-forage.ts",
-              "hash": "145b7cabbc42d258f2690578ac911d889708d094",
+              "hash": "8ed4f6f3f16a25ff91237427b0172a3958d36d70",
               "deps": [
                 "npm:localforage",
                 "npm:react"
@@ -483,7 +483,7 @@
             },
             {
               "file": "libs/common-react/src/lib/hooks/use-logger.ts",
-              "hash": "832d8c2a257ef059aa9644e30720cb59e71362b8",
+              "hash": "31617d5cfb427b7c7d227c3cd06719fb9b595901",
               "deps": [
                 "common",
                 "npm:react"
@@ -491,21 +491,21 @@
             },
             {
               "file": "libs/common-react/src/lib/hooks/use-nx-graph.ts",
-              "hash": "36c11fd630a96b4ded3d5c8784541b7d97bc8965",
+              "hash": "761aa38e3ca21ee1c2e0dd5d2b6626ead29bb778",
               "deps": [
                 "npm:react"
               ]
             },
             {
               "file": "libs/common-react/src/lib/hooks/use-script.ts",
-              "hash": "8b5bf160ac1ea391287b718cedff8444e9426d6a",
+              "hash": "293cb68d77d38559ee005ea1d994461432dc24bd",
               "deps": [
                 "npm:react"
               ]
             },
             {
               "file": "libs/common-react/src/lib/types/base-config.ts",
-              "hash": "5648d8afc499d735be0b82653fd3120e882276a3"
+              "hash": "006fbb76b49aa84824acd8760b01956742cb6a9d"
             },
             {
               "file": "libs/common-react/src/lib/types/index.ts",
@@ -517,18 +517,18 @@
             },
             {
               "file": "libs/common-react/src/lib/utils/combine-components.tsx",
-              "hash": "6e13194af9442ef6c8e506b8240596ee89c73deb",
+              "hash": "044c7f142c530014fa4e619b53e8773ddc160885",
               "deps": [
                 "npm:react"
               ]
             },
             {
               "file": "libs/common-react/src/lib/utils/get-config.ts",
-              "hash": "e1c5b38b333ee58223fe8bc99610e4ca0237f663"
+              "hash": "00abc3ec576a7d204d07d136bb8b18af8e882421"
             },
             {
               "file": "libs/common-react/src/lib/utils/get-nx-graph.ts",
-              "hash": "9c87613999586cf84dd4dcfdfa6ebb6fcb5e79e8"
+              "hash": "b6cca4fcc8aaeb0acdfd62a0a713d25b8aa6e487"
             },
             {
               "file": "libs/common-react/src/lib/utils/get-projects-by-target.spec.ts",
@@ -536,7 +536,7 @@
             },
             {
               "file": "libs/common-react/src/lib/utils/get-projects-by-target.ts",
-              "hash": "0b8a3e7fdb9092e8827c2f6c96b8d4b62487ef6f"
+              "hash": "3d8c19035b361df1206a0125aa5be338a98a9186"
             },
             {
               "file": "libs/common-react/src/lib/utils/index.ts",
@@ -717,7 +717,7 @@
             },
             {
               "file": "libs/storybook/src/lib/storybook-landing.tsx",
-              "hash": "a96abdad9b66b78a33e24d7eb76a10745314fa5e",
+              "hash": "794ef29980bb6ba15598c1ea879ae2e00489decd",
               "deps": [
                 "npm:@mui/material",
                 "npm:react"
@@ -841,7 +841,7 @@
             },
             {
               "file": "libs/common/src/lib/utils/common-logger.ts",
-              "hash": "fde9fcff48dc13f65b4c6f88bbb2d5ceb2a16e92"
+              "hash": "a25dde89fd847103b0d94b28be4352d895e629f1"
             },
             {
               "file": "libs/common/src/lib/utils/get-id.spec.ts",
@@ -849,7 +849,7 @@
             },
             {
               "file": "libs/common/src/lib/utils/get-id.ts",
-              "hash": "d1cb5ac3f252c82aadc32014eeff341c40d06dbb"
+              "hash": "ce37f1cbb7a75164db89a0b44bfb5a16a485beb5"
             },
             {
               "file": "libs/common/src/lib/utils/index.ts",
