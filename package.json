@@ -43,6 +43,7 @@
     "axios": "^0.27.2",
     "core-js": "^3.6.5",
     "eslint-plugin-jsdoc": "^39.6.2",
+    "jest-environment-jsdom": "^29.3.1",
     "localforage": "^1.10.0",
     "lodash": "^4.17.21",
     "next": "13.0.0",
