@@ -38,7 +38,6 @@
     "@heroicons/react": "^2.0.13",
     "@mui/icons-material": "^5.8.0",
     "@mui/material": "^5.8.0",
-    "@nrwl/next": "14.4.0",
     "@sentry/nextjs": "^7.7.0",
     "autoprefixer": "10.4.12",
     "axios": "^0.27.2",
@@ -66,7 +65,7 @@
     "@nrwl/jest": "15.2.1",
     "@nrwl/js": "15.2.1",
     "@nrwl/linter": "15.2.1",
-    "@nrwl/next": "15.2.1",
+    "@nrwl/next": "^15.2.1",
     "@nrwl/node": "15.2.1",
     "@nrwl/react": "15.2.1",
     "@nrwl/storybook": "15.2.1",
@@ -125,4 +124,3 @@
     "*.format:write": "prettier --write"
   }
 }
-
