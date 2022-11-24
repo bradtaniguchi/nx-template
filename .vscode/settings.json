@@ -3,6 +3,7 @@
     "autorun",
     "buildable",
     "codespaces",
+    "commitlint",
     "dbaeumer",
     "eamodio",
     "esbenp",

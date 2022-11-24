@@ -58,6 +58,8 @@
   "devDependencies": {
     "@babel/core": "7.12.13",
     "@babel/preset-typescript": "7.12.13",
+    "@commitlint/cli": "^17.3.0",
+    "@commitlint/config-conventional": "^17.3.0",
     "@lhci/cli": "^0.9.0",
     "@nrwl/cli": "14.4.0",
     "@nrwl/eslint-plugin-nx": "15.2.1",
