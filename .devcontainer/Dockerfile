@@ -7,7 +7,7 @@ USER root
 
 # install dependencies here
 RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
-    && apt-get -y install --no-install-recommends neovim wget curl \
+    && apt-get -y install --no-install-recommends neovim wget gnupg curl \
     && apt-get clean
 
 USER codespace
