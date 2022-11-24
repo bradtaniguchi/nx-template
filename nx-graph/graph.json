@@ -6,6 +6,7 @@
         "type": "app",
         "data": {
           "root": "apps/internal-client",
+          "name": "internal-client",
           "$schema": "../../node_modules/nx/schemas/project-schema.json",
           "sourceRoot": "apps/internal-client",
           "projectType": "application",
@@ -21,11 +22,17 @@
                 "outputPath": "dist/apps/internal-client"
               },
               "configurations": {
-                "development": {},
+                "development": {
+                  "outputPath": "apps/internal-client"
+                },
                 "production": {}
               },
               "dependsOn": [
                 "^build"
+              ],
+              "inputs": [
+                "production",
+                "^production"
               ]
             },
             "serve": {
@@ -55,12 +62,17 @@
             "test": {
               "executor": "@nrwl/jest:jest",
               "outputs": [
-                "coverage/apps/internal-client"
+                "{workspaceRoot}/coverage/apps/internal-client"
               ],
               "options": {
                 "jestConfig": "apps/internal-client/jest.config.ts",
                 "passWithNoTests": true
-              }
+              },
+              "inputs": [
+                "default",
+                "^production",
+                "{workspaceRoot}/jest.preset.js"
+              ]
             },
             "lint": {
               "executor": "@nrwl/linter:eslint",
@@ -71,16 +83,20 @@
                 "lintFilePatterns": [
                   "apps/internal-client/**/*.{ts,tsx,js,jsx}"
                 ]
-              }
+              },
+              "inputs": [
+                "default",
+                "{workspaceRoot}/.eslintrc.json"
+              ]
             },
             "smoke": {
-              "executor": "@nrwl/workspace:run-commands",
+              "executor": "nx:run-commands",
               "options": {
                 "command": "npx http-server dist/apps/internal-client/exported"
               }
             },
             "lighthouse": {
-              "executor": "@nrwl/workspace:run-commands",
+              "executor": "nx:run-commands",
               "options": {
                 "commands": [
                   {
@@ -116,6 +132,7 @@
               "deps": [
                 "npm:@mui/icons-material",
                 "npm:@mui/material",
+                "npm:@nrwl/devkit",
                 "common-react",
                 "npm:react"
               ]
@@ -149,7 +166,7 @@
             },
             {
               "file": "apps/internal-client/pages/_document.tsx",
-              "hash": "65fdc1cbb1338a782f6233f299fb14e611d7fa60",
+              "hash": "13623d0de398efa97f2b0512ce74c0e327d256db",
               "deps": [
                 "npm:react",
                 "npm:next",
@@ -187,7 +204,7 @@
             },
             {
               "file": "apps/internal-client/project.json",
-              "hash": "8894d4036b79d663947f1ce4c301b12d940cea22"
+              "hash": "f01ff829bebbc3472a6b826d8ec37fb2ce70dfa5"
             },
             {
               "file": "apps/internal-client/public/.gitkeep",
@@ -250,13 +267,14 @@
         "type": "lib",
         "data": {
           "root": "libs/common-react",
+          "name": "common-react",
           "$schema": "../../node_modules/nx/schemas/project-schema.json",
           "sourceRoot": "libs/common-react/src",
           "projectType": "library",
           "tags": [],
           "targets": {
             "build": {
-              "executor": "@nrwl/web:rollup",
+              "executor": "@nrwl/rollup:rollup",
               "outputs": [
                 "{options.outputPath}"
               ],
@@ -280,6 +298,10 @@
               },
               "dependsOn": [
                 "^build"
+              ],
+              "inputs": [
+                "production",
+                "^production"
               ]
             },
             "lint": {
@@ -291,20 +313,29 @@
                 "lintFilePatterns": [
                   "libs/common-react/**/*.{ts,tsx,js,jsx}"
                 ]
-              }
+              },
+              "inputs": [
+                "default",
+                "{workspaceRoot}/.eslintrc.json"
+              ]
             },
             "test": {
               "executor": "@nrwl/jest:jest",
               "outputs": [
-                "coverage/libs/common-react"
+                "{workspaceRoot}/coverage/libs/common-react"
               ],
               "options": {
                 "jestConfig": "libs/common-react/jest.config.ts",
                 "passWithNoTests": true
-              }
+              },
+              "inputs": [
+                "default",
+                "^production",
+                "{workspaceRoot}/jest.preset.js"
+              ]
             },
             "typedoc": {
-              "executor": "@nrwl/workspace:run-commands",
+              "executor": "nx:run-commands",
               "options": {
                 "command": "npx typedoc --options libs/common-react/typedoc.json"
               }
@@ -340,7 +371,12 @@
                 "ci": {
                   "quiet": true
                 }
-              }
+              },
+              "inputs": [
+                "default",
+                "^production",
+                "{workspaceRoot}/.storybook/**/*"
+              ]
             }
           },
           "files": [
@@ -358,11 +394,11 @@
             },
             {
               "file": "libs/common-react/.storybook/tsconfig.json",
-              "hash": "7a1170995999ff179ae31ea7b87133b1c2161bc2"
+              "hash": "a33db61008e5c3b0872a277348574e07dcf7b6d7"
             },
             {
               "file": "libs/common-react/jest.config.ts",
-              "hash": "b59a0a99ecbe1f0f88b49e3267d438b75f245568"
+              "hash": "607a2c9467c4e24dff219ae919f1d4a544add75b"
             },
             {
               "file": "libs/common-react/package.json",
@@ -370,7 +406,7 @@
             },
             {
               "file": "libs/common-react/project.json",
-              "hash": "bec8a20259078de9a3fc2340234d37049c5fffb8"
+              "hash": "f9f86f09e65a8d8bfb90aaf65f9d5d4ee6a4468d"
             },
             {
               "file": "libs/common-react/README.md",
@@ -493,6 +529,7 @@
               "file": "libs/common-react/src/lib/hooks/use-nx-graph.ts",
               "hash": "761aa38e3ca21ee1c2e0dd5d2b6626ead29bb778",
               "deps": [
+                "npm:@nrwl/devkit",
                 "npm:react"
               ]
             },
@@ -528,15 +565,24 @@
             },
             {
               "file": "libs/common-react/src/lib/utils/get-nx-graph.ts",
-              "hash": "b6cca4fcc8aaeb0acdfd62a0a713d25b8aa6e487"
+              "hash": "b6cca4fcc8aaeb0acdfd62a0a713d25b8aa6e487",
+              "deps": [
+                "npm:@nrwl/devkit"
+              ]
             },
             {
               "file": "libs/common-react/src/lib/utils/get-projects-by-target.spec.ts",
-              "hash": "573db404eb241631ca259c521bf5a906dd8b520d"
+              "hash": "573db404eb241631ca259c521bf5a906dd8b520d",
+              "deps": [
+                "npm:@nrwl/devkit"
+              ]
             },
             {
               "file": "libs/common-react/src/lib/utils/get-projects-by-target.ts",
-              "hash": "3d8c19035b361df1206a0125aa5be338a98a9186"
+              "hash": "3d8c19035b361df1206a0125aa5be338a98a9186",
+              "deps": [
+                "npm:@nrwl/devkit"
+              ]
             },
             {
               "file": "libs/common-react/src/lib/utils/index.ts",
@@ -566,13 +612,14 @@
         "type": "lib",
         "data": {
           "root": "libs/storybook",
+          "name": "storybook",
           "$schema": "../../node_modules/nx/schemas/project-schema.json",
           "sourceRoot": "libs/storybook/src",
           "projectType": "library",
           "tags": [],
           "targets": {
             "build": {
-              "executor": "@nrwl/web:rollup",
+              "executor": "@nrwl/rollup:rollup",
               "outputs": [
                 "{options.outputPath}"
               ],
@@ -596,6 +643,10 @@
               },
               "dependsOn": [
                 "^build"
+              ],
+              "inputs": [
+                "production",
+                "^production"
               ]
             },
             "lint": {
@@ -607,17 +658,26 @@
                 "lintFilePatterns": [
                   "libs/storybook/**/*.{ts,tsx,js,jsx}"
                 ]
-              }
+              },
+              "inputs": [
+                "default",
+                "{workspaceRoot}/.eslintrc.json"
+              ]
             },
             "test": {
               "executor": "@nrwl/jest:jest",
               "outputs": [
-                "coverage/libs/storybook"
+                "{workspaceRoot}/coverage/libs/storybook"
               ],
               "options": {
                 "jestConfig": "libs/storybook/jest.config.ts",
                 "passWithNoTests": true
-              }
+              },
+              "inputs": [
+                "default",
+                "^production",
+                "{workspaceRoot}/jest.preset.js"
+              ]
             },
             "storybook": {
               "executor": "@nrwl/storybook:storybook",
@@ -650,10 +710,15 @@
                 "ci": {
                   "quiet": true
                 }
-              }
+              },
+              "inputs": [
+                "default",
+                "^production",
+                "{workspaceRoot}/.storybook/**/*"
+              ]
             },
             "typedoc": {
-              "executor": "@nrwl/workspace:run-commands",
+              "executor": "nx:run-commands",
               "options": {
                 "command": "npx typedoc --options libs/storybook/typedoc.json"
               }
@@ -678,11 +743,11 @@
             },
             {
               "file": "libs/storybook/.storybook/tsconfig.json",
-              "hash": "5236331a19174caa1865949505d8ce05a8163da9"
+              "hash": "bad38c5bb45877d16e33a1ca64e49bb11aae7eb4"
             },
             {
               "file": "libs/storybook/jest.config.ts",
-              "hash": "d6e42f3cbe680e87312920043cf29c1665fabe9b"
+              "hash": "7c61a2bf538e00a86344276bfad3211a1778c387"
             },
             {
               "file": "libs/storybook/package.json",
@@ -690,7 +755,7 @@
             },
             {
               "file": "libs/storybook/project.json",
-              "hash": "c1ae4064a69befa55127f465489aad319cc66140"
+              "hash": "6380cd8dcfeb4ef477cb4e4cf14b449be1603750"
             },
             {
               "file": "libs/storybook/README.md",
@@ -747,6 +812,7 @@
         "type": "lib",
         "data": {
           "root": "libs/common",
+          "name": "common",
           "$schema": "../../node_modules/nx/schemas/project-schema.json",
           "sourceRoot": "libs/common/src",
           "projectType": "library",
@@ -767,6 +833,10 @@
               },
               "dependsOn": [
                 "^build"
+              ],
+              "inputs": [
+                "production",
+                "^production"
               ]
             },
             "lint": {
@@ -778,20 +848,29 @@
                 "lintFilePatterns": [
                   "libs/common/**/*.ts"
                 ]
-              }
+              },
+              "inputs": [
+                "default",
+                "{workspaceRoot}/.eslintrc.json"
+              ]
             },
             "test": {
               "executor": "@nrwl/jest:jest",
               "outputs": [
-                "coverage/libs/common"
+                "{workspaceRoot}/coverage/libs/common"
               ],
               "options": {
                 "jestConfig": "libs/common/jest.config.ts",
                 "passWithNoTests": true
-              }
+              },
+              "inputs": [
+                "default",
+                "^production",
+                "{workspaceRoot}/jest.preset.js"
+              ]
             },
             "typedoc": {
-              "executor": "@nrwl/workspace:run-commands",
+              "executor": "nx:run-commands",
               "options": {
                 "command": "npx typedoc --options libs/common/typedoc.json"
               }
@@ -817,7 +896,7 @@
             },
             {
               "file": "libs/common/project.json",
-              "hash": "3065be444d5cea02c7da0b6e4b2e59faa9bf6d48"
+              "hash": "636354f61aa644cadde67b2d35e6671afede7207"
             },
             {
               "file": "libs/common/README.md",
