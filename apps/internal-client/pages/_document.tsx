@@ -1,13 +1,23 @@
 /* eslint-disable react/display-name */
 import { ReactElement } from 'react';
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document, {
+  Html,
+  Head,
+  Main,
+  NextScript,
+  DocumentContext,
+} from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 import { GoogleAnalytics } from '@nx-template/common-react';
 
 export default class CustomDocument extends Document<{
   styleTags: ReactElement[];
 }> {
-  static getInitialProps({ renderPage }) {
+  static async getInitialProps(context: DocumentContext) {
+    const { renderPage } = context;
+
+    const initialProps = await Document.getInitialProps(context);
+
     const sheet = new ServerStyleSheet();
 
     const page = renderPage(
@@ -16,7 +26,7 @@ export default class CustomDocument extends Document<{
 
     const styleTags = sheet.getStyleElement();
 
-    return { ...page, styleTags };
+    return { ...initialProps, ...page, styleTags };
   }
 
   render() {
