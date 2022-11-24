@@ -1,3 +1,6 @@
+/**
+ * @type {import('@storybook/core-common').StorybookConfig}
+ */
 module.exports = {
   stories: [],
   addons: [

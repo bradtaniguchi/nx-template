@@ -75,6 +75,7 @@
     "@storybook/addon-a11y": "^6.4.22",
     "@storybook/addon-controls": "^6.4.22",
     "@storybook/addon-essentials": "6.5.9",
+    "@storybook/addon-postcss": "^2.0.0",
     "@storybook/builder-webpack5": "6.5.9",
     "@storybook/core-server": "6.5.9",
     "@storybook/jest": "^0.0.10",
