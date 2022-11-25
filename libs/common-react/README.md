@@ -15,7 +15,7 @@ Run `nx run common-react:storybook` to execute the local storybook project.
 The migration to tailwind, and away from MUI will take some time. The following
 is a checklist of components to re-create to support the internal-client page:
 
-- [ ] Card
+- [x] Card
 - [ ] Button (for linking)
 - [ ] Spinner/Loading
 - [ ] Grid/Layout
