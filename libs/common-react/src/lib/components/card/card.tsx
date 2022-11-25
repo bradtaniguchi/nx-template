@@ -7,7 +7,7 @@ import { PropsWithChildren } from 'react';
  */
 export function Card(props: PropsWithChildren) {
   return (
-    <div className="max-w-sm overflow-hidden rounded shadow-md outline">
+    <div className="overflow-hidden rounded outline outline-slate-200">
       {props.children}
     </div>
   );
@@ -36,3 +36,14 @@ export function CardBody(props: PropsWithChildren) {
 }
 
 Card.Body = CardBody;
+
+/**
+ * Card actions component, provides basic padding and styling for button
+ * actions that are shown on the bottom of the card.
+ *
+ * @param props the component props, used to render child components
+ */
+export function CardActions(props: PropsWithChildren) {
+  return <div className="px-6 py-4">{props.children}</div>;
+}
+Card.Actions = CardActions;
