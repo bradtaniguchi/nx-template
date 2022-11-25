@@ -22,7 +22,11 @@ is a checklist of components to re-create to support the internal-client page:
 - [ ] Icon
 - [ ] List
 - [ ] Header/AppBar
+- [ ] Chip
 
 Some of these components could be provided in the internal-client if they can't
 be re-used. Otherwise these should be here and defined as a React component
 so they can be used later in whatever project this template is used for
+
+Other things we should look into are all related to inputs, like dropdowns
+and menus. These seem to be more advanced though.

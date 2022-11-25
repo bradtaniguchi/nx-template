@@ -1,28 +1,38 @@
+import { PropsWithChildren } from 'react';
+
 /**
  * Example Card component to test tailwindcss
+ *
+ * @param props the component props, used to render child components
  */
-export function Card() {
+export function Card(props: PropsWithChildren) {
   return (
-    <div className="max-w-sm rounded overflow-hidden shadow-lg">
-      <div className="px-6 py-4">
-        <div className="font-bold text-xl mb-2">The Coldest Sunset</div>
-        <p className="text-gray-700 text-base">
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
-          quia, nulla! Maiores et perferendis eaque, exercitationem praesentium
-          nihil.
-        </p>
-      </div>
-      <div className="px-6 pt-4 pb-2">
-        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-          #photography
-        </span>
-        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-          #travel
-        </span>
-        <span className="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">
-          #winter
-        </span>
-      </div>
+    <div className="max-w-sm overflow-hidden rounded shadow-md outline">
+      {props.children}
     </div>
   );
 }
+
+/**
+ * Card header component, provides basic padding and styling.
+ * Uses h3 elements for cards.
+ *
+ * @param props the component props, used to render child components
+ */
+export function CardHeader(props: PropsWithChildren) {
+  return (
+    <div className="mb-8 px-6 pt-4 text-4xl font-bold">{props.children}</div>
+  );
+}
+Card.Header = CardHeader;
+
+/**
+ * Card body component, provides basic padding
+ *
+ * @param props the component props, used to render child components
+ */
+export function CardBody(props: PropsWithChildren) {
+  return <div className="px-6 py-4">{props.children}</div>;
+}
+
+Card.Body = CardBody;
