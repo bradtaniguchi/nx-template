@@ -30,3 +30,11 @@ so they can be used later in whatever project this template is used for
 
 Other things we should look into are all related to inputs, like dropdowns
 and menus. These seem to be more advanced though.
+
+#### Adding tailwind to an existing project
+
+Run the following to add tailwind support to a given project:
+
+```bash
+npx nx g @nrwl/react:setup-tailwind --project=<your app here>
+```
