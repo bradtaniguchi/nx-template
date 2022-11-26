@@ -1,3 +1,5 @@
+export * from './header-bar-context';
+import { PropsWithChildren } from 'react';
 import { HeaderBarContext } from './header-bar-context';
 
 export interface HeaderBarProps {
@@ -27,15 +29,15 @@ export function HeaderBar(props: HeaderBarProps) {
     <HeaderBarContext.Consumer>
       {(headerBarContext) => (
         <header className="sticky w-full bg-blue-500 py-4 px-2">
-          <div className="flex flex-row justify-between">
-            {props.children ? props.children : headerBarContext}
-          </div>
+          {props.children ? props.children : headerBarContext}
         </header>
       )}
     </HeaderBarContext.Consumer>
   );
 }
 
-export default HeaderBar;
+const HeaderBarRow = function HeaderBarRow(props: PropsWithChildren) {
+  return <div className="flex flex-row text-white">{props.children}</div>;
+};
 
-export * from './header-bar-context';
+HeaderBar.Row = HeaderBarRow;

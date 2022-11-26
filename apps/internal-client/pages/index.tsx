@@ -15,11 +15,11 @@ export function Index() {
   return (
     <StyledPage>
       <HeaderBar>
-        {
+        <HeaderBar.Row>
           <Typography variant="h5" component="h5">
-            internal-client
+            nx-template
           </Typography>
-        }
+        </HeaderBar.Row>
       </HeaderBar>
       <main>
         <DashboardPage />
