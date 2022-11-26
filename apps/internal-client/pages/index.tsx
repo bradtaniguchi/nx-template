@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { HeaderBar } from '@nx-template/common-react';
 import { DashboardPage } from '../components/dashboard-page/dashboard-page';
-import Typography from '@mui/material/Typography';
+import { Navbar } from 'flowbite-react';
+import Link from 'next/link';
 
 const StyledPage = styled.div`
   .page {
@@ -14,13 +14,11 @@ const StyledPage = styled.div`
 export function Index() {
   return (
     <StyledPage>
-      <HeaderBar>
-        <HeaderBar.Row>
-          <Typography variant="h5" component="h5">
-            nx-template
-          </Typography>
-        </HeaderBar.Row>
-      </HeaderBar>
+      <Navbar fluid={true}>
+        <Navbar.Brand>
+          <Link href="/">nx-template</Link>
+        </Navbar.Brand>
+      </Navbar>
       <main>
         <DashboardPage />
       </main>
