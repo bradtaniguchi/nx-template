@@ -1,6 +1,4 @@
-import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Typography from '@mui/material/Typography';
+import { Button } from 'flowbite-react';
 import { ReactNode, SyntheticEvent } from 'react';
 
 export interface StorybookLandingProps {
@@ -32,26 +30,14 @@ export function StorybookLanding(props: StorybookLandingProps) {
   ) => typeof props.onButtonClick === 'function' && props.onButtonClick(e);
 
   return (
-    <Box sx={{ width: '100%', maxWidth: 500 }} p={2}>
-      <Typography variant="h1" component="h1">
-        Welcome to Storybook!
-      </Typography>
-      <Typography component="p">
-        This is a test component used to test storybook development.
-      </Typography>
-
+    <div className="flex w-full max-w-full flex-col gap-y-1 p-2">
+      <h1 className="mt-0 mb-6 text-5xl font-bold">Welcome to Storybook!</h1>
+      <p>This is a test component used to test storybook development.</p>
       {props.exampleProp ? props.exampleProp : null}
-
       {props.onButtonClick && typeof props.onButtonClick === 'function' ? (
-        <Button
-          variant="contained"
-          component="button"
-          onClick={handleButtonClick}
-        >
-          Example Button
-        </Button>
+        <Button onClick={handleButtonClick}>Example Button</Button>
       ) : null}
-    </Box>
+    </div>
   );
 }
 
