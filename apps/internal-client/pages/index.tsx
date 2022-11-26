@@ -14,7 +14,7 @@ const StyledPage = styled.div`
 export function Index() {
   return (
     <StyledPage>
-      <HeaderBar hideMenu={true} hideHamburger={true}>
+      <HeaderBar>
         {
           <Typography variant="h5" component="h5">
             internal-client

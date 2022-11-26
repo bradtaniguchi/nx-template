@@ -1,33 +1,6 @@
-import MenuIcon from '@mui/icons-material/Menu';
-import MoreVert from '@mui/icons-material/MoreVert';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import IconButton from '@mui/material/IconButton';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import { SyntheticEvent } from 'react';
 import { HeaderBarContext } from './header-bar-context';
 
-/* eslint-disable-next-line */
 export interface HeaderBarProps {
-  /**
-   * Hide the hamburger menu on the left.
-   *
-   * Usually only done for responsive reasons.
-   */
-  hideHamburger?: boolean;
-  /**
-   * Callback called when the hamburger menu on the left is called
-   */
-  onHamburgerClick?: (e: SyntheticEvent) => void;
-  /**
-   * Callback called when three-dot menu on the right is called.
-   */
-  onMenuClick?: (e: SyntheticEvent) => void;
-  /**
-   * Hide the three-dot menu on the right.
-   */
-  hideMenu?: boolean;
   /**
    * Children to display, will override the context display.
    */
@@ -48,43 +21,16 @@ export interface HeaderBarProps {
  * @param props component props
  * @see HeaderBarContext
  */
+
 export function HeaderBar(props: HeaderBarProps) {
   return (
     <HeaderBarContext.Consumer>
       {(headerBarContext) => (
-        <Box sx={{ flexGrow: 1 }}>
-          <AppBar position="sticky">
-            <Toolbar>
-              {props.hideHamburger ? null : (
-                <IconButton
-                  size="large"
-                  edge="start"
-                  color="inherit"
-                  aria-label="hamburger-menu"
-                  sx={{ mr: 2 }}
-                  onClick={props.onHamburgerClick}
-                >
-                  <MenuIcon />
-                </IconButton>
-              )}
-              <Typography component="div" sx={{ flexGrow: 1 }}>
-                {props.children ? props.children : headerBarContext}
-              </Typography>
-              {props.hideMenu ? null : (
-                <IconButton
-                  size="large"
-                  edge="end"
-                  color="inherit"
-                  aria-label="menu"
-                  sx={{ mr: 2 }}
-                  onClick={props.onMenuClick}
-                >
-                  <MoreVert />
-                </IconButton>
-              )}
-            </Toolbar>
-          </AppBar>
-        </Box>
+        <header className="sticky w-full bg-blue-500 py-4 px-2">
+          <div className="flex flex-row justify-between">
+            {props.children ? props.children : headerBarContext}
+          </div>
+        </header>
       )}
     </HeaderBarContext.Consumer>
   );
