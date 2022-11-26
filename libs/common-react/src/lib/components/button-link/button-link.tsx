@@ -13,6 +13,8 @@ export function ButtonLink(props: ButtonLinkProps) {
     <a
       {...props}
       className={['rounded-full p-2', props.className ?? ''].join(' ')}
-    />
+    >
+      {props.children}
+    </a>
   );
 }

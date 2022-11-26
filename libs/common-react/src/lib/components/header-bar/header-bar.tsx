@@ -1,6 +1,8 @@
-export * from './header-bar-context';
 import { PropsWithChildren } from 'react';
 import { HeaderBarContext } from './header-bar-context';
+
+// not 100% sure why this is here.
+export * from './header-bar-context';
 
 export interface HeaderBarProps {
   /**
@@ -23,7 +25,6 @@ export interface HeaderBarProps {
  * @param props component props
  * @see HeaderBarContext
  */
-
 export function HeaderBar(props: HeaderBarProps) {
   return (
     <HeaderBarContext.Consumer>
