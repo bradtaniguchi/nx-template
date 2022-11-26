@@ -9,7 +9,7 @@ module.exports = {
       '{src,pages,components}/**/*!(*.stories|*.spec).{ts,tsx,html}'
     ),
     ...createGlobPatternsForDependencies(__dirname),
-    'node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}',
+    join(__dirname, '../../node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}'),
   ],
   theme: {
     extend: {},

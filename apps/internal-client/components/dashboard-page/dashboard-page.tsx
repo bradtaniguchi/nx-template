@@ -55,7 +55,7 @@ function DashboardPageLinks() {
   return (
     <Card>
       <h5 className="text-lg">External Links</h5>
-      <div className="grid grid-cols-2 gap-1">
+      <div className="grid grid-cols-2 gap-2">
         <div className="flex flex-row align-middle">
           <Link href="nx-graph">nx-graph</Link>
         </div>
@@ -91,7 +91,7 @@ const DashboardPageProjects = memo(function DashboardPageProjects({
           if (nxGraphError)
             return <p className="text-base">Error Loading nx-graph</p>;
           return (
-            <div className="grid grid-cols-2 gap-1">
+            <div className="grid grid-cols-2 gap-2">
               {projects.map((project) => (
                 <div key={project}>
                   <p className="flex flex-row align-middle">
@@ -124,7 +124,7 @@ export function DashboardPage() {
 
   return (
     <div className="width-full m-3">
-      <div className="grid grid-cols-2 grid-rows-2 gap-1">
+      <div className="grid grid-cols-2 grid-rows-2 gap-2">
         <div>
           <Suspense fallback={loadingSpinner}>
             <DashboardPageConfig
