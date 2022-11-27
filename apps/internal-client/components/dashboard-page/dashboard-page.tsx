@@ -60,7 +60,7 @@ const DashboardPageProjects = memo(function DashboardPageProjects({
             <div key={project}>
               <div className="flex flex-row align-middle">
                 {/* <ArticleIcon color="primary" /> */}
-                <Link href={`docs/${project}`}>{`${project} docs`}</Link>
+                <Link href={`docs/${project}`}>{`${project} TSDocs`}</Link>
               </div>
             </div>
           ))}

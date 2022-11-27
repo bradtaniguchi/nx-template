@@ -45,8 +45,6 @@ export async function getStaticProps() {
     nxGraph,
   };
 
-  logger.log(JSON.stringify(props, null, 2));
-
   return {
     props,
   };
