@@ -11,10 +11,12 @@ const DashboardPageConfig = memo(function DashboardPageConfig({
 }) {
   return (
     <Card>
-      <h5 className="text-lg">config.json</h5>
+      <h5 className="text-lg dark:text-white">config.json</h5>
       <div>
         <div className="rounded outline outline-gray-400">
-          <pre style={{ margin: '0' }}>{JSON.stringify(config, null, 2)}</pre>
+          <pre className="m-0 dark:bg-slate-800 dark:text-white">
+            {JSON.stringify(config, null, 2)}
+          </pre>
         </div>
       </div>
     </Card>
@@ -27,13 +29,17 @@ const DashboardPageConfig = memo(function DashboardPageConfig({
 function DashboardPageLinks() {
   return (
     <Card>
-      <h5 className="text-lg">External Links</h5>
+      <h5 className="text-lg dark:text-white">External Links</h5>
       <div className="grid grid-cols-2 gap-2">
         <div className="flex flex-row align-middle">
-          <Link href="nx-graph">nx-graph</Link>
+          <Link href="nx-graph" className="dark:text-white">
+            nx-graph
+          </Link>
         </div>
         <div className="flex flex-row align-middle">
-          <Link href="storybooks">storybooks</Link>
+          <Link href="storybooks" className="dark:text-white">
+            storybooks
+          </Link>
         </div>
       </div>
     </Card>
@@ -53,12 +59,12 @@ const DashboardPageProjects = memo(function DashboardPageProjects({
 
   return (
     <Card>
-      <h5 className="text-lg">Generated TSDocs</h5>
+      <h5 className="text-lg dark:text-white">Generated TSDocs</h5>
       <div>
         <div className="grid grid-cols-2 gap-2">
           {projects.map((project) => (
             <div key={project}>
-              <div className="flex flex-row align-middle">
+              <div className="flex flex-row align-middle dark:text-white">
                 {/* <ArticleIcon color="primary" /> */}
                 <Link href={`docs/${project}`}>{`${project} TSDocs`}</Link>
               </div>
