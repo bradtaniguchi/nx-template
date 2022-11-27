@@ -1,13 +1,13 @@
-import { Card, Spinner } from 'flowbite-react';
 import { ProjectGraph } from '@nrwl/devkit';
 import {
   BaseConfig,
+  getConfig,
+  getNxGraph,
   getProjectsByTarget,
-  useConfig,
-  useNxGraph,
 } from '@nx-template/common-react';
-import { memo, Suspense, useMemo } from 'react';
+import { Card, Spinner } from 'flowbite-react';
 import Link from 'next/link';
+import { memo, Suspense, useMemo } from 'react';
 
 /**
  * Reusable snippet representing a centered loading spinner.
@@ -19,30 +19,17 @@ const loadingSpinner = (
 );
 
 const DashboardPageConfig = memo(function DashboardPageConfig({
-  configLoading,
-  configError,
   config,
 }: {
-  configLoading?: boolean;
-  configError: unknown;
   config: BaseConfig;
 }) {
   return (
     <Card>
       <h5 className="text-lg">config.json</h5>
       <div>
-        {(() => {
-          if (configLoading) return loadingSpinner;
-          if (configError)
-            return <p className="text-base">Error Loading config.json</p>;
-          return (
-            <div className="rounded outline outline-gray-400">
-              <pre style={{ margin: '0' }}>
-                {JSON.stringify(config, null, 2)}
-              </pre>
-            </div>
-          );
-        })()}
+        <div className="rounded outline outline-gray-400">
+          <pre style={{ margin: '0' }}>{JSON.stringify(config, null, 2)}</pre>
+        </div>
       </div>
     </Card>
   );
@@ -68,12 +55,8 @@ function DashboardPageLinks() {
 }
 
 const DashboardPageProjects = memo(function DashboardPageProjects({
-  nxGraphLoading,
-  nxGraphError,
   nxGraph,
 }: {
-  nxGraphLoading?: boolean;
-  nxGraphError: unknown;
   nxGraph: ProjectGraph<unknown>;
 }) {
   const projects = useMemo(
@@ -86,52 +69,43 @@ const DashboardPageProjects = memo(function DashboardPageProjects({
     <Card>
       <h5 className="text-lg">Project Docs</h5>
       <div>
-        {(() => {
-          if (nxGraphLoading) return loadingSpinner;
-          if (nxGraphError)
-            return <p className="text-base">Error Loading nx-graph</p>;
-          return (
-            <div className="grid grid-cols-2 gap-2">
-              {projects.map((project) => (
-                <div key={project}>
-                  <p className="flex flex-row align-middle">
-                    {/* <ArticleIcon color="primary" /> */}
-                    <Link href={`docs/${project}`}>{`${project} docs`}</Link>
-                  </p>
-                </div>
-              ))}
+        <div className="grid grid-cols-2 gap-2">
+          {projects.map((project) => (
+            <div key={project}>
+              <p className="flex flex-row align-middle">
+                {/* <ArticleIcon color="primary" /> */}
+                <Link href={`docs/${project}`}>{`${project} docs`}</Link>
+              </p>
             </div>
-          );
-        })()}
+          ))}
+        </div>
       </div>
     </Card>
   );
 });
+
+export interface DashboardPageProps {
+  config: BaseConfig;
+  nxGraph: ProjectGraph;
+}
 
 /**
  * The dashboard page component.
  *
  * This is the main and only component that acts as a "project landing page"
  * in regards to compiled docs and helper tools.
+ *
+ * @param props DashboardPageProps
  */
-export function DashboardPage() {
-  const { config, configError, configLoading } = useConfig({
-    path: 'config.json',
-  });
-  const { nxGraph, nxGraphError, nxGraphLoading } = useNxGraph({
-    path: 'nx-graph/graph.json',
-  });
+export function DashboardPage(props: DashboardPageProps) {
+  const { config, nxGraph } = props;
 
   return (
     <div className="width-full m-3">
       <div className="grid grid-cols-2 grid-rows-2 gap-2">
         <div>
           <Suspense fallback={loadingSpinner}>
-            <DashboardPageConfig
-              config={config}
-              configError={configError}
-              configLoading={configLoading}
-            />
+            <DashboardPageConfig config={config} />
           </Suspense>
         </div>
 
@@ -141,11 +115,7 @@ export function DashboardPage() {
 
         <div>
           <Suspense fallback={loadingSpinner}>
-            <DashboardPageProjects
-              nxGraphError={nxGraphError}
-              nxGraphLoading={nxGraphLoading}
-              nxGraph={nxGraph}
-            />
+            <DashboardPageProjects nxGraph={nxGraph} />
           </Suspense>
         </div>
       </div>
@@ -154,3 +124,22 @@ export function DashboardPage() {
 }
 
 export default DashboardPage;
+
+/**
+ * Returns the static props for the dashboard page.
+ */
+export function getStaticProps() {
+  const config = getConfig({
+    path: 'config.json',
+  });
+  const nxGraph = getNxGraph({
+    path: 'nx-graph/graph.json',
+  });
+
+  return {
+    props: {
+      config,
+      nxGraph,
+    },
+  };
+}

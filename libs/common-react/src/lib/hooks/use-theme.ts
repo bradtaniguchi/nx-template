@@ -19,7 +19,7 @@ export const USE_THEME_KEY = 'color-theme';
  */
 export function useTheme() {
   const localForage = useLocalForage();
-  const { setTheme } = useContext(ThemeContext);
+  const { setTheme: setContextTheme } = useContext(ThemeContext);
 
   useEffect(() => {
     const hasDarkThemeKey$ = localForage
@@ -32,8 +32,10 @@ export function useTheme() {
 
     hasDarkThemeKey$.then((hasDarkThemeKey) => {
       hasDarkThemeKey || hasSystemDarkTheme
-        ? setTheme('dark')
-        : setTheme('light');
+        ? setContextTheme('dark')
+        : setContextTheme('light');
+
+      document.documentElement.style.visibility = 'visible';
     });
-  }, [localForage, setTheme]);
+  }, [localForage, setContextTheme]);
 }

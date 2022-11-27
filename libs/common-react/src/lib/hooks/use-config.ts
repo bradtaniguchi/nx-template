@@ -8,6 +8,7 @@ import { getConfig } from '../utils';
  * This file should be generated and available from the client-side,
  * primarily to get an idea of which build is being used.
  *
+ * @deprecated use getStaticProps instead.
  * @param params the params object
  * @param params.path The path to the config file, otherwise defaults to `config.json`
  * @param params.overrides Override options to use if there is an error, or override
