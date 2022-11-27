@@ -83,6 +83,12 @@
         ],
         "parallel": false
       }
+    },
+    "static": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node apps/internal-client/scripts/static-build.js"
+      }
     }
   },
   "tags": []

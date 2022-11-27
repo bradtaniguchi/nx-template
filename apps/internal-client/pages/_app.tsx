@@ -20,7 +20,7 @@ function App({ Component, pageProps }: AppProps) {
       <Head>
         <title>Nx Template</title>
       </Head>
-      <Navbar fluid={true} rounded={true}>
+      <Navbar className="bg-blue-200" fluid={true} rounded={true}>
         <Link href="/">nx-template</Link>
       </Navbar>
       <main className="app">

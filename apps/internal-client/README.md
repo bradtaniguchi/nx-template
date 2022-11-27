@@ -10,6 +10,16 @@ Run the following to build a static build:
 npx nx run internal-client:export
 ```
 
+### Building all static contents
+
+This project is one thing that is generated during a full build.
+Run the following to execute all the commands that are normally
+run during a pipeline run:
+
+```bash
+npx nx run internal-client:static
+```
+
 ## Serving
 
 Run the following to use next to serve the project locally:

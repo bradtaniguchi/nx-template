@@ -5,18 +5,9 @@ import {
   getNxGraph,
   getProjectsByTarget,
 } from '@nx-template/common-react';
-import { Card, Spinner } from 'flowbite-react';
+import { Card } from 'flowbite-react';
 import Link from 'next/link';
-import { memo, Suspense, useMemo } from 'react';
-
-/**
- * Reusable snippet representing a centered loading spinner.
- */
-const loadingSpinner = (
-  <div className="flex flex-col justify-center ">
-    <Spinner />
-  </div>
-);
+import { memo, useMemo } from 'react';
 
 const DashboardPageConfig = memo(function DashboardPageConfig({
   config,
@@ -67,15 +58,15 @@ const DashboardPageProjects = memo(function DashboardPageProjects({
 
   return (
     <Card>
-      <h5 className="text-lg">Project Docs</h5>
+      <h5 className="text-lg">Generated TSDocs</h5>
       <div>
         <div className="grid grid-cols-2 gap-2">
           {projects.map((project) => (
             <div key={project}>
-              <p className="flex flex-row align-middle">
+              <div className="flex flex-row align-middle">
                 {/* <ArticleIcon color="primary" /> */}
                 <Link href={`docs/${project}`}>{`${project} docs`}</Link>
-              </p>
+              </div>
             </div>
           ))}
         </div>
@@ -103,21 +94,11 @@ export function DashboardPage(props: DashboardPageProps) {
   return (
     <div className="width-full m-3">
       <div className="grid grid-cols-2 grid-rows-2 gap-2">
-        <div>
-          <Suspense fallback={loadingSpinner}>
-            <DashboardPageConfig config={config} />
-          </Suspense>
-        </div>
+        <DashboardPageConfig config={config} />
 
-        <div>
-          <DashboardPageLinks />
-        </div>
+        <DashboardPageLinks />
 
-        <div>
-          <Suspense fallback={loadingSpinner}>
-            <DashboardPageProjects nxGraph={nxGraph} />
-          </Suspense>
-        </div>
+        <DashboardPageProjects nxGraph={nxGraph} />
       </div>
     </div>
   );
