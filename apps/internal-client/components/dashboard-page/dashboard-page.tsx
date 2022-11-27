@@ -1,10 +1,5 @@
 import { ProjectGraph } from '@nrwl/devkit';
-import {
-  BaseConfig,
-  getConfig,
-  getNxGraph,
-  getProjectsByTarget,
-} from '@nx-template/common-react';
+import { BaseConfig, getProjectsByTarget } from '@nx-template/common-react';
 import { Card } from 'flowbite-react';
 import Link from 'next/link';
 import { memo, useMemo } from 'react';
@@ -94,33 +89,18 @@ export function DashboardPage(props: DashboardPageProps) {
   return (
     <div className="width-full m-3">
       <div className="grid grid-cols-2 grid-rows-2 gap-2">
-        <DashboardPageConfig config={config} />
-
-        <DashboardPageLinks />
-
-        <DashboardPageProjects nxGraph={nxGraph} />
+        <div>
+          <DashboardPageConfig config={config} />
+        </div>
+        <div>
+          <DashboardPageLinks />
+        </div>
+        <div>
+          <DashboardPageProjects nxGraph={nxGraph} />
+        </div>
       </div>
     </div>
   );
 }
 
 export default DashboardPage;
-
-/**
- * Returns the static props for the dashboard page.
- */
-export function getStaticProps() {
-  const config = getConfig({
-    path: 'config.json',
-  });
-  const nxGraph = getNxGraph({
-    path: 'nx-graph/graph.json',
-  });
-
-  return {
-    props: {
-      config,
-      nxGraph,
-    },
-  };
-}
