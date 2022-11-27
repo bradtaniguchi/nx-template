@@ -1,4 +1,3 @@
-import { CommonLogger } from '@nx-template/common';
 import {
   DashboardPage,
   DashboardPageProps,
@@ -20,7 +19,6 @@ export default Index;
  * Returns the props for the index page.
  */
 export async function getStaticProps() {
-  const logger = new CommonLogger();
   const config = (() => {
     const common = {
       sha: process.env.GITHUB_SHA ?? '',

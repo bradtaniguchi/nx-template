@@ -1,36 +1,62 @@
-import { Navbar } from 'flowbite-react';
+import { useTheme } from '@nx-template/common-react';
+import { Button, Navbar } from 'flowbite-react';
 import { AppProps } from 'next/app';
 import Head from 'next/head';
 import Link from 'next/link';
 import './styles.css';
 
 /**
+ * The key that should be used to save the theme
+ * to local-storage
+ */
+export const USE_THEME_KEY = 'color-theme';
+
+/**
  *
  * Core app, used to render every page.
  *
- * TODO: Add theme change logic using useTheme hook
  *
  * @param root0 AppProps
  * @param root0.Component the component to render on this page
  * @param root0.pageProps the props to pass to the component rendered
  */
 function App({ Component, pageProps }: AppProps) {
+  const { handleToggleTheme, selectedTheme, systemTheme, theme } = useTheme();
+
   return (
     <>
       <Head>
         <title>Nx Template</title>
       </Head>
-      <Navbar className="bg-blue-400" fluid={true} rounded={true}>
-        <div className="flex w-full justify-between">
-          <div>
-            <Link href="/">nx-template</Link>
-          </div>
-          <div>{/* THEME TOGGLE BUTTOn */}</div>
+      <div data-automation-id="theme-toggle" className={theme}>
+        <div className="bg-white dark:bg-slate-700">
+          <Navbar fluid={true} rounded={true} className="bg-slate-200">
+            <div className="flex w-full justify-between">
+              <div>
+                <Link href="/" className="text-lg dark:text-white">
+                  nx-template
+                </Link>
+              </div>
+              <div>
+                <Button
+                  color={'white'}
+                  outline={true}
+                  onClick={handleToggleTheme}
+                  data-selected-theme={selectedTheme}
+                  data-system-theme={systemTheme}
+                  data-theme={theme}
+                >
+                  {/* TODO: change to an icon */}
+                  Toggle Theme
+                </Button>
+              </div>
+            </div>
+          </Navbar>
+          <main className="app">
+            <Component {...pageProps} />
+          </main>
         </div>
-      </Navbar>
-      <main className="app">
-        <Component {...pageProps} />
-      </main>
+      </div>
     </>
   );
 }
