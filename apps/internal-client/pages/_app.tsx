@@ -20,8 +20,13 @@ function App({ Component, pageProps }: AppProps) {
       <Head>
         <title>Nx Template</title>
       </Head>
-      <Navbar className="bg-blue-200" fluid={true} rounded={true}>
-        <Link href="/">nx-template</Link>
+      <Navbar className="bg-blue-400" fluid={true} rounded={true}>
+        <div className="flex w-full justify-between">
+          <div>
+            <Link href="/">nx-template</Link>
+          </div>
+          <div>{/* THEME TOGGLE BUTTOn */}</div>
+        </div>
       </Navbar>
       <main className="app">
         <Component {...pageProps} />
