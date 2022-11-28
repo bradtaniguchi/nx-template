@@ -40,7 +40,7 @@ export default class CustomDocument extends Document<{
             />
           }
         </Head>
-        <body>
+        <body className="min-h-screen">
           <Main />
           <NextScript />
         </body>

@@ -28,8 +28,11 @@ function App({ Component, pageProps }: AppProps) {
       <Head>
         <title>Nx Template</title>
       </Head>
-      <div data-automation-id="theme-toggle" className={theme}>
-        <div className="bg-white dark:bg-slate-700">
+      <div
+        data-automation-id="theme-toggle"
+        className={`min-h-screen ${theme}`}
+      >
+        <div className="min-h-screen bg-white dark:bg-slate-700">
           <Navbar fluid={true} rounded={true} className="bg-slate-200">
             <div className="flex w-full justify-between">
               <div>
