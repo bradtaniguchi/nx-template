@@ -228,7 +228,7 @@
             },
             {
               "file": "apps/internal-client/sentry.client.config.js",
-              "hash": "107558b057878933225eadfabd2d1ce06f1228b6",
+              "hash": "09f7c52f3f95dc6907fdb47fdbeff354867e30ec",
               "deps": [
                 "npm:@sentry/nextjs"
               ]
@@ -239,7 +239,7 @@
             },
             {
               "file": "apps/internal-client/sentry.server.config.js",
-              "hash": "764ac4683848b7df8e1054dd0181c6ec004f424d",
+              "hash": "990cf22a51e1d45c954980e0670c53fbcc68d64e",
               "deps": [
                 "npm:@sentry/nextjs"
               ]
