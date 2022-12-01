@@ -1,6 +1,7 @@
 {
   "recommendations": [
     "aaron-bond.better-comments",
+    "bradlc.vscode-tailwindcss",
     "christian-kohler.path-intellisense",
     "esbenp.prettier-vscode",
     "firsttris.vscode-jest-runner",
@@ -16,6 +17,7 @@
     "redhat.vscode-yaml",
     "streetsidesoftware.code-spell-checker",
     "styled-components.vscode-styled-components",
+    "wix.vscode-import-cost",
     "zhuangtongfa.material-theme"
   ]
 }
