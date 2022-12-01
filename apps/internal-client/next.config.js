@@ -16,7 +16,8 @@ const nextConfig = {
     // See: https://github.com/gregberge/svgr
     svgr: false,
   },
-  assetPrefix: isProd ? '/nx-template/' : '',
+  basePath: isProd ? '/nx-template' : '',
+  assetPrefix: isProd ? '/nx-template' : '',
 };
 
 module.exports = withNx(
