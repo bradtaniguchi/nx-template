@@ -57,7 +57,7 @@ function App({ Component, pageProps }: AppProps) {
                   data-theme={theme}
                 >
                   {themeIcon}
-                  <span className="hidden sm:block">{themeDisplay}</span>
+                  <span className="ml-1 hidden sm:block">{themeDisplay}</span>
                 </Button>
               </div>
             </div>
