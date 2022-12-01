@@ -23,6 +23,30 @@ export function useTheme(key: string = USE_THEME_KEY) {
   const [systemTheme, setSystemTheme] = useState<Theme>();
   const [theme, setTheme] = useState<Theme | undefined>();
 
+  const themeIcon = (() => {
+    switch (selectedTheme) {
+      case 'light':
+        return '☀️';
+      case 'dark':
+        return '🌙';
+      case 'system':
+      default:
+        return '🌓';
+    }
+  })();
+
+  const themeDisplay = (() => {
+    switch (selectedTheme) {
+      case 'light':
+        return 'light';
+      case 'dark':
+        return 'dark';
+      case 'system':
+      default:
+        return 'system';
+    }
+  })();
+
   useEffect(() => {
     const localForageSelectedTheme$ = localForage.getItem(key);
 
@@ -121,5 +145,15 @@ export function useTheme(key: string = USE_THEME_KEY) {
      * systemTheme.
      */
     theme,
+    /**
+     * The theme icon that can be displayed instead of the
+     * theme display property.
+     */
+    themeIcon,
+    /**
+     * The theme string that can be displayed to the user instead
+     * of the theme icon.
+     */
+    themeDisplay,
   };
 }

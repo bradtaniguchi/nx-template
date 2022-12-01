@@ -21,7 +21,14 @@ export const USE_THEME_KEY = 'color-theme';
  * @param root0.pageProps the props to pass to the component rendered
  */
 function App({ Component, pageProps }: AppProps) {
-  const { handleToggleTheme, selectedTheme, systemTheme, theme } = useTheme();
+  const {
+    handleToggleTheme,
+    selectedTheme,
+    systemTheme,
+    theme,
+    themeDisplay,
+    themeIcon,
+  } = useTheme();
 
   return (
     <>
@@ -40,7 +47,7 @@ function App({ Component, pageProps }: AppProps) {
                   nx-template
                 </Link>
               </div>
-              <div>
+              <div className="dark:hover:text-white">
                 <Button
                   color={'white'}
                   outline={true}
@@ -49,8 +56,8 @@ function App({ Component, pageProps }: AppProps) {
                   data-system-theme={systemTheme}
                   data-theme={theme}
                 >
-                  {/* TODO: change to an icon */}
-                  Toggle Theme
+                  {themeIcon}
+                  <span className="hidden sm:block">{themeDisplay}</span>
                 </Button>
               </div>
             </div>

@@ -94,7 +94,7 @@ export function DashboardPage(props: DashboardPageProps) {
 
   return (
     <div className="width-full m-3">
-      <div className="grid grid-cols-2 grid-rows-2 gap-2">
+      <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 sm:grid-rows-2">
         <div>
           <DashboardPageConfig config={config} />
         </div>
