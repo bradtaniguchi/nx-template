@@ -114,6 +114,12 @@
                 ],
                 "parallel": false
               }
+            },
+            "static": {
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "node apps/internal-client/scripts/static-build.js"
+              }
             }
           },
           "tags": [],
@@ -127,14 +133,39 @@
               "hash": "3b2917437a329a616ab9794f052d42499acfb142"
             },
             {
-              "file": "apps/internal-client/components/dashboard-page/dashboard-page.tsx",
-              "hash": "3c36ce09e3bef8dc8de60dcba2f41563288c3567",
+              "file": "apps/internal-client/components/dashboard-page/dashboard-page-config.tsx",
+              "hash": "517af4f709bc37e940176665b3f699ad0aace247",
               "deps": [
-                "npm:@mui/icons-material",
-                "npm:@mui/material",
-                "npm:@nrwl/devkit",
                 "common-react",
+                "npm:flowbite-react",
                 "npm:react"
+              ]
+            },
+            {
+              "file": "apps/internal-client/components/dashboard-page/dashboard-page-links.tsx",
+              "hash": "8e8741c5ceedf85960693a34338c0759bf65913d",
+              "deps": [
+                "npm:flowbite-react",
+                "npm:next"
+              ]
+            },
+            {
+              "file": "apps/internal-client/components/dashboard-page/dashboard-page-projects.tsx",
+              "hash": "293f3b6c86a49453917c5e00a3bc46aa5ad2a269",
+              "deps": [
+                "common-react",
+                "npm:flowbite-react",
+                "npm:nx",
+                "npm:react",
+                "npm:next"
+              ]
+            },
+            {
+              "file": "apps/internal-client/components/dashboard-page/dashboard-page.tsx",
+              "hash": "1a3332f2eeb813a04fb8559eff560c8e94c9ada2",
+              "deps": [
+                "npm:@nrwl/devkit",
+                "common-react"
               ]
             },
             {
@@ -159,14 +190,16 @@
             },
             {
               "file": "apps/internal-client/pages/_app.tsx",
-              "hash": "52c2ac2b9cd2062a3075b10de6d15d5f17c08115",
+              "hash": "09c20e8d428982852ff7855a5e49c23acb4cb232",
               "deps": [
+                "common-react",
+                "npm:flowbite-react",
                 "npm:next"
               ]
             },
             {
               "file": "apps/internal-client/pages/_document.tsx",
-              "hash": "13623d0de398efa97f2b0512ce74c0e327d256db",
+              "hash": "432b7539389a8bb4c067a2d78708bbec21a5b21a",
               "deps": [
                 "npm:react",
                 "npm:next",
@@ -184,27 +217,26 @@
             },
             {
               "file": "apps/internal-client/pages/404.tsx",
-              "hash": "dbf111635828754c357ad2118692a2d64e077f13",
+              "hash": "612bbd16d2debe77bb52d53748d1fceb51835afd",
               "deps": [
-                "npm:@mui/material"
+                "npm:flowbite-react"
               ]
             },
             {
               "file": "apps/internal-client/pages/index.tsx",
-              "hash": "ca30b0fb10101a87b34f670a3eb1340205f0ce71",
-              "deps": [
-                "npm:styled-components",
-                "common-react",
-                "npm:@mui/material"
-              ]
+              "hash": "830b39fc79b1719de095b69e0c209e2a7442fcfb"
             },
             {
               "file": "apps/internal-client/pages/styles.css",
-              "hash": "e8df664b21310fb18e3a97b2c89935b5db788787"
+              "hash": "eac17f08a5ff16741271166904ea58cf311fc3cf"
+            },
+            {
+              "file": "apps/internal-client/postcss.config.js",
+              "hash": "2d6ed243d22b23395afa1833e840071c1ed4c935"
             },
             {
               "file": "apps/internal-client/project.json",
-              "hash": "f01ff829bebbc3472a6b826d8ec37fb2ce70dfa5"
+              "hash": "4d8920e01f0b1d85b34d0dffe4d936093aff74b7"
             },
             {
               "file": "apps/internal-client/public/.gitkeep",
@@ -219,12 +251,12 @@
               "hash": "677e3cdebdf644bcfcb8f9416e5b8822b2c01bb0"
             },
             {
-              "file": "apps/internal-client/public/nx-graph/graph.json",
-              "hash": "c5f027dc631c9c97b9542f93e1d522bd804d98fe"
+              "file": "apps/internal-client/README.md",
+              "hash": "1ff4adcb8f70a03b41b4d57eb8edebe9035dbee2"
             },
             {
-              "file": "apps/internal-client/README.md",
-              "hash": "3621d89b6e8de790afd54ac835bf82292cf2420e"
+              "file": "apps/internal-client/scripts/static-build.js",
+              "hash": "a3bd4de5a3b9c7d37912ffc8cdc19ea36a446712"
             },
             {
               "file": "apps/internal-client/sentry.client.config.js",
@@ -252,12 +284,30 @@
               ]
             },
             {
+              "file": "apps/internal-client/tailwind.config.js",
+              "hash": "c9f7518af4144da9c796011b06d5043fb76cb625",
+              "deps": [
+                "npm:@nrwl/react",
+                "npm:flowbite",
+                "npm:@tailwindcss/typography"
+              ]
+            },
+            {
               "file": "apps/internal-client/tsconfig.json",
               "hash": "cadb8cda700070fec16641a4c734213862573c1c"
             },
             {
               "file": "apps/internal-client/tsconfig.spec.json",
               "hash": "23a8088f2767edee8d855ed96148c2ec01fda8fc"
+            },
+            {
+              "file": "apps/internal-client/utils/load-nx-graph.ts",
+              "hash": "a38f998ff52a8b230adae9a2f9093bca963f56ae",
+              "deps": [
+                "common",
+                "npm:util",
+                "npm:nx"
+              ]
             }
           ]
         }
@@ -390,7 +440,15 @@
             },
             {
               "file": "libs/common-react/.storybook/main.js",
-              "hash": "b17a4cd6ebe5e3b9bf8f3b47328cfa969bc0fef5"
+              "hash": "eb7aa20406201b06b95da6f0e25f40f20ca656bd"
+            },
+            {
+              "file": "libs/common-react/.storybook/preview.js",
+              "hash": "8c8889d1a414d3f6aac36db631cb19fab5756751"
+            },
+            {
+              "file": "libs/common-react/.storybook/tailwind-imports.css",
+              "hash": "b5c61c956711f981a41e95f7fcf0038436cfbb22"
             },
             {
               "file": "libs/common-react/.storybook/tsconfig.json",
@@ -405,80 +463,28 @@
               "hash": "2dd5d55d0b94246e35c02731745fcaab54edf696"
             },
             {
+              "file": "libs/common-react/postcss.config.js",
+              "hash": "2d6ed243d22b23395afa1833e840071c1ed4c935"
+            },
+            {
               "file": "libs/common-react/project.json",
               "hash": "f9f86f09e65a8d8bfb90aaf65f9d5d4ee6a4468d"
             },
             {
               "file": "libs/common-react/README.md",
-              "hash": "f351f7ff8075ea3a997a7e45950bfe94141af6df"
+              "hash": "84032cddc589299b5f63a918379781664482271f"
             },
             {
               "file": "libs/common-react/src/index.ts",
-              "hash": "bc2818fa2e5d5c727db6803e4944d1a2531c9d3d"
+              "hash": "e07c97f79c8a865a189e1e481d53d0d72fb46479"
             },
             {
               "file": "libs/common-react/src/lib/components/google-analytics/google-analytics.tsx",
               "hash": "88e0add92a31d7b2789fbeab16d065d588412da9"
             },
             {
-              "file": "libs/common-react/src/lib/components/header-bar/header-bar-context.ts",
-              "hash": "0677e6b9daddd842b49751c2ee94f3f64f3aa532",
-              "deps": [
-                "npm:react"
-              ]
-            },
-            {
-              "file": "libs/common-react/src/lib/components/header-bar/header-bar.spec.tsx",
-              "hash": "e7b2f6b49ce9dacea72c24862f46f3d58b4c12ae",
-              "deps": [
-                "npm:@testing-library/react"
-              ]
-            },
-            {
-              "file": "libs/common-react/src/lib/components/header-bar/header-bar.stories.tsx",
-              "hash": "f96c6496b0df7ae21f4e8438feb82b8deb3f9330",
-              "deps": [
-                "npm:@mui/material",
-                "npm:@mui/icons-material",
-                "npm:@storybook/react"
-              ]
-            },
-            {
-              "file": "libs/common-react/src/lib/components/header-bar/header-bar.tsx",
-              "hash": "adededaea2e032cb6f3475799cdda25832d52aa1",
-              "deps": [
-                "npm:@mui/icons-material",
-                "npm:@mui/material",
-                "npm:react"
-              ]
-            },
-            {
-              "file": "libs/common-react/src/lib/components/side-nav/side-nav.spec.tsx",
-              "hash": "bd89a59660cf03e8cd28252a21d958be65295502",
-              "deps": [
-                "npm:@testing-library/react"
-              ]
-            },
-            {
-              "file": "libs/common-react/src/lib/components/side-nav/side-nav.stories.tsx",
-              "hash": "2d939604e03b5b1857074fc9686220c6fa1ce2eb",
-              "deps": [
-                "npm:@mui/material",
-                "npm:@storybook/react"
-              ]
-            },
-            {
-              "file": "libs/common-react/src/lib/components/side-nav/side-nav.tsx",
-              "hash": "7db01b60c108f4f74cd1f5f33e0f199fd5476a0f",
-              "deps": [
-                "npm:@mui/material",
-                "npm:@mui/icons-material",
-                "npm:react"
-              ]
-            },
-            {
               "file": "libs/common-react/src/lib/hooks/index.ts",
-              "hash": "12bce91618b2ae9f148542d5d0e0dd04a18aac2a"
+              "hash": "d2c6b421e232df2ef6ba5e7ad35263ef1c061949"
             },
             {
               "file": "libs/common-react/src/lib/hooks/theme-context.ts",
@@ -504,14 +510,14 @@
             },
             {
               "file": "libs/common-react/src/lib/hooks/use-config.ts",
-              "hash": "8fd8ec0c480cafef5c348df484b8da7f233d7196",
+              "hash": "c7f90ce8f18415ea1673287c556884664cd5ef99",
               "deps": [
                 "npm:react"
               ]
             },
             {
               "file": "libs/common-react/src/lib/hooks/use-local-forage.ts",
-              "hash": "8ed4f6f3f16a25ff91237427b0172a3958d36d70",
+              "hash": "46f5f4f8c3df84afec332dd85e649e0587952159",
               "deps": [
                 "npm:localforage",
                 "npm:react"
@@ -527,7 +533,7 @@
             },
             {
               "file": "libs/common-react/src/lib/hooks/use-nx-graph.ts",
-              "hash": "761aa38e3ca21ee1c2e0dd5d2b6626ead29bb778",
+              "hash": "845a1a23b78222365e716980a22d846c8592890f",
               "deps": [
                 "npm:@nrwl/devkit",
                 "npm:react"
@@ -536,6 +542,13 @@
             {
               "file": "libs/common-react/src/lib/hooks/use-script.ts",
               "hash": "293cb68d77d38559ee005ea1d994461432dc24bd",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "libs/common-react/src/lib/hooks/use-theme.ts",
+              "hash": "c6d3071aa4874a59024a73c60094afaa1e4b4fd8",
               "deps": [
                 "npm:react"
               ]
@@ -550,7 +563,7 @@
             },
             {
               "file": "libs/common-react/src/lib/types/themes.ts",
-              "hash": "8f233e77e5937a78b7da8e04e8d74555ee7bf853"
+              "hash": "0fd379e5ba4fa89c1cd35b6bc9687ce6f1f2d10a"
             },
             {
               "file": "libs/common-react/src/lib/utils/combine-components.tsx",
@@ -579,7 +592,7 @@
             },
             {
               "file": "libs/common-react/src/lib/utils/get-projects-by-target.ts",
-              "hash": "3d8c19035b361df1206a0125aa5be338a98a9186",
+              "hash": "f79f0b32cfd586e45c333bb18284c54ff64b50aa",
               "deps": [
                 "npm:@nrwl/devkit"
               ]
@@ -587,6 +600,15 @@
             {
               "file": "libs/common-react/src/lib/utils/index.ts",
               "hash": "d39a90a988a6155d294de5e57515d1c88e58991d"
+            },
+            {
+              "file": "libs/common-react/tailwind.config.js",
+              "hash": "16c52d11fb862c82fee9c05c2e9c5baf97f007cb",
+              "deps": [
+                "npm:@nrwl/react",
+                "npm:flowbite",
+                "npm:@tailwindcss/typography"
+              ]
             },
             {
               "file": "libs/common-react/tsconfig.json",
@@ -738,8 +760,12 @@
               "hash": "b274f2bef88b29d7aa5fc0f4b63c1fb83b8aba96"
             },
             {
-              "file": "libs/storybook/.storybook/preview-head.html",
-              "hash": "31db416a9aabb1122a1a6e59418a61272abebc0c"
+              "file": "libs/storybook/.storybook/preview.js",
+              "hash": "8c8889d1a414d3f6aac36db631cb19fab5756751"
+            },
+            {
+              "file": "libs/storybook/.storybook/tailwind-imports.css",
+              "hash": "b5c61c956711f981a41e95f7fcf0038436cfbb22"
             },
             {
               "file": "libs/storybook/.storybook/tsconfig.json",
@@ -752,6 +778,10 @@
             {
               "file": "libs/storybook/package.json",
               "hash": "e11efb1c82d82a7f137a0585c943452d65202408"
+            },
+            {
+              "file": "libs/storybook/postcss.config.js",
+              "hash": "2d6ed243d22b23395afa1833e840071c1ed4c935"
             },
             {
               "file": "libs/storybook/project.json",
@@ -774,18 +804,27 @@
             },
             {
               "file": "libs/storybook/src/lib/storybook-landing.stories.tsx",
-              "hash": "1077d8f56b34ca2b9f8e07a33947ddfb279b71fa",
+              "hash": "395533efdeec57b49d7e7a9473dcac3d04cec652",
               "deps": [
-                "npm:@mui/material",
-                "npm:@storybook/react"
+                "npm:@storybook/react",
+                "npm:flowbite-react"
               ]
             },
             {
               "file": "libs/storybook/src/lib/storybook-landing.tsx",
-              "hash": "794ef29980bb6ba15598c1ea879ae2e00489decd",
+              "hash": "17686349e2e737005511da6148ed1058cbcd3c28",
               "deps": [
-                "npm:@mui/material",
+                "npm:flowbite-react",
                 "npm:react"
+              ]
+            },
+            {
+              "file": "libs/storybook/tailwind.config.js",
+              "hash": "16c52d11fb862c82fee9c05c2e9c5baf97f007cb",
+              "deps": [
+                "npm:@nrwl/react",
+                "npm:flowbite",
+                "npm:@tailwindcss/typography"
               ]
             },
             {
@@ -959,6 +998,11 @@
         {
           "source": "internal-client",
           "target": "common-react",
+          "type": "static"
+        },
+        {
+          "source": "internal-client",
+          "target": "common",
           "type": "static"
         }
       ],
