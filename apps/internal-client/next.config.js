@@ -32,6 +32,7 @@ module.exports = {
       // https://github.com/getsentry/sentry-webpack-plugin#options.
     })
   ),
+  basePath: isProd ? '/nx-template' : '',
   // Needs to be overwritten here, as either withNx or withSentryConfig overwrites it.
   assetPrefix: isProd ? '/nx-template' : '',
 };
