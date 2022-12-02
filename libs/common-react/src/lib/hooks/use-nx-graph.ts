@@ -5,6 +5,7 @@ import { getNxGraph } from '../utils';
 /**
  * Hook that can can be used to get the nx-graph file.
  *
+ * @deprecated use getStaticProps instead.
  * @param params params object
  * @param params.path the path to load the nx-graph file
  * @param params.overrides possible overrides that could be used to override

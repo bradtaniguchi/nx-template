@@ -1,6 +1,6 @@
-import Card from '@mui/material/Card';
 import { Meta, Story } from '@storybook/react';
 import { StorybookLanding, StorybookLandingProps } from './storybook-landing';
+import {Card} from 'flowbite-react';
 
 export default {
   component: StorybookLanding,

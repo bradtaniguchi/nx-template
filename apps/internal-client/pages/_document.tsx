@@ -31,7 +31,7 @@ export default class CustomDocument extends Document<{
 
   render() {
     return (
-      <Html>
+      <Html style={{ visibility: 'hidden' }}>
         <Head>
           {this.props.styleTags}
           {
@@ -40,7 +40,7 @@ export default class CustomDocument extends Document<{
             />
           }
         </Head>
-        <body>
+        <body className="min-h-screen">
           <Main />
           <NextScript />
         </body>

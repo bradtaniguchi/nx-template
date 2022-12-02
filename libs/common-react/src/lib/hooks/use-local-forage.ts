@@ -19,10 +19,10 @@ import { createContext, useDebugValue, useMemo } from 'react';
  * @param options the localforage options we pass to createInstance
  * @see localForageContextFactory
  */
-export function useLocalForage(options: LocalForageOptions) {
+export function useLocalForage(options?: LocalForageOptions) {
   useDebugValue(options);
 
-  return useMemo(() => createInstance(options), [options]);
+  return useMemo(() => createInstance(options ?? {}), [options]);
 }
 
 /**
