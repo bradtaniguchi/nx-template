@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { isSelectableTheme, SelectableTheme, Theme } from '../types';
 import { useLocalForage } from './use-local-forage';
 import { useLogger } from './use-logger';
@@ -23,7 +23,7 @@ export function useTheme(key: string = USE_THEME_KEY) {
   const [systemTheme, setSystemTheme] = useState<Theme>();
   const [theme, setTheme] = useState<Theme | undefined>();
 
-  const themeIcon = (() => {
+  const themeIcon = useMemo(() => {
     switch (selectedTheme) {
       case 'light':
         return '☀️';
@@ -33,9 +33,9 @@ export function useTheme(key: string = USE_THEME_KEY) {
       default:
         return '🌓';
     }
-  })();
+  }, [selectedTheme]);
 
-  const themeDisplay = (() => {
+  const themeDisplay = useMemo(() => {
     switch (selectedTheme) {
       case 'light':
         return 'light';
@@ -45,7 +45,7 @@ export function useTheme(key: string = USE_THEME_KEY) {
       default:
         return 'system';
     }
-  })();
+  }, [selectedTheme]);
 
   useEffect(() => {
     const localForageSelectedTheme$ = localForage.getItem(key);
