@@ -6,38 +6,19 @@ on:
       - '**'
 
 jobs:
-  gen-affected:
-    timeout-minutes: 5
-    runs-on: ubuntu-latest
-    outputs:
-      AFFECTED: ${{ steps.gen-affected.outputs.AFFECTED }}
-    steps:
-      - uses: actions/checkout@v2
-        with:
-          lfs: false
-          fetch-depth: 0
-      - uses: ./.github/actions/init-job
-      - id: gen-affected
-        run: |
-          AFFECTED=$(npm run get:affected --silent)
-          echo $AFFECTED
-          echo "::set-output name=AFFECTED::$AFFECTED"
-
   internal-client:
     timeout-minutes: 5
-    if: ${{ needs.gen-affected.outputs.AFFECTED != '' }}
     runs-on: ubuntu-latest
-    needs:
-      - gen-affected
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/init-job
-      - run: npx nx run internal-client:lint
-      - run: npx nx run internal-client:test
-      - run: npx nx run internal-client:export
+      - uses: mansagroup/nrwl-nx-action@v3
+        with:
+          targets: lint,test,export,lighthouse
+          projects: internal-client
+          parallel: 1
         env:
           NODE_ENV: production
-      - run: npx nx run internal-client:lighthouse
       - run: npx rimraf dist/apps/internal-client/exported/nx-template
       - uses: actions/upload-artifact@v2
         with:
@@ -51,10 +32,7 @@ jobs:
   # All of these together will be deployed within the gh-page job.
   internal-storybooks:
     timeout-minutes: 5
-    if: ${{ needs.gen-affected.outputs.AFFECTED != '' }}
     runs-on: ubuntu-latest
-    needs:
-      - gen-affected
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/init-job
@@ -70,10 +48,7 @@ jobs:
   # Deployed with the storybook project to gh-pages.
   internal-tools:
     timeout-minutes: 5
-    if: ${{ needs.gen-affected.outputs.AFFECTED != '' }}
     runs-on: ubuntu-latest
-    needs:
-      - gen-affected
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/init-job
@@ -106,10 +81,9 @@ jobs:
   # of the static contents to the local github page.
   gh-pages:
     timeout-minutes: 5
-    if: ${{ needs.gen-affected.outputs.AFFECTED != '' && github.ref == 'refs/heads/main' }}
+    if: ${{ github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-latest
     needs:
-      - gen-affected
       - internal-client
       - internal-storybooks
       - internal-tools
@@ -154,10 +128,7 @@ jobs:
           folder: dist
 
   common:
-    if: ${{ contains(fromJSON(needs.gen-affected.outputs.AFFECTED || '[]'), 'common') }}
     runs-on: ubuntu-latest
-    needs:
-      - gen-affected
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/init-job
@@ -165,13 +136,10 @@ jobs:
       - run: npx nx run common:test
 
   common-react:
-    if: ${{ contains(fromJSON(needs.gen-affected.outputs.AFFECTED || '[]'), 'common-react') }}
     runs-on: ubuntu-latest
-    needs:
-      - gen-affected
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/init-job
       - run: npx nx run common-react:lint
       - run: npx nx run common-react:test
-      - run: npx nx run common-react:build # TODO: verify
+      - run: npx nx run common-react:build
