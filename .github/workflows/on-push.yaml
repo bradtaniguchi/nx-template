@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - uses: ./.github/actions/init-job
       - uses: mansagroup/nrwl-nx-action@v3
         with:
@@ -35,6 +37,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - uses: ./.github/actions/init-job
       - uses: mansagroup/nrwl-nx-action@v3
         with:
@@ -54,6 +58,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - uses: ./.github/actions/init-job
       - run: npx nx graph --file=dist/nx-graph/index.html
       - run: npx nx graph --file=dist/nx-graph/graph.json
