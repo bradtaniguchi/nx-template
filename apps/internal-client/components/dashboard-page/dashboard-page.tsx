@@ -1,4 +1,3 @@
-import { ProjectGraph } from '@nrwl/devkit';
 import { BaseConfig } from '@nx-template/common-react';
 import { DashboardPageConfig } from './dashboard-page-config';
 import { DashboardPageLinks } from './dashboard-page-links';
@@ -6,7 +5,10 @@ import { DashboardPageProjects } from './dashboard-page-projects';
 
 export interface DashboardPageProps {
   config: BaseConfig;
-  nxGraph: ProjectGraph;
+  /**
+   * The list of project keys/names that have a typedoc target
+   */
+  typedocProjects: string[];
 }
 
 /**
@@ -18,7 +20,7 @@ export interface DashboardPageProps {
  * @param props DashboardPageProps
  */
 export function DashboardPage(props: DashboardPageProps) {
-  const { config, nxGraph } = props;
+  const { config, typedocProjects } = props;
 
   return (
     <div className="width-full p-3">
@@ -30,7 +32,7 @@ export function DashboardPage(props: DashboardPageProps) {
           <DashboardPageLinks />
         </div>
         <div>
-          <DashboardPageProjects nxGraph={nxGraph} />
+          <DashboardPageProjects typedocProjects={typedocProjects} />
         </div>
       </div>
     </div>

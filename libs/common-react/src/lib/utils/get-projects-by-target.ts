@@ -1,4 +1,3 @@
-/* eslint-disable no-debugger */
 import { ProjectGraph } from '@nrwl/devkit';
 
 /**

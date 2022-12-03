@@ -1,3 +1,5 @@
+import { BaseConfig, getProjectsByTarget } from '@nx-template/common-react';
+import { GetStaticPropsResult } from 'next';
 import {
   DashboardPage,
   DashboardPageProps,
@@ -18,7 +20,9 @@ export default Index;
 /**
  * Returns the props for the index page.
  */
-export async function getStaticProps() {
+export async function getStaticProps(): Promise<
+  GetStaticPropsResult<DashboardPageProps>
+> {
   const config = (() => {
     const common = {
       sha: process.env.GITHUB_SHA ?? '',
@@ -35,15 +39,19 @@ export async function getStaticProps() {
       ...common,
       tag: process.env.GITHUB_REF ?? '',
     };
-  })();
+  })() as BaseConfig;
 
   const nxGraph = await loadNxGraph();
-  const props = {
-    config,
-    nxGraph,
-  };
+
+  const typedocProjects = getProjectsByTarget({
+    graph: nxGraph,
+    target: 'typedoc',
+  });
 
   return {
-    props,
+    props: {
+      config,
+      typedocProjects,
+    },
   };
 }
