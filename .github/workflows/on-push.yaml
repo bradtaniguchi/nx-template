@@ -42,7 +42,7 @@ jobs:
       - uses: ./.github/actions/init-job
       - uses: mansagroup/nrwl-nx-action@v3
         with:
-          targets: storybook
+          targets: build-storybook
           all: true
           parallel: 3
       - run: mv dist/storybook/storybook/** dist/storybook/
