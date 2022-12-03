@@ -134,7 +134,7 @@
             },
             {
               "file": "apps/internal-client/components/dashboard-page/dashboard-page-config.tsx",
-              "hash": "517af4f709bc37e940176665b3f699ad0aace247",
+              "hash": "5862a41728313fc7573282a40d857e753b74ce17",
               "deps": [
                 "common-react",
                 "npm:flowbite-react",
