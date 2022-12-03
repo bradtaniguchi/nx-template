@@ -8,8 +8,8 @@ module.exports = {
     collect: {
       port: 4200,
       isSinglePageApplication: true,
-      // wait for only 10 seconds
-      maxWaitForLoad: 10_000,
+      // wait for only 5 seconds
+      maxWaitForLoad: 5_000,
       numberOfRuns: 1,
       // this is for local, not sure if it works for CI
       chromePath: '/usr/bin/google-chrome',

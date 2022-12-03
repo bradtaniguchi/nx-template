@@ -59,6 +59,7 @@ jobs:
       # run these targets
       - run: npx nx run internal-client:lint
       - run: npx nx run internal-client:export
+      - run: npx nx run internal-client:lighthouse
       - run: npx rimraf dist/apps/internal-client/exported/nx-template
       - uses: actions/upload-artifact@v2
         with:
