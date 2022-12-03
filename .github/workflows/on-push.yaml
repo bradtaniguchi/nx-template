@@ -62,7 +62,10 @@ jobs:
           name: internal-nx-graph
           path: dist/nx-graph
           retention-days: 3
-      - run: npx nx run-many --target=typedoc --all
+      - uses: mansagroup/nrwl-nx-action@v3
+        with:
+          targets: typedoc
+          parallel: 3
       - uses: actions/upload-artifact@v2
         with:
           name: internal-docs
