@@ -277,13 +277,6 @@
               ]
             },
             {
-              "file": "apps/internal-client/specs/index.spec.tsx",
-              "hash": "77269d9ec1d2ead92093b9882e49eda89c5ccb74",
-              "deps": [
-                "npm:@testing-library/react"
-              ]
-            },
-            {
               "file": "apps/internal-client/tailwind.config.js",
               "hash": "c9f7518af4144da9c796011b06d5043fb76cb625",
               "deps": [
