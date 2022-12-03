@@ -57,10 +57,8 @@ jobs:
       - uses: ./.github/actions/init-job
       # directly call, as we don't care about leveraging NX here. We always
       # run these targets
-      - uses: mansagroup/nrwl-nx-action@v3
-        with:
-          targets: lint,export
-          parallel: 3
+      - run: npx nx run internal-client:lint
+      - run: npx nx run internal-client:export
       - run: npx rimraf dist/apps/internal-client/exported/nx-template
       - uses: actions/upload-artifact@v2
         with:
