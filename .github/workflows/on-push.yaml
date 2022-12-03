@@ -36,7 +36,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ./.github/actions/init-job
-      - run: npx nx run-many --target=build-storybook --all
+      - uses: mansagroup/nrwl-nx-action@v3
+        with:
+          targets: storybook
+          parallel: 3
       - run: mv dist/storybook/storybook/** dist/storybook/
       - uses: actions/upload-artifact@v2
         with:
