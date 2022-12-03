@@ -43,6 +43,7 @@ jobs:
       - uses: mansagroup/nrwl-nx-action@v3
         with:
           targets: storybook
+          all: true
           parallel: 3
       - run: mv dist/storybook/storybook/** dist/storybook/
       - uses: actions/upload-artifact@v2
@@ -71,6 +72,7 @@ jobs:
       - uses: mansagroup/nrwl-nx-action@v3
         with:
           targets: typedoc
+          all: true
           parallel: 3
       - uses: actions/upload-artifact@v2
         with:
