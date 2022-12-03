@@ -115,6 +115,13 @@
                 "parallel": false
               }
             },
+            "lighthouse-local": {
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "npx lhci autorun --config=./.lighthouse/lighthouserc.js --collect.staticDistDir=./dist/apps/internal-client/exported",
+                "parallel": false
+              }
+            },
             "static": {
               "executor": "nx:run-commands",
               "options": {
@@ -236,7 +243,7 @@
             },
             {
               "file": "apps/internal-client/project.json",
-              "hash": "4d8920e01f0b1d85b34d0dffe4d936093aff74b7"
+              "hash": "3ce57d70871a1ac2ee24422c5192b68a80c0f15b"
             },
             {
               "file": "apps/internal-client/public/.gitkeep",
@@ -252,7 +259,7 @@
             },
             {
               "file": "apps/internal-client/README.md",
-              "hash": "1ff4adcb8f70a03b41b4d57eb8edebe9035dbee2"
+              "hash": "7a3d150dd6d7a161c890c983b634af832b7dcd14"
             },
             {
               "file": "apps/internal-client/scripts/static-build.js",
