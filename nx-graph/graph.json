@@ -182,7 +182,7 @@
             },
             {
               "file": "apps/internal-client/next.config.js",
-              "hash": "ced5d017de07b1b023f5c398fee87079608757ab",
+              "hash": "dc15d705db34fb5aeec3922ef118aa7eaa5f43f1",
               "deps": [
                 "npm:@nrwl/next",
                 "npm:@sentry/nextjs"
@@ -511,7 +511,7 @@
             },
             {
               "file": "libs/common-react/src/lib/hooks/use-theme.ts",
-              "hash": "c6d3071aa4874a59024a73c60094afaa1e4b4fd8",
+              "hash": "c9d0bd947b571e23e023d050ab8610fa46cbb883",
               "deps": [
                 "npm:react"
               ]
