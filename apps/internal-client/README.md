@@ -29,3 +29,29 @@ npx nx run internal-client:serve
 ```
 
 This does not include the statically built files that are usually added during the actual build.
+
+## Lighthouse testing
+
+Lighthouse testing is included more as an example for future testing. Current budgets
+are rather strict, and global to all plugins.
+
+1. build an export of this project with:
+
+```bash
+npx nx run internal-client:export
+```
+
+2. Run CI lighthouse checks against the build with:
+
+```bash
+npx nx run internal-client:lighthouse
+```
+
+**note** this will fail without chrome installed.
+
+This will create some reporting in `.lighthouseci` folder, which could be viewed
+using `http-server` like:
+
+```bash
+npx http-server .lighthouseci/<name-of-report-file>.html
+```

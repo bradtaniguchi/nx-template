@@ -9,7 +9,7 @@ jobs:
   lint-all:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - uses: ./.github/actions/init-job
@@ -23,7 +23,7 @@ jobs:
     needs:
       - lint-all
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - uses: ./.github/actions/init-job
@@ -38,7 +38,7 @@ jobs:
       - lint-all
       - test-all
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - uses: ./.github/actions/init-job
@@ -51,7 +51,7 @@ jobs:
     timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - uses: ./.github/actions/init-job
@@ -59,6 +59,7 @@ jobs:
       # run these targets
       - run: npx nx run internal-client:lint
       - run: npx nx run internal-client:export
+      - run: npx nx run internal-client:lighthouse
       - run: npx rimraf dist/apps/internal-client/exported/nx-template
       - uses: actions/upload-artifact@v2
         with:
@@ -74,7 +75,7 @@ jobs:
     timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - uses: ./.github/actions/init-job
@@ -96,7 +97,7 @@ jobs:
     timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
         with:
           fetch-depth: 0
       - uses: ./.github/actions/init-job
@@ -140,7 +141,7 @@ jobs:
       - internal-storybooks
       - internal-tools
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - uses: ./.github/actions/init-job
       - run: mkdir dist
       - uses: actions/download-artifact@v2

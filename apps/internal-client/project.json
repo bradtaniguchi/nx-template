@@ -84,6 +84,13 @@
         "parallel": false
       }
     },
+    "lighthouse-local": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx lhci autorun --config=./.lighthouse/lighthouserc.js --collect.staticDistDir=./dist/apps/internal-client/exported",
+        "parallel": false
+      }
+    },
     "static": {
       "executor": "nx:run-commands",
       "options": {
