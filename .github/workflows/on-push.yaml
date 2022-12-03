@@ -13,7 +13,7 @@ jobs:
         with:
           fetch-depth: 0
       - uses: ./.github/actions/init-job
-      - uses: mansagroup/nrwl-nx-action@v3
+      - uses: mansagroup/nrwl-nx-action@v2
         with:
           targets: lint
           parallel: 3
@@ -27,7 +27,7 @@ jobs:
         with:
           fetch-depth: 0
       - uses: ./.github/actions/init-job
-      - uses: mansagroup/nrwl-nx-action@v3
+      - uses: mansagroup/nrwl-nx-action@v2
         with:
           targets: test
           parallel: 3
@@ -42,7 +42,7 @@ jobs:
         with:
           fetch-depth: 0
       - uses: ./.github/actions/init-job
-      - uses: mansagroup/nrwl-nx-action@v3
+      - uses: mansagroup/nrwl-nx-action@v2
         with:
           targets: build
           parallel: 3
@@ -79,7 +79,7 @@ jobs:
         with:
           fetch-depth: 0
       - uses: ./.github/actions/init-job
-      - uses: mansagroup/nrwl-nx-action@v3
+      - uses: mansagroup/nrwl-nx-action@v2
         with:
           targets: build-storybook
           all: true
@@ -108,7 +108,7 @@ jobs:
           name: internal-nx-graph
           path: dist/nx-graph
           retention-days: 3
-      - uses: mansagroup/nrwl-nx-action@v3
+      - uses: mansagroup/nrwl-nx-action@v2
         with:
           targets: typedoc
           all: true
