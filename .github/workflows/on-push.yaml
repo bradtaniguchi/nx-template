@@ -143,15 +143,24 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - uses: ./.github/actions/init-job
-      - run: npx nx run common:lint
-      - run: npx nx run common:test
+      - uses: mansagroup/nrwl-nx-action@v3
+        with:
+          targets: lint,test
+          projects: common
+          parallel: 1
 
   common-react:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
       - uses: ./.github/actions/init-job
-      - run: npx nx run common-react:lint
-      - run: npx nx run common-react:test
-      - run: npx nx run common-react:build
+      - uses: mansagroup/nrwl-nx-action@v3
+        with:
+          targets: lint,test,build
+          projects: common-react
+          parallel: 1
