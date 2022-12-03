@@ -67,7 +67,28 @@
     "lighthouse": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "npx lhci autorun --config=./.lighthouse/lighthouserc.js --collect.staticDistDir=./dist/apps/internal-client/exported"
+        "commands": [
+          {
+            "command": "mkdir dist/apps/internal-client/exported/nx-template",
+            "description": "Make missing directories"
+          },
+          {
+            "command": "cp -r dist/apps/internal-client/exported/_next dist/apps/internal-client/exported/nx-template/",
+            "description": "Copy files into nx-template sub-folder for testing"
+          },
+          {
+            "command": "npx lhci autorun --config=./.lighthouse/lighthouserc.js --collect.staticDistDir=./dist/apps/internal-client/exported",
+            "description": "Run lighthouse"
+          }
+        ],
+        "parallel": false
+      }
+    },
+    "lighthouse-local": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx lhci autorun --config=./.lighthouse/lighthouserc.js --collect.staticDistDir=./dist/apps/internal-client/exported",
+        "parallel": false
       }
     },
     "static": {
