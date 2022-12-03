@@ -45,3 +45,6 @@ Thumbs.db
 
 # Next.js
 .next
+
+# Files generated from Lighthouse in WSL
+C:*
