@@ -1,9 +1,11 @@
 name: on-push
 on:
-  # run on push
   push:
     branches:
-      - '**'
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   lint-all:
