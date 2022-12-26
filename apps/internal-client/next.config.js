@@ -5,9 +5,13 @@ const withNx = require('@nrwl/next/plugins/with-nx');
 // https://nextjs.org/docs/api-reference/next.config.js/introduction
 // https://docs.sentry.io/platforms/javascript/guides/nextjs/
 const { withSentryConfig } = require('@sentry/nextjs');
-const isProd = process.env.NODE_ENV === 'production';
 
+/**
+ * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
+ */
 const nextConfig = {
+  reactStrictMode: true,
+  productionBrowserSourceMaps: true,
   nx: {
     // Set this to true if you would like to to use SVGR
     // See: https://github.com/gregberge/svgr
@@ -15,24 +19,28 @@ const nextConfig = {
   },
 };
 
-/**
- * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
- */
-module.exports = {
-  ...withNx(
-    withSentryConfig(nextConfig, {
-      // Additional config options for the Sentry Webpack plugin. Keep in mind that
-      // the following options are set automatically, and overriding them is not
-      // recommended:
-      //   release, url, org, project, authToken, configFile, stripPrefix,
-      //   urlPrefix, include, ignore
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+  enabled: true,
+  openAnalyzer: false,
+});
 
-      silent: true, // Suppresses all logs
-      // For all available options, see:
-      // https://github.com/getsentry/sentry-webpack-plugin#options.
-    })
-  ),
-  basePath: isProd ? '/nx-template' : undefined,
-  // Needs to be overwritten here, as either withNx or withSentryConfig overwrites it.
-  assetPrefix: isProd ? '/nx-template' : undefined,
-};
+module.exports = (() => {
+  const isProd = process.env.NODE_ENV === 'production';
+  const isAnalyze = process.env.ANALYZE == 'true';
+  const isBare = process.env.BARE == 'true';
+
+  if (isBare) return nextConfig;
+
+  if (isAnalyze) return withBundleAnalyzer(nextConfig);
+
+  if (isProd)
+    return withNx(
+      withSentryConfig(nextConfig, {
+        silent: true,
+        authToken: process.env.SENTRY_AUTH_TOKEN,
+        org: process.env.SENTRY_ORG,
+      })
+    );
+
+  return withNx(nextConfig);
+})();

@@ -23,6 +23,13 @@ export function DashboardPageLinks() {
             </Link>
           </div>
         </li>
+        <li>
+          <div className="flex flex-row align-middle">
+            <Link href="internal-client/analyze" className="dark:text-white">
+              internal-client analyze bundle
+            </Link>
+          </div>
+        </li>
       </ul>
     </Card>
   );

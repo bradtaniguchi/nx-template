@@ -62,12 +62,17 @@ jobs:
       - run: npx nx run internal-client:lint
       - run: npx nx run internal-client:export
       - run: npx nx run internal-client:lighthouse
-      - run: npx rimraf dist/apps/internal-client/exported/nx-template
+      - run: npx nx run internal-client:analyze
       - uses: actions/upload-artifact@v2
         with:
           name: internal-client
           path: dist/apps/internal-client/exported
           retention-days: 3
+      - uses: actions/upload-artifact@v2
+        with:
+          name: internal-client-analyze
+          path: dist/apps/internal-client/.next/analyze
+          retention-days: 1
 
   # Job that generates the storybook configuration for all projects that have it,
   # where the `storybook`` library will be built and manage ALL the projects.
@@ -152,6 +157,12 @@ jobs:
           # This gets moved to the top-level dist, as it will
           # manage all the other contents.
           path: dist
+      - uses: actions/download-artifact@v2
+        with:
+          name: internal-client-analyze
+          # This gets moved to the top-level dist, as it will
+          # manage all the other contents.
+          path: dist/internal-client/analyze
       - uses: actions/download-artifact@v2
         with:
           name: internal-storybooks

@@ -91,6 +91,12 @@
         "parallel": false
       }
     },
+    "analyze": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "ANALYZE=true npm run build"
+      }
+    },
     "static": {
       "executor": "nx:run-commands",
       "options": {
