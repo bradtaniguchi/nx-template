@@ -156,7 +156,7 @@
             },
             {
               "file": "apps/internal-client/components/dashboard-page/dashboard-page-links.tsx",
-              "hash": "4c5e5eb1fc50d690c88d2f0d6534b1f6cad8c38c",
+              "hash": "6781dd8b8b6d39ae3e4f5336ae9296c97ce62efb",
               "deps": [
                 "npm:flowbite-react",
                 "npm:next"
