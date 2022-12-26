@@ -31,16 +31,25 @@ module.exports = (() => {
 
   if (isBare) return nextConfig;
 
-  if (isAnalyze) return withBundleAnalyzer(nextConfig);
+  if (isAnalyze)
+    return {
+      ...withBundleAnalyzer(nextConfig),
+      basePath: '/nx-template',
+      assetPrefix: '/nx-template',
+    };
 
   if (isProd)
-    return withNx(
-      withSentryConfig(nextConfig, {
-        silent: true,
-        authToken: process.env.SENTRY_AUTH_TOKEN,
-        org: process.env.SENTRY_ORG,
-      })
-    );
+    return {
+      ...withNx(
+        withSentryConfig(nextConfig, {
+          silent: true,
+          authToken: process.env.SENTRY_AUTH_TOKEN,
+          org: process.env.SENTRY_ORG,
+        })
+      ),
+      basePath: '/nx-template',
+      assetPrefix: '/nx-template',
+    };
 
   return withNx(nextConfig);
 })();
