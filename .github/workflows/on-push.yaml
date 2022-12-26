@@ -162,7 +162,7 @@ jobs:
           name: internal-client-analyze
           # This gets moved to the top-level dist, as it will
           # manage all the other contents.
-          path: dist/internal-client/analyze
+          path: dist/analyze/internal-client
       - uses: actions/download-artifact@v2
         with:
           name: internal-storybooks

@@ -25,8 +25,19 @@ export function DashboardPageLinks() {
         </li>
         <li>
           <div className="flex flex-row align-middle">
-            <Link href="internal-client/analyze" className="dark:text-white">
-              internal-client analyze bundle
+            <Link
+              href="analyze/internal-client/client"
+              className="dark:text-white"
+            >
+              internal-client analyze client-bundle
+            </Link>
+          </div>
+          <div className="flex flex-row align-middle">
+            <Link
+              href="analyze/internal-client/nodejs"
+              className="dark:text-white"
+            >
+              internal-client analyze nodejs-bundle
             </Link>
           </div>
         </li>
