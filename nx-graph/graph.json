@@ -122,6 +122,12 @@
                 "parallel": false
               }
             },
+            "analyze": {
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "ANALYZE=true npm run build"
+              }
+            },
             "static": {
               "executor": "nx:run-commands",
               "options": {
@@ -150,7 +156,7 @@
             },
             {
               "file": "apps/internal-client/components/dashboard-page/dashboard-page-links.tsx",
-              "hash": "8e8741c5ceedf85960693a34338c0759bf65913d",
+              "hash": "4c5e5eb1fc50d690c88d2f0d6534b1f6cad8c38c",
               "deps": [
                 "npm:flowbite-react",
                 "npm:next"
@@ -186,10 +192,11 @@
             },
             {
               "file": "apps/internal-client/next.config.js",
-              "hash": "8939add5570762433666f77420e9439dd85dab59",
+              "hash": "ebb726b93e3db232c845fca354d5663a573120b2",
               "deps": [
                 "npm:@nrwl/next",
-                "npm:@sentry/nextjs"
+                "npm:@sentry/nextjs",
+                "npm:@next/bundle-analyzer"
               ]
             },
             {
@@ -244,7 +251,7 @@
             },
             {
               "file": "apps/internal-client/project.json",
-              "hash": "3ce57d70871a1ac2ee24422c5192b68a80c0f15b"
+              "hash": "74f8db571729917935d96c8d1c77b9ff4ad72e4c"
             },
             {
               "file": "apps/internal-client/public/.gitkeep",
