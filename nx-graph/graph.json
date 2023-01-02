@@ -496,7 +496,7 @@
             },
             {
               "file": "libs/common-react/src/lib/hooks/use-config.ts",
-              "hash": "eae6c313971c1c2209914e2d07a7d70a5783faab",
+              "hash": "2e18d8ddcb4d722d1b18c82b0cf5fb36533b33d2",
               "deps": [
                 "npm:react"
               ]
