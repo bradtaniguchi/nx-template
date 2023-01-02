@@ -492,7 +492,21 @@
             },
             {
               "file": "libs/common-react/src/lib/hooks/index.ts",
-              "hash": "78f59bfcf1b97ac3b103f83a2d598663b3285a2d"
+              "hash": "6250aa95012915e7f701a73b19ec3bba33870aa8"
+            },
+            {
+              "file": "libs/common-react/src/lib/hooks/use-config.ts",
+              "hash": "eae6c313971c1c2209914e2d07a7d70a5783faab",
+              "deps": [
+                "npm:react"
+              ]
+            },
+            {
+              "file": "libs/common-react/src/lib/hooks/use-has-mounted.ts",
+              "hash": "8c5a640052c84272687efc331c9ed7e62dedebdf",
+              "deps": [
+                "npm:react"
+              ]
             },
             {
               "file": "libs/common-react/src/lib/hooks/use-local-forage.ts",
@@ -507,6 +521,14 @@
               "hash": "31617d5cfb427b7c7d227c3cd06719fb9b595901",
               "deps": [
                 "common",
+                "npm:react"
+              ]
+            },
+            {
+              "file": "libs/common-react/src/lib/hooks/use-nx-graph.ts",
+              "hash": "44d36742d503f052830bc86eeefd0689827310d9",
+              "deps": [
+                "npm:@nrwl/devkit",
                 "npm:react"
               ]
             },
