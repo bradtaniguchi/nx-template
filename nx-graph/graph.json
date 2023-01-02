@@ -220,7 +220,7 @@
             },
             {
               "file": "apps/internal-client/pages/_error.tsx",
-              "hash": "49f0ea6e15ade4ef05bb42162b2c7b584d864d84",
+              "hash": "43ccd74b8cb5b5def9c97e5ad302eda58748c451",
               "deps": [
                 "npm:@sentry/nextjs",
                 "npm:next"
@@ -302,7 +302,7 @@
             },
             {
               "file": "apps/internal-client/tsconfig.json",
-              "hash": "cadb8cda700070fec16641a4c734213862573c1c"
+              "hash": "d87546f361a883c98808a22f1d60e98635f44c5a"
             },
             {
               "file": "apps/internal-client/tsconfig.spec.json",
