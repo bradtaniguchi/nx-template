@@ -5,9 +5,9 @@ import { getConfig } from '../utils';
 /**
  * Hook that can be used to get the config file.
  *
- * @param params
- * @param params.path
- * @param params.overrides
+ * @param params the single param object
+ * @param params.path the path to get the config from
+ * @param params.overrides overrides for the config loading
  * @see getConfig
  * @see Config
  */
