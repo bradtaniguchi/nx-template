@@ -228,7 +228,7 @@
             },
             {
               "file": "apps/internal-client/pages/404.tsx",
-              "hash": "612bbd16d2debe77bb52d53748d1fceb51835afd",
+              "hash": "a88908a0c72d9643d248337d9e45ae162211a1bd",
               "deps": [
                 "npm:flowbite-react"
               ]
