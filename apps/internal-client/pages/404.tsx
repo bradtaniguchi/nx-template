@@ -5,12 +5,10 @@ import { Card } from 'flowbite-react';
  */
 export default function PageNotFound() {
   return (
-    <div className="flex flex-grow">
-      <div className="mt-64 flex justify-center">
-        <Card>
-          <h5 className="text-lg">Page Not Found</h5>
-        </Card>
-      </div>
+    <div className="mt-32 flex justify-center">
+      <Card>
+        <h5 className="text-lg dark:text-white">Page Not Found</h5>
+      </Card>
     </div>
   );
 }
