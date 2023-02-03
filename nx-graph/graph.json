@@ -57,7 +57,10 @@
               "executor": "@nrwl/next:export",
               "options": {
                 "buildTarget": "internal-client:build:production"
-              }
+              },
+              "dependsOn": [
+                "^build"
+              ]
             },
             "test": {
               "executor": "@nrwl/jest:jest",
