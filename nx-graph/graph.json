@@ -142,7 +142,7 @@
           "files": [
             {
               "file": "apps/internal-client/.eslintrc.json",
-              "hash": "f13f56cc53c7d94063a3c717349e025e863bc78c"
+              "hash": "b6df20a4c5f9482f6948bc3957827424c6c599e1"
             },
             {
               "file": "apps/internal-client/.gitignore",
