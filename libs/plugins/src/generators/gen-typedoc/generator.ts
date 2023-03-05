@@ -14,6 +14,7 @@ interface NormalizedSchema extends GenTypedocGeneratorSchema {
   projectName: string;
   projectRoot: string;
   projectDirectory: string;
+  force: boolean;
 }
 
 /**
@@ -32,12 +33,14 @@ function normalizeOptions(
     ? `${names(options.directory).fileName}/${name}`
     : name;
   const projectName = projectDirectory.replace(new RegExp('/', 'g'), '-');
+  const force = !!options.force;
 
   return {
     ...options,
     projectName: projectName,
     projectRoot,
     projectDirectory,
+    force,
   };
 }
 
@@ -57,7 +60,7 @@ function addFiles(tree: Tree, options: NormalizedSchema) {
   generateFiles(
     tree,
     path.join(__dirname, 'files'),
-    path.join(options.projectRoot, '../'),
+    options.projectRoot,
     templateOptions
   );
 }
@@ -77,11 +80,16 @@ export default async function (tree: Tree, options: GenTypedocGeneratorSchema) {
     normalizedOptions.projectName
   );
 
-  if (projectConfiguration?.targets?.['typedoc']) {
+  if (projectConfiguration?.targets?.['typedoc'] && !normalizedOptions.force) {
     console.log(
       'typedoc target in project configuration already exists, skipping'
     );
   } else {
+    if (normalizedOptions.force) {
+      console.log(
+        'force passed, overwriting typedoc target in project configuration'
+      );
+    }
     updateProjectConfiguration(tree, normalizedOptions.projectName, {
       ...projectConfiguration,
       targets: {
@@ -96,9 +104,15 @@ export default async function (tree: Tree, options: GenTypedocGeneratorSchema) {
     });
   }
 
-  if (tree.exists(path.join(normalizedOptions.projectRoot, 'typedoc.json'))) {
+  if (
+    tree.exists(path.join(normalizedOptions.projectRoot, 'typedoc.js')) &&
+    !normalizedOptions.force
+  ) {
     console.log('typedoc.json already exists, skipping');
   } else {
+    if (normalizedOptions.force) {
+      console.log('force passed, overwriting typedoc.js');
+    }
     addFiles(tree, normalizedOptions);
   }
 

@@ -18,6 +18,11 @@
       "type": "string",
       "description": "The directly of the project",
       "alias": "dir"
+    },
+    "force": {
+      "type": "boolean",
+      "description": "Force overwriting of files",
+      "alias": "f"
     }
   },
   "required": ["name"]
