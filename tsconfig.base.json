@@ -17,6 +17,7 @@
     "paths": {
       "@nx-template/common": ["libs/common/src/index.ts"],
       "@nx-template/common-react": ["libs/common-react/src/index.ts"],
+      "@nx-template/plugins": ["libs/plugins/src/index.ts"],
       "@nx-template/storybook": ["libs/storybook/src/index.ts"]
     }
   },
