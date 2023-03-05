@@ -842,6 +842,149 @@
           ]
         }
       },
+      "plugins": {
+        "name": "plugins",
+        "type": "lib",
+        "data": {
+          "root": "libs/plugins",
+          "name": "plugins",
+          "$schema": "../../node_modules/nx/schemas/project-schema.json",
+          "sourceRoot": "libs/plugins/src",
+          "projectType": "library",
+          "targets": {
+            "build": {
+              "executor": "@nrwl/js:tsc",
+              "outputs": [
+                "{options.outputPath}"
+              ],
+              "options": {
+                "outputPath": "dist/libs/plugins",
+                "main": "libs/plugins/src/index.ts",
+                "tsConfig": "libs/plugins/tsconfig.lib.json",
+                "assets": [
+                  "libs/plugins/*.md"
+                ]
+              },
+              "dependsOn": [
+                "^build"
+              ],
+              "inputs": [
+                "production",
+                "^production"
+              ]
+            },
+            "lint": {
+              "executor": "@nrwl/linter:eslint",
+              "outputs": [
+                "{options.outputFile}"
+              ],
+              "options": {
+                "lintFilePatterns": [
+                  "libs/plugins/**/*.ts"
+                ]
+              },
+              "inputs": [
+                "default",
+                "{workspaceRoot}/.eslintrc.json"
+              ]
+            },
+            "test": {
+              "executor": "@nrwl/jest:jest",
+              "outputs": [
+                "{workspaceRoot}/coverage/{projectRoot}"
+              ],
+              "options": {
+                "jestConfig": "libs/plugins/jest.config.ts",
+                "passWithNoTests": true
+              },
+              "inputs": [
+                "default",
+                "^production",
+                "{workspaceRoot}/jest.preset.js"
+              ]
+            }
+          },
+          "tags": [],
+          "files": [
+            {
+              "file": "libs/plugins/.babelrc",
+              "hash": "e24a5465f39c41b591d8bf49a58c93f0eb2b4916"
+            },
+            {
+              "file": "libs/plugins/.eslintrc.json",
+              "hash": "9d9c0db55bb1e91c5f2e7b64a02bc6bf69fc7cb5"
+            },
+            {
+              "file": "libs/plugins/generators.json",
+              "hash": "e8a79be6c53fd02d6d62a84377658d2820242fcd"
+            },
+            {
+              "file": "libs/plugins/jest.config.ts",
+              "hash": "32aaa4f914be26c229d225e11621522a522b1a40"
+            },
+            {
+              "file": "libs/plugins/package.json",
+              "hash": "186a508c1b4a4281ad385da46a90b3f51480989f"
+            },
+            {
+              "file": "libs/plugins/project.json",
+              "hash": "32943177bbe480c56402ebb257c08a4ab1ebec95"
+            },
+            {
+              "file": "libs/plugins/README.md",
+              "hash": "2e52deb5ab5f25ac96c4931ae17832a90bc0c7b0"
+            },
+            {
+              "file": "libs/plugins/src/generators/gen-typedoc/files/typedoc.json__template__",
+              "hash": "9d8120f3734a2485807fadd4bca0185fa4e8a412"
+            },
+            {
+              "file": "libs/plugins/src/generators/gen-typedoc/generator.ts",
+              "hash": "0c1553b371e4f97328cd95b1066a59f8111e9551",
+              "deps": [
+                "npm:@nrwl/devkit",
+                "npm:nx"
+              ]
+            },
+            {
+              "file": "libs/plugins/src/generators/gen-typedoc/README.md",
+              "hash": "b3aa9833ebcb29194970587d673ada3da300cf29"
+            },
+            {
+              "file": "libs/plugins/src/generators/gen-typedoc/schema.d.ts",
+              "hash": "cc46245c0c2fe07a8d565ab8afc34f35542d0054"
+            },
+            {
+              "file": "libs/plugins/src/generators/gen-typedoc/schema.json",
+              "hash": "498c53aceee50e85f01b54506b6ea0d02fd93834"
+            },
+            {
+              "file": "libs/plugins/src/index.ts",
+              "hash": "9d821d7ad83626cd7c75e1cd7968e6e23f456ec2"
+            },
+            {
+              "file": "libs/plugins/src/lib/plugins.spec.ts",
+              "hash": "9838340792f3166078d7f05929e77288d57180d2"
+            },
+            {
+              "file": "libs/plugins/src/lib/plugins.ts",
+              "hash": "24b3983493a6305eb4196857c8a5317af1fdffdf"
+            },
+            {
+              "file": "libs/plugins/tsconfig.json",
+              "hash": "f5b85657a88323b3f9173ca094e873053bfe211b"
+            },
+            {
+              "file": "libs/plugins/tsconfig.lib.json",
+              "hash": "7bfc80f73e6fada4c296974cfe9c63303af047da"
+            },
+            {
+              "file": "libs/plugins/tsconfig.spec.json",
+              "hash": "546f12877f7f05dd2e7b8782c7d6eae8189c34c0"
+            }
+          ]
+        }
+      },
       "common": {
         "name": "common",
         "type": "lib",
@@ -1010,6 +1153,7 @@
         }
       ],
       "storybook": [],
+      "plugins": [],
       "common": []
     }
   },
