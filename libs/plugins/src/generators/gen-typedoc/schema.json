@@ -13,6 +13,16 @@
         "index": 0
       },
       "x-prompt": "Name of the project"
+    },
+    "directory": {
+      "type": "string",
+      "description": "The directly of the project",
+      "alias": "dir"
+    },
+    "force": {
+      "type": "boolean",
+      "description": "Force overwriting of files",
+      "alias": "f"
     }
   },
   "required": ["name"]

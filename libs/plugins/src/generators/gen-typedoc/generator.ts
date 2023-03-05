@@ -3,18 +3,18 @@ import {
   generateFiles,
   getWorkspaceLayout,
   names,
+  readProjectConfiguration,
   Tree,
   updateProjectConfiguration,
-  readJsonFile,
-  readProjectConfiguration,
 } from '@nrwl/devkit';
-import { readProjectsConfigurationFromProjectGraph } from 'nx/src/project-graph/project-graph';
 import * as path from 'path';
 import { GenTypedocGeneratorSchema } from './schema';
 
 interface NormalizedSchema extends GenTypedocGeneratorSchema {
   projectName: string;
   projectRoot: string;
+  projectDirectory: string;
+  force: boolean;
 }
 
 /**
@@ -29,11 +29,18 @@ function normalizeOptions(
 ): NormalizedSchema {
   const name = names(options.name).fileName;
   const projectRoot = path.join(getWorkspaceLayout(tree).libsDir, name);
+  const projectDirectory = options.directory
+    ? `${names(options.directory).fileName}/${name}`
+    : name;
+  const projectName = projectDirectory.replace(new RegExp('/', 'g'), '-');
+  const force = !!options.force;
 
   return {
     ...options,
-    projectName: name,
+    projectName: projectName,
     projectRoot,
+    projectDirectory,
+    force,
   };
 }
 
@@ -53,7 +60,7 @@ function addFiles(tree: Tree, options: NormalizedSchema) {
   generateFiles(
     tree,
     path.join(__dirname, 'files'),
-    path.join(options.projectRoot, '../'),
+    options.projectRoot,
     templateOptions
   );
 }
@@ -67,17 +74,22 @@ function addFiles(tree: Tree, options: NormalizedSchema) {
  */
 export default async function (tree: Tree, options: GenTypedocGeneratorSchema) {
   const normalizedOptions = normalizeOptions(tree, options);
-  console.log('options', normalizeOptions);
+
   const projectConfiguration = readProjectConfiguration(
     tree,
     normalizedOptions.projectName
   );
 
-  if (projectConfiguration?.targets?.['typedoc']) {
+  if (projectConfiguration?.targets?.['typedoc'] && !normalizedOptions.force) {
     console.log(
       'typedoc target in project configuration already exists, skipping'
     );
   } else {
+    if (normalizedOptions.force) {
+      console.log(
+        'force passed, overwriting typedoc target in project configuration'
+      );
+    }
     updateProjectConfiguration(tree, normalizedOptions.projectName, {
       ...projectConfiguration,
       targets: {
@@ -85,16 +97,22 @@ export default async function (tree: Tree, options: GenTypedocGeneratorSchema) {
         typedoc: {
           executor: 'nx:run-commands',
           options: {
-            command: `npx typedoc --options libs/${normalizedOptions.projectName}/typedoc.json`,
+            command: `npx typedoc --options libs/${normalizedOptions.projectName}/typedoc.js`,
           },
         },
       },
     });
   }
 
-  if (tree.exists(path.join(normalizedOptions.projectRoot, 'typedoc.json'))) {
+  if (
+    tree.exists(path.join(normalizedOptions.projectRoot, 'typedoc.js')) &&
+    !normalizedOptions.force
+  ) {
     console.log('typedoc.json already exists, skipping');
   } else {
+    if (normalizedOptions.force) {
+      console.log('force passed, overwriting typedoc.js');
+    }
     addFiles(tree, normalizedOptions);
   }
 
