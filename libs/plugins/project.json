@@ -32,7 +32,7 @@
     "typedoc": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "npx typedoc --options libs/plugins/typedoc.json"
+        "command": "npx typedoc --options libs/plugins/typedoc.js"
       }
     }
   },
