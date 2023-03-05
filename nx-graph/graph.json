@@ -398,7 +398,7 @@
             "typedoc": {
               "executor": "nx:run-commands",
               "options": {
-                "command": "npx typedoc --options libs/common-react/typedoc.json"
+                "command": "npx typedoc --options libs/common-react/typedoc.js"
               }
             },
             "storybook": {
@@ -479,7 +479,7 @@
             },
             {
               "file": "libs/common-react/project.json",
-              "hash": "f9f86f09e65a8d8bfb90aaf65f9d5d4ee6a4468d"
+              "hash": "2fae26a26ce73d13b2b106dd5c190bded512b8c0"
             },
             {
               "file": "libs/common-react/README.md",
@@ -619,8 +619,8 @@
               "hash": "ff08addd60ff581234ec9423d2bb90f31d8166e8"
             },
             {
-              "file": "libs/common-react/typedoc.json",
-              "hash": "0df9bd3ed0bb9c9319f89ab55b71985fcba330f7"
+              "file": "libs/common-react/typedoc.js",
+              "hash": "2531d87dc8079c1b8892b10c8ce770e8576eec4e"
             }
           ]
         }
@@ -738,7 +738,7 @@
             "typedoc": {
               "executor": "nx:run-commands",
               "options": {
-                "command": "npx typedoc --options libs/storybook/typedoc.json"
+                "command": "npx typedoc --options libs/storybook/typedoc.js"
               }
             }
           },
@@ -781,7 +781,7 @@
             },
             {
               "file": "libs/storybook/project.json",
-              "hash": "6380cd8dcfeb4ef477cb4e4cf14b449be1603750"
+              "hash": "60cf61aa68f521514a53d6b9d5b4178adcdf1933"
             },
             {
               "file": "libs/storybook/README.md",
@@ -836,8 +836,8 @@
               "hash": "ff08addd60ff581234ec9423d2bb90f31d8166e8"
             },
             {
-              "file": "libs/storybook/typedoc.json",
-              "hash": "85163ace684abcf02f209f2c1db480fd9beecaeb"
+              "file": "libs/storybook/typedoc.js",
+              "hash": "873a369822537ae2c1fd30284a794f3ef0b630c9"
             }
           ]
         }
@@ -902,6 +902,12 @@
                 "^production",
                 "{workspaceRoot}/jest.preset.js"
               ]
+            },
+            "typedoc": {
+              "executor": "nx:run-commands",
+              "options": {
+                "command": "npx typedoc --options libs/plugins/typedoc.js"
+              }
             }
           },
           "tags": [],
@@ -928,22 +934,21 @@
             },
             {
               "file": "libs/plugins/project.json",
-              "hash": "32943177bbe480c56402ebb257c08a4ab1ebec95"
+              "hash": "3e2fd3c319cf58bbce531ec270d08897a7ef0c58"
             },
             {
               "file": "libs/plugins/README.md",
               "hash": "2e52deb5ab5f25ac96c4931ae17832a90bc0c7b0"
             },
             {
-              "file": "libs/plugins/src/generators/gen-typedoc/files/typedoc.json__template__",
-              "hash": "9d8120f3734a2485807fadd4bca0185fa4e8a412"
+              "file": "libs/plugins/src/generators/gen-typedoc/files/typedoc.js__template__",
+              "hash": "1cd5c35b65c6fed8de8c1946bc6488f3ff4d4e3d"
             },
             {
               "file": "libs/plugins/src/generators/gen-typedoc/generator.ts",
-              "hash": "0c1553b371e4f97328cd95b1066a59f8111e9551",
+              "hash": "0f1ebd4f55a915f3afcef1dfde9fb4d6f8716e4e",
               "deps": [
-                "npm:@nrwl/devkit",
-                "npm:nx"
+                "npm:@nrwl/devkit"
               ]
             },
             {
@@ -952,11 +957,11 @@
             },
             {
               "file": "libs/plugins/src/generators/gen-typedoc/schema.d.ts",
-              "hash": "cc46245c0c2fe07a8d565ab8afc34f35542d0054"
+              "hash": "8a16344f73d17050e217d7c2d5af45735c20217c"
             },
             {
               "file": "libs/plugins/src/generators/gen-typedoc/schema.json",
-              "hash": "498c53aceee50e85f01b54506b6ea0d02fd93834"
+              "hash": "04da828eca023794cb9d60aa1c7ed5fb26fbe314"
             },
             {
               "file": "libs/plugins/src/index.ts",
@@ -981,6 +986,10 @@
             {
               "file": "libs/plugins/tsconfig.spec.json",
               "hash": "546f12877f7f05dd2e7b8782c7d6eae8189c34c0"
+            },
+            {
+              "file": "libs/plugins/typedoc.js",
+              "hash": "c7dc6e99b02de609044eed1fd090f6910737ed27"
             }
           ]
         }
@@ -1050,7 +1059,7 @@
             "typedoc": {
               "executor": "nx:run-commands",
               "options": {
-                "command": "npx typedoc --options libs/common/typedoc.json"
+                "command": "npx typedoc --options libs/common/typedoc.js"
               }
             }
           },
@@ -1074,7 +1083,7 @@
             },
             {
               "file": "libs/common/project.json",
-              "hash": "636354f61aa644cadde67b2d35e6671afede7207"
+              "hash": "cbce6bd66edaf284fe917f18b75ba707205277b4"
             },
             {
               "file": "libs/common/README.md",
@@ -1125,8 +1134,8 @@
               "hash": "ff08addd60ff581234ec9423d2bb90f31d8166e8"
             },
             {
-              "file": "libs/common/typedoc.json",
-              "hash": "f17b64fe6c15fb08a2b83fc32b966310866c0297"
+              "file": "libs/common/typedoc.js",
+              "hash": "34faf7fa953857afe20c74846dbfcedf49d7ef1c"
             }
           ]
         }
