@@ -97,7 +97,7 @@ export default async function (tree: Tree, options: GenTypedocGeneratorSchema) {
         typedoc: {
           executor: 'nx:run-commands',
           options: {
-            command: `npx typedoc --options libs/${normalizedOptions.projectName}/typedoc.json`,
+            command: `npx typedoc --options libs/${normalizedOptions.projectName}/typedoc.js`,
           },
         },
       },
