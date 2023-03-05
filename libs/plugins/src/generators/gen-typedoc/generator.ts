@@ -3,18 +3,17 @@ import {
   generateFiles,
   getWorkspaceLayout,
   names,
+  readProjectConfiguration,
   Tree,
   updateProjectConfiguration,
-  readJsonFile,
-  readProjectConfiguration,
 } from '@nrwl/devkit';
-import { readProjectsConfigurationFromProjectGraph } from 'nx/src/project-graph/project-graph';
 import * as path from 'path';
 import { GenTypedocGeneratorSchema } from './schema';
 
 interface NormalizedSchema extends GenTypedocGeneratorSchema {
   projectName: string;
   projectRoot: string;
+  projectDirectory: string;
 }
 
 /**
@@ -29,11 +28,16 @@ function normalizeOptions(
 ): NormalizedSchema {
   const name = names(options.name).fileName;
   const projectRoot = path.join(getWorkspaceLayout(tree).libsDir, name);
+  const projectDirectory = options.directory
+    ? `${names(options.directory).fileName}/${name}`
+    : name;
+  const projectName = projectDirectory.replace(new RegExp('/', 'g'), '-');
 
   return {
     ...options,
-    projectName: name,
+    projectName: projectName,
     projectRoot,
+    projectDirectory,
   };
 }
 
@@ -67,7 +71,7 @@ function addFiles(tree: Tree, options: NormalizedSchema) {
  */
 export default async function (tree: Tree, options: GenTypedocGeneratorSchema) {
   const normalizedOptions = normalizeOptions(tree, options);
-  console.log('options', normalizeOptions);
+
   const projectConfiguration = readProjectConfiguration(
     tree,
     normalizedOptions.projectName
