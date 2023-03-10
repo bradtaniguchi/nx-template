@@ -922,7 +922,7 @@
             },
             {
               "file": "libs/plugins/generators.json",
-              "hash": "e8a79be6c53fd02d6d62a84377658d2820242fcd"
+              "hash": "83e31e2d1ac8e91b8b8729daf3184626ca7cb70c"
             },
             {
               "file": "libs/plugins/jest.config.ts",
@@ -939,6 +939,29 @@
             {
               "file": "libs/plugins/README.md",
               "hash": "10412e3bbb930756b4f42959c6320007450736ae"
+            },
+            {
+              "file": "libs/plugins/src/generators/gen-tools/files/tools/tsconfig.tools.json__template__",
+              "hash": "799577fb9b8e1b8901ef855b88f91e3c4cfe40b1"
+            },
+            {
+              "file": "libs/plugins/src/generators/gen-tools/generator.ts",
+              "hash": "ba1a9c81258def3364c49253768d88f5ab4f39e3",
+              "deps": [
+                "npm:@nrwl/devkit"
+              ]
+            },
+            {
+              "file": "libs/plugins/src/generators/gen-tools/README.md",
+              "hash": "97788fede5e103b60f7fac17f8375d7c36f9c760"
+            },
+            {
+              "file": "libs/plugins/src/generators/gen-tools/schema.d.ts",
+              "hash": "3402f945618e553d12b0697169b76694038d233b"
+            },
+            {
+              "file": "libs/plugins/src/generators/gen-tools/schema.json",
+              "hash": "07c619e76bd14b2e96398852d32b8dfd068fd1b7"
             },
             {
               "file": "libs/plugins/src/generators/gen-typedoc/files/typedoc.js__template__",
