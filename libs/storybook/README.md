@@ -32,7 +32,7 @@ npx http-server dist/storybook
 run the following:
 
 ```bash
-nx g @nrwl/storybook:configuration <project-name>
+nx g @nx/storybook:configuration <project-name>
 ```
 
 ### Generating stories for a library/app
@@ -40,7 +40,7 @@ nx g @nrwl/storybook:configuration <project-name>
 To generate all stories for all components within a given library or app, run the following:
 
 ```bash
-nx g @nrwl/react:stories <project-name>
+nx g @nx/react:stories <project-name>
 ```
 
 ### Adding tailwind support
@@ -86,7 +86,7 @@ module.exports = {
   with the following contents. This file is only used for storybook development.
 
 ```javascript
-const { createGlobPatternsForDependencies } = require('@nrwl/react/tailwind');
+const { createGlobPatternsForDependencies } = require('@nx/react/tailwind');
 const { join } = require('path');
 
 /** @type {import('tailwindcss').Config} */

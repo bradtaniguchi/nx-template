@@ -1,5 +1,5 @@
 // eslint-disable-next-line @typescript-eslint/no-var-requires
-const withNx = require('@nrwl/next/plugins/with-nx');
+const withNx = require('@nx/next/plugins/with-nx');
 // This file sets a custom webpack configuration to use your Next.js app
 // with Sentry.
 // https://nextjs.org/docs/api-reference/next.config.js/introduction
@@ -7,7 +7,7 @@ const withNx = require('@nrwl/next/plugins/with-nx');
 const { withSentryConfig } = require('@sentry/nextjs');
 
 /**
- * @type {import('@nrwl/next/plugins/with-nx').WithNxOptions}
+ * @type {import('@nx/next/plugins/with-nx').WithNxOptions}
  */
 const nextConfig = {
   reactStrictMode: true,

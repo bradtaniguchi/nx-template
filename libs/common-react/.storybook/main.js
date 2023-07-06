@@ -14,8 +14,9 @@ module.exports = {
     '../src/lib/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
+    '@storybook/addon-essentials',
     ...rootMain.addons,
-    '@nrwl/react/plugins/storybook',
+    '@nx/react/plugins/storybook',
     // {
     //   /**
     //    * Fix Storybook issue with PostCSS@8
