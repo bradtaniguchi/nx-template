@@ -36,5 +36,5 @@ and menus. These seem to be more advanced though.
 Run the following to add tailwind support to a given project:
 
 ```bash
-npx nx g @nrwl/react:setup-tailwind --project=<your app here>
+npx nx g @nx/react:setup-tailwind --project=<your app here>
 ```

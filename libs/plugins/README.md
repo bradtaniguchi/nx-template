@@ -16,7 +16,7 @@ Run `nx test plugins` to execute the unit tests via [Jest](https://jestjs.io).
 To create a new generator use the following:
 
 ```bash
-nx generate @nrwl/nx-plugin:generator <generator-name> --project=plugins
+nx generate @nx/plugin:generator <generator-name> --project=plugins
 ```
 
 **note** the `--project=plugins` is required to ensure the generator is created in this project, which holds

@@ -14,8 +14,10 @@ module.exports = {
     '../src/lib/**/*.stories.@(js|jsx|ts|tsx)',
   ],
   addons: [
+    '@storybook/addon-essentials',
     ...rootMain.addons,
-    '@nrwl/react/plugins/storybook',
+    // eslint-disable-next-line storybook/no-uninstalled-addons
+    '@nx/react/plugins/storybook',
     // {
     //   /**
     //    * Fix Storybook issue with PostCSS@8
